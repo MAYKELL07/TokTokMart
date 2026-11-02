@@ -13,7 +13,7 @@ namespace GokilKisah
         Vector2 playerVelocity;
         bool settingsOpen, autoPaused, focused=true, showPitchControls, showTouchControls, showNames, pauseOnFocusLoss=true;
         int settingsTab, frameCap=60, resolutionIndex=1;
-        float masterVolume=.8f, musicVolume=.35f, effectsVolume=.7f, skillFlash, footstepClock, textScale=1;
+        float masterVolume=.8f, musicVolume=.35f, effectsVolume=.7f, skillFlash, textScale=1;
         AudioSource musicSource, effectsSource;
         readonly Dictionary<string,AudioClip> sounds=new Dictionary<string,AudioClip>();
         readonly List<AudioEvent> captureSounds=new List<AudioEvent>();
@@ -70,17 +70,15 @@ namespace GokilKisah
             PlayerPrefs.SetInt("TokMart.Focus",pauseOnFocusLoss?1:0);PlayerPrefs.SetFloat("TokMart.Text",textScale);PlayerPrefs.SetInt("TokMart.FPS",frameCap);PlayerPrefs.Save();ApplyAudio();
         }
         void SetSettingsOpen(bool open)
-        {settingsOpen=open;bufferedActionUntil=-1;ReleaseMobileControls();playerVelocity=Vector2.zero;Time.timeScale=open||autoPaused?0:1;if(!open)SaveSettings();}
+        {settingsOpen=open;bufferedActionUntil=-1;ReleaseMobileControls();playerVelocity=Vector2.zero;Time.timeScale=open||autoPaused||shiftBriefOpen?0:1;if(!open)SaveSettings();}
         void UpdatePolish()
         {
             autoPaused=!focused&&pauseOnFocusLoss&&!testing&&!verificationRunning&&!recordingSounds;
-            Time.timeScale=settingsOpen||autoPaused?0:1;
+            Time.timeScale=settingsOpen||autoPaused||shiftBriefOpen?0:1;
             if(Keyboard.current!=null&&Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 EscapeInput();
             }
-            if(selected&&!settingsOpen&&!autoPaused&&(player-lastPlayer).sqrMagnitude>0.1f)
-            {footstepClock-=Time.deltaTime;if(footstepClock<=0){PlaySound("Footstep",.18f);footstepClock=.27f;}}
             ApplyAudio();
         }
         void OnApplicationFocus(bool focus) {focused=focus;if(!focus){bufferedActionUntil=-1;heldKeys.Clear();ReleaseMobileControls();playerVelocity=Vector2.zero;}}
@@ -93,7 +91,7 @@ namespace GokilKisah
         }
         void ActionInput()
         {
-            if(actionInputFrame==Time.frameCount||settingsOpen||autoPaused||replay||!selected||mainMenu||gameOver||levelResults)return;
+            if(actionInputFrame==Time.frameCount||settingsOpen||autoPaused||replay||!selected||mainMenu||gameOver||levelResults||shiftBriefOpen)return;
             actionInputFrame=Time.frameCount;
             if(skillType>=0){bufferedActionUntil=-1;Interact();}
             else {bufferedActionUntil=Time.unscaledTime+.14f;if(InteractionInReach()){bufferedActionUntil=-1;Interact();}}
@@ -149,12 +147,13 @@ namespace GokilKisah
             GUI.enabled=!settingsOpen;
             if(selected)DrawNovemberHud();
             GUI.enabled=!settingsOpen&&!replay;
-            if(showTouchControls&&selected&&!settingsOpen&&!gameOver&&skillType<0)DrawMobileControls();
+            if(showTouchControls&&selected&&!settingsOpen&&!gameOver&&!shiftBriefOpen&&skillType<0)DrawMobileControls();
             GUI.enabled=true;
             if(!selected&&!settingsOpen)DrawArcadeSelection();
             else if(gameOver&&!settingsOpen)DrawGameOver();
             else if(skillType>=0&&!settingsOpen)DrawSkill();
-            if(Time.unscaledTime<noticeUntil&&!settingsOpen&&selected)
+            if(shiftBriefOpen&&!settingsOpen)DrawShiftBriefing();
+            if(Time.unscaledTime<noticeUntil&&!settingsOpen&&selected&&!shiftBriefOpen)
             {Sticker(new Rect(480,700,640,44),arcadeNavy);ArcadeText(new Rect(493,704,614,34),notice,18,arcadeCream,TextAnchor.MiddleCenter);}
             if(autoPaused&&!settingsOpen){Shade();ArcadeText(new Rect(450,380,700,80),"ON A BREAK",56,arcadeCream,TextAnchor.MiddleCenter,true);ArcadeText(new Rect(450,470,700,40),"Return to the shop to carry on.",23,arcadeCream,TextAnchor.MiddleCenter);}
             if(settingsOpen)DrawSettings();

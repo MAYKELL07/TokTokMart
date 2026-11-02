@@ -9,8 +9,8 @@ Sprite:
   m_Name: Toyol walk 5
   m_Rect:
     serializedVersion: 2
-    x: 562
-    y: 277
+    x: 1330
+    y: 1301
     width: 160
     height: 193
   m_Offset: {x: 0, y: -96.5}
@@ -106,14 +106,14 @@ Sprite:
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 562
-      y: 277
+      x: 1330
+      y: 1301
       width: 160
       height: 193
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 0
-    uvTransform: {x: 102.65958, y: 642, z: 102.65958, w: 277}
+    uvTransform: {x: 102.65958, y: 1410, z: 102.65958, w: 1301}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 3
@@ -197,14 +197,14 @@ Sprite:
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 562
-      y: 277
+      x: 1330
+      y: 1301
       width: 160
       height: 193
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 0
-    uvTransform: {x: 102.65958, y: 642, z: 102.65958, w: 277}
+    uvTransform: {x: 102.65958, y: 1410, z: 102.65958, w: 1301}
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []

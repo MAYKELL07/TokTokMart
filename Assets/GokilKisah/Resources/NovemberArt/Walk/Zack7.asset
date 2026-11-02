@@ -9,8 +9,8 @@ Sprite:
   m_Name: Zack walk 7
   m_Rect:
     serializedVersion: 2
-    x: 322
-    y: 18
+    x: 66
+    y: 1298
     width: 143
     height: 235
   m_Offset: {x: 0, y: -117.5}
@@ -106,14 +106,14 @@ Sprite:
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 322
-      y: 18
+      x: 66
+      y: 1298
       width: 143
       height: 235
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 0
-    uvTransform: {x: 125, y: 393.5, z: 125, w: 18}
+    uvTransform: {x: 125, y: 137.5, z: 125, w: 1298}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 3
@@ -197,14 +197,14 @@ Sprite:
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 322
-      y: 18
+      x: 66
+      y: 1298
       width: 143
       height: 235
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 0
-    uvTransform: {x: 125, y: 393.5, z: 125, w: 18}
+    uvTransform: {x: 125, y: 137.5, z: 125, w: 1298}
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []

@@ -41,7 +41,7 @@ namespace GokilKisah.Editor
             PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android,ScriptingImplementation.IL2CPP);
             PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;
             PlayerSettings.Android.useCustomKeystore=false;
-            PlayerSettings.bundleVersion="0.2.0";PlayerSettings.Android.bundleVersionCode=2;
+            PlayerSettings.bundleVersion="0.3.0";PlayerSettings.Android.bundleVersionCode=3;
             EditorUserBuildSettings.buildAppBundle=false;Directory.CreateDirectory(Path.GetDirectoryName(path));
             BuildReport report;
             IsBuildingDemo=true;
@@ -53,7 +53,8 @@ namespace GokilKisah.Editor
             }
             finally {IsBuildingDemo=false;}
             string result=report.summary.result+" / "+report.summary.totalErrors+" errors / "+report.summary.totalSize+" bytes";
-            Directory.CreateDirectory("Verification/MobileDemo");File.WriteAllText("Verification/MobileDemo/build-result.txt",result);
+            string reportDirectory=Path.Combine("Verification/Builds",PlayerSettings.bundleVersion);
+            Directory.CreateDirectory(reportDirectory);File.WriteAllText(Path.Combine(reportDirectory,"build-result.txt"),result);
             if(report.summary.result!=BuildResult.Succeeded)throw new Exception(result);
             return result;
         }

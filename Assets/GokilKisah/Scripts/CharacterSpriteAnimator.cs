@@ -14,7 +14,15 @@ namespace GokilKisah
         public int skinRow;
         public int leftColumn=23, rightColumn=26, upColumn=25, downColumn=24;
         public float framesPerSecond=7;
+        [Tooltip("Ground distance, in game units, covered by one complete keeper walk cycle.")]
+        [Min(20)] public float walkCycleDistance=195;
         bool mirrorWalk;
+        bool locomotionInitialized;
+        Vector2 animationPosition;
+        float cycleDistance;
+        public float TravelledDistance {get;private set;}
+        public int FootstepContacts {get;private set;}
+        public float CyclePhase=>cycleDistance/Mathf.Max(20,walkCycleDistance);
         string displayedSkin;
         int displayedDirection=-1,displayedFrame=-1;
 
@@ -27,20 +35,41 @@ namespace GokilKisah
             sprite=Sprite.Create(texture,new Rect(x*17,texture.height-y*17-16,16,16),new Vector2(.5f,.5f),100);
             sprite.name=texture.name+" "+x+","+y;tiles[key]=sprite;return sprite;
         }
+        public void ResetLocomotion(Vector2 position)
+        {
+            animationPosition=position;locomotionInitialized=true;cycleDistance=0;
+            TravelledDistance=0;FootstepContacts=0;
+        }
         public void Apply(Vector2 position,int facing,int row,Vector2 motion,float clock)
         {
+            float distance=locomotionInitialized?Vector2.Distance(position,animationPosition):0;
+            if(!locomotionInitialized||distance>120){ResetLocomotion(position);distance=0;}
+            animationPosition=position;
             transform.position=ShopLayout.ToWorld(position);LastGamePosition=position;
+            if(!animate||!artwork)return;
+            // Travel is measured after collisions. No motion means no stepping, including while
+            // pushing a wall, paused, exhausted or working at a station. Sprint naturally runs
+            // through the same gait faster, without restarting its phase on speed changes.
+            bool moving=distance>.01f;
+            if(moving)
+            {
+                TravelledDistance+=distance;
+                cycleDistance=Mathf.Repeat(cycleDistance+distance,Mathf.Max(20,walkCycleDistance));
+                FootstepContacts=Mathf.FloorToInt(TravelledDistance/(Mathf.Max(20,walkCycleDistance)*.5f));
+            }
             if(artwork&&!string.IsNullOrEmpty(smoothSkin))
             {
                 int direction=facing==23?0:facing==26?1:facing==25?2:3;
-                int frame=motion.sqrMagnitude>.001f?(int)(clock*framesPerSecond)%3:0;
+                int frame=moving?Mathf.Min(2,(int)(CyclePhase*3)):0;
                 string skin=smoothSkin=="Keeper"?(row<6?"Sam":"Zack"):smoothSkin;
+                if(Time.timeScale==0&&!moving&&displayedSkin==skin)return;
                 if(skin=="Sam"||skin=="Zack"||skin=="Toyol")
                 {
+                    displayedSkin=skin;
                     // Supplied walks face one side. Mirror horizontally, retain that pose for vertical travel.
                     if(direction==0)mirrorWalk=false;else if(direction==1)mirrorWalk=true;
-                    bool moving=motion.sqrMagnitude>.001f;
-                    var walk=NovemberArt.Walk(skin,moving?(int)(clock*12)%9:0);
+                    int count=NovemberArt.WalkFrameCount(skin);
+                    var walk=moving?NovemberArt.Walk(skin,Mathf.Min(count-1,(int)(CyclePhase*count))):NovemberArt.Idle(skin);
                     artwork.sprite=walk?walk:SmoothArt.Load(skin=="Toyol"?"Goblin_3_0":skin+"_3_0");
                     artwork.flipX=mirrorWalk;return;
                 }
@@ -50,7 +79,7 @@ namespace GokilKisah
             }
             if(!animate||!atlas||!artwork)return;
             int column=facing==23?leftColumn:facing==26?rightColumn:facing==25?upColumn:downColumn;
-            int pose=motion.sqrMagnitude>.001f?(int)(clock*framesPerSecond)%3:0;
+            int pose=moving?Mathf.Min(2,(int)(CyclePhase*3)):0;
             artwork.sprite=AtlasSprite(atlas,column,row+pose);
         }
         public bool WasMovedInScene()=>Vector2.Distance(ShopLayout.ToGame(transform.position),LastGamePosition)>.05f;

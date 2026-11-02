@@ -29,6 +29,7 @@ namespace GokilKisah.Editor
             {
                 switch(command.action)
                 {
+                    case "polishverify":RequireGame().BeginPolishVerification(command.path);ReplyTo(command.action,"Locomotion and shift checks started");break;
                     case "novemberart":NovemberArtImporter.Apply();ReplyTo(command.action,"November artwork imported");break;
                     case "mobileverify":RequireGame().BeginMobileVerification(command.path);ReplyTo(command.action,"Mobile checks started");break;
                     case "androidbuild":ReplyTo(command.action,MobileDemoBuild.Build(command.path));break;

@@ -13485,6 +13485,7 @@ MonoBehaviour:
   upColumn: 25
   downColumn: 24
   framesPerSecond: 7
+  walkCycleDistance: 195
 --- !u!1 &415802593
 GameObject:
   m_ObjectHideFlags: 0
@@ -21067,6 +21068,7 @@ MonoBehaviour:
   upColumn: 25
   downColumn: 24
   framesPerSecond: 7
+  walkCycleDistance: 195
 --- !u!4 &660244950
 Transform:
   m_ObjectHideFlags: 0
@@ -23874,6 +23876,7 @@ MonoBehaviour:
   upColumn: 25
   downColumn: 24
   framesPerSecond: 7
+  walkCycleDistance: 195
 --- !u!1 &760113605
 GameObject:
   m_ObjectHideFlags: 0
@@ -31526,6 +31529,7 @@ MonoBehaviour:
   upColumn: 25
   downColumn: 24
   framesPerSecond: 7
+  walkCycleDistance: 195
 --- !u!1 &1067605526
 GameObject:
   m_ObjectHideFlags: 0
@@ -32780,6 +32784,7 @@ MonoBehaviour:
   upColumn: 25
   downColumn: 24
   framesPerSecond: 7
+  walkCycleDistance: 195
 --- !u!1 &1103160160
 GameObject:
   m_ObjectHideFlags: 0
@@ -43445,6 +43450,7 @@ MonoBehaviour:
   upColumn: 25
   downColumn: 24
   framesPerSecond: 12
+  walkCycleDistance: 195
 --- !u!1 &1419509503
 GameObject:
   m_ObjectHideFlags: 0
@@ -59948,6 +59954,7 @@ MonoBehaviour:
   upColumn: 25
   downColumn: 24
   framesPerSecond: 7
+  walkCycleDistance: 195
 --- !u!1 &2045202051
 GameObject:
   m_ObjectHideFlags: 0

@@ -82,6 +82,7 @@ namespace GokilKisah
         public void ResetRun(Encounter next)
         {
             if(campaignActive){tuning.rayWait=5;tuning.boDeadline=18;tuning.nailHits=3;}
+            shiftBriefOpen=false;
             campaignActive=false;levelResults=false;bossActive=false;mandatoryBossPending=false;
             ResetStamina();cameraInitialized=false; priceEntry=""; taskCombo=0; skillType=-1; playerVelocity=Vector2.zero; touchHeld=false; touchMove=Vector2.zero;
             encounter=next; player=new Vector2(760,710); helper=new Vector2(1135,365); gameOver=false; resolved=false;
@@ -114,7 +115,7 @@ namespace GokilKisah
             UpdatePolish();
             UpdateMobileControls();
             pulse+=Time.deltaTime;
-            if(mainMenu || !selected || gameOver || levelResults || settingsOpen || autoPaused) return;
+            if(mainMenu || !selected || gameOver || levelResults || settingsOpen || autoPaused || shiftBriefOpen) return;
             float dt=Time.deltaTime; shiftTime+=dt;
             if(!replay&&!verificationRunning)
             {
@@ -194,13 +195,23 @@ namespace GokilKisah
         void UpdateAI(float dt)
         {
             if(shelves.Count==0){aiStatus="Waiting for shelves";return;}
+            // Keep the player's stocking work available. The partner covers checkout first,
+            // then resumes the normal stock/serve loop once the restock target is complete.
+            if(campaignActive&&stockActions<StockGoal&&aiPhase!=2)
+            {aiPhase=2;aiWork=0;aiWait=0;aiStatus="Covering checkout while you restock";}
             if(aiWait>0) { aiWait-=dt; return; }
             aiGoal=aiPhase==0?supply:aiPhase==1?ShelfPoint(Mathf.Clamp(aiShelf,0,shelves.Count-1)):ShopLayout.ToGame(shop.partnerCheckoutSpot.position);
             if(Vector2.Distance(helper,aiGoal)>8) { helper=Navigate(helper,aiGoal,170*dt); return; }
             aiWork+=dt; if(aiWork<1.7f) return; aiWork=0;
             if(aiPhase==0) { aiShelf=0; for(int i=0;i<shelves.Count;i++) if(shelfStock[i]<shelfStock[aiShelf])aiShelf=i; aiGoal=ShelfPoint(aiShelf); aiPhase=1; aiStatus="Carrying stock to shelf "+(aiShelf+1); }
             else if(aiPhase==1) { if(skillType!=0||skillTarget!=aiShelf) shelfStock[aiShelf]=ShelfCapacity(aiShelf); aiPhase=2; aiGoal=ShopLayout.ToGame(shop.partnerCheckoutSpot.position); aiStatus="Helping at checkout"; }
-            else { if(skillType!=1&&CustomerAtRegister()!=null) ServeCustomer(); aiPhase=0; aiGoal=supply; aiStatus="Collecting stockroom crate"; aiWait=2; }
+            else
+            {
+                if(skillType!=1&&CustomerAtRegister()!=null)ServeCustomer();
+                if(campaignActive&&stockActions<StockGoal)
+                {aiPhase=2;aiStatus="Covering checkout while you restock";aiWait=.6f;}
+                else {aiPhase=0;aiGoal=supply;aiStatus="Collecting stockroom crate";aiWait=2;}
+            }
         }
         public Vector2 ShelfPoint(int i) {return ShopLayout.ToGame(sceneShelves[i].shoppingPoint.position);}
         // Static routes and collision geometry are shared by all actors.
@@ -216,7 +227,7 @@ namespace GokilKisah
         }
         public void Interact()
         {
-            if(!selected||gameOver||levelResults||settingsOpen||autoPaused||replay && demoRoutine==null)return;
+            if(!selected||gameOver||levelResults||settingsOpen||autoPaused||shiftBriefOpen||replay && demoRoutine==null)return;
             if(skillType>=0) { AttemptSkill();return; }
             if(encounter==Encounter.Goblins&&!resolved&&Vector2.Distance(player,phone)<76) { if(!rayCalled) { PlaySound("Call");rayCalled=true;rayRemaining=tuning.rayWait;SetStep("02 / CALL MADE / WAIT FOR RAY","Uncle Ray is on his way. Continue tasks while goblins cause trouble."); } return; }
             if(encounter==Encounter.KKung&&!resolved&&Vector2.Distance(player,lightSwitch)<70) { PlaySound("Switch");lightsOn=true;resolved=true;SetStep("03 / FLUORESCENT LIGHTS ON","K-Kung disappears. Next encounter places the switch at a different location.");return; }
@@ -242,7 +253,7 @@ namespace GokilKisah
             taskCombo++;skillScans=taskCombo;taskFeedback="Nice! "+taskCombo+" / "+(skillType==0?3:4);if(taskCombo<(skillType==0?3:4)){skillClock=0;return true;}
             if(skillType==0){shelfStock[skillTarget]=ShelfCapacity(skillTarget);carryingCrate=false;stockActions++;SetStep("03 / CHECKOUT / ENTER THE TOTAL","Move to checkout. Add up the receipt and enter the total on the keypad.");}
             else{if(skillTarget<spills.Count)spills.RemoveAt(skillTarget);hazardsCleared++;SetStep("05 / STORE LOOP COMPLETE","Crate, stocking, checkout and hazard clearing demonstrated. The AI partner keeps working.");}
-            skillType=-1;return true;
+            skillType=-1;EnsureShiftCleanupWork();return true;
         }
         int TotalStock(){int total=0;foreach(int n in shelfStock)total+=n;return total;}
         void ServeCustomer()

@@ -9,8 +9,8 @@ Sprite:
   m_Name: Sam walk 5
   m_Rect:
     serializedVersion: 2
-    x: 577
-    y: 265
+    x: 1345
+    y: 1545
     width: 124
     height: 238
   m_Offset: {x: 0, y: -119}
@@ -106,14 +106,14 @@ Sprite:
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 577
-      y: 265
+      x: 1345
+      y: 1545
       width: 124
       height: 238
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 0
-    uvTransform: {x: 126.59574, y: 639, z: 126.59574, w: 265}
+    uvTransform: {x: 126.59574, y: 1407, z: 126.59574, w: 1545}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 3
@@ -197,14 +197,14 @@ Sprite:
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 577
-      y: 265
+      x: 1345
+      y: 1545
       width: 124
       height: 238
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 0
-    uvTransform: {x: 126.59574, y: 639, z: 126.59574, w: 265}
+    uvTransform: {x: 126.59574, y: 1407, z: 126.59574, w: 1545}
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []

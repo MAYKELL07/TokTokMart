@@ -38,24 +38,25 @@ namespace GokilKisah.Editor
         }
         static void Walk(string folder,string skin)
         {
-            var t=Read(Source+"Animation/"+folder+"/"+folder+"Walk/"+folder+"Walk_Sheet_12FPS.png");
-            // 3x3, top-left to bottom-right. A common crop and PPU keep every frame's feet stable.
+            var t=Read(Source+"Animation/"+folder+"/"+folder+"Walk/"+folder+"Walk_Sheet_60FPS.png");
+            // Full supplied sequence, top-left to bottom-right; one common crop keeps feet anchored.
+            int columns=t.width/256,rows=t.height/256,count=NovemberArt.WalkFrameCount(skin);
             int l=256,b=256,r=0,top=0;
-            for(int i=0;i<9;i++)
+            for(int i=0;i<count;i++)
             {
-                var box=Bounds(Array.ConvertAll(t.GetPixels(i%3*256,(2-i/3)*256,256,256),c=>(Color32)c),256,256);
+                var box=Bounds(Array.ConvertAll(t.GetPixels(i%columns*256,(rows-1-i/columns)*256,256,256),c=>(Color32)c),256,256);
                 l=Math.Min(l,box.x);b=Math.Min(b,box.y);r=Math.Max(r,box.xMax);top=Math.Max(top,box.yMax);
             }
             string sheetPath=Runtime+"Walk/"+skin+".png";File.WriteAllBytes(sheetPath,t.EncodeToPNG());UnityEngine.Object.DestroyImmediate(t);
             AssetDatabase.ImportAsset(sheetPath);var imp=(TextureImporter)AssetImporter.GetAtPath(sheetPath);
-            imp.textureType=TextureImporterType.Default;imp.npotScale=TextureImporterNPOTScale.None;imp.maxTextureSize=1024;
+            imp.textureType=TextureImporterType.Default;imp.npotScale=TextureImporterNPOTScale.None;imp.maxTextureSize=2048;
             imp.alphaIsTransparency=true;imp.mipmapEnabled=false;imp.isReadable=false;imp.filterMode=FilterMode.Bilinear;
             imp.textureCompression=TextureImporterCompression.Compressed;imp.SaveAndReimport();
             t=AssetDatabase.LoadAssetAtPath<Texture2D>(sheetPath);
-            for(int i=0;i<9;i++)
+            for(int i=0;i<count;i++)
             {
                 string path=Runtime+"Walk/"+skin+i+".asset";
-                var sprite=Sprite.Create(t,new Rect(i%3*256+l,(2-i/3)*256+b,r-l,top-b),new Vector2(.5f,0),(top-b)/1.88f,0,SpriteMeshType.FullRect);
+                var sprite=Sprite.Create(t,new Rect(i%columns*256+l,(rows-1-i/columns)*256+b,r-l,top-b),new Vector2(.5f,0),(top-b)/1.88f,0,SpriteMeshType.FullRect);
                 sprite.name=skin+" walk "+i;var old=AssetDatabase.LoadAssetAtPath<Sprite>(path);
                 if(old){EditorUtility.CopySerialized(sprite,old);UnityEngine.Object.DestroyImmediate(sprite);}else AssetDatabase.CreateAsset(sprite,path);
             }
@@ -67,6 +68,7 @@ namespace GokilKisah.Editor
             var imp=(TextureImporter)AssetImporter.GetAtPath(path);imp.npotScale=TextureImporterNPOTScale.None;imp.isReadable=false;imp.SaveAndReimport();
             var t=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
             var sprite=Sprite.Create(t,new Rect(rect.x,rect.y,rect.width,rect.height),new Vector2(.5f,0),rect.height/1.88f,0,SpriteMeshType.FullRect);
+            sprite.name=skin+"Static";
             string output="Assets/GokilKisah/Resources/PresentationSprites/"+skin+"Static.asset";
             var old=AssetDatabase.LoadAssetAtPath<Sprite>(output);
             if(old){EditorUtility.CopySerialized(sprite,old);UnityEngine.Object.DestroyImmediate(sprite);}else AssetDatabase.CreateAsset(sprite,output);
@@ -83,7 +85,7 @@ namespace GokilKisah.Editor
             ImportUI("UI/Asset 11@2x.png","Logo",1024);
             ImportUI("Environment, Props/main menu background.png","MenuBackground",2048);
             Walk("Sam","Sam");Walk("Zack","Zack");Walk("Goblin","Toyol");
-            Portrait("Sam");Portrait("Zack");
+            Portrait("Sam");Portrait("Zack");Portrait("Toyol");
             var shop=UnityEngine.Object.FindFirstObjectByType<ShopLayout>();
             if(shop)
             {
@@ -94,7 +96,7 @@ namespace GokilKisah.Editor
                 EditorUtility.SetDirty(shop.goblinTemplate);EditorUtility.SetDirty(art);EditorUtility.SetDirty(art.transform);
                 EditorSceneManager.MarkSceneDirty(shop.gameObject.scene);EditorSceneManager.SaveScene(shop.gameObject.scene);
             }
-            AssetDatabase.SaveAssets();Debug.Log("November art: 14 UI images and 27 walk sprites imported; source originals preserved.");
+            AssetDatabase.SaveAssets();Debug.Log("November art: 14 UI images and 139 smooth walk sprites imported; source originals preserved.");
         }
     }
 }

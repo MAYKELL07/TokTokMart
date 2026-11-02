@@ -18,10 +18,11 @@ namespace GokilKisah
         float encounterRollClock;
         string levelFailure="";
         Texture2D invoiceStar;
-        public int ServeGoal=>Mathf.Min(30,3+(CurrentLevel-1)/2);
-        public int StockGoal=>Mathf.Min(8,1+(CurrentLevel-1)/5);
-        public int CleanGoal=>Mathf.Min(5,1+(CurrentLevel-1)/6);
-        public float ShiftBudget=>Mathf.Max(150,260-CurrentLevel*2)+ServeGoal*12;
+        ShiftTargets Targets=>new ShiftTargets(CurrentLevel);
+        public int ServeGoal=>Targets.serve;
+        public int StockGoal=>Targets.stock;
+        public int CleanGoal=>Targets.clean;
+        public float ShiftBudget=>Targets.duration;
         public float ArrivalInterval=>Mathf.Max(1.6f,4.5f/(1+(CurrentLevel-1)*.065f));
         public float ShiftRush=>Mathf.SmoothStep(0,1,Mathf.Clamp01(shiftTime/(campaignActive?ShiftBudget:240f)));
         public float CurrentArrivalInterval=>Mathf.Max(1.4f,(campaignActive?ArrivalInterval:4.5f)*Mathf.Lerp(2.6f,.65f,ShiftRush));
@@ -44,15 +45,13 @@ namespace GokilKisah
             tuning.boDeadline=Mathf.Max(11,21-CurrentLevel*.2f);
             tuning.rayWait=Mathf.Min(15,5+CurrentLevel*.3f);
             tuning.nailHits=3+Mathf.Min(5,CurrentLevel/10);
-            // Every shift has enough accessible cleanup work to meet its stated target.
-            for(int i=spills.Count;i<CleanGoal;i++)
-            {
-                var p=ShelfPoint(i%sceneShelves.Length)+new Vector2(0,65);
-                if(Walkable(p))spills.Add(p);
-            }
+            EnsureShiftCleanupWork();
+            notifiedShiftGoals=0;
+            shiftBriefOpen=!testing&&!verificationRunning&&!replay;
             if(persist){PlayerPrefs.SetInt(LevelSave,CurrentLevel);PlayerPrefs.Save();}
             SetStep("LEVEL "+CurrentLevel,"Serve customers, restock shelves, and clear spills before closing.");
-            Toast(mandatoryBossPending?"Boss shift: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]:"Level "+CurrentLevel+" · Open for business");
+            if(!shiftBriefOpen)Toast(mandatoryBossPending?"Boss shift: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]:"Shift "+CurrentLevel+" · Open for business");
+            else noticeUntil=0;
         }
         void SaveCampaignProgress(int nextLevel)
         {
@@ -80,6 +79,7 @@ namespace GokilKisah
         void TickCampaign(float dt,bool verification=false)
         {
             if(!campaignActive||levelResults||(!verification&&(testing||verificationRunning||replay)))return;
+            NotifyShiftGoals();
             if(gameOver){FinishCampaignLevel(false,"Bo beat the countdown.");return;}
             if(bossActive&&resolved)
             {
@@ -106,7 +106,7 @@ namespace GokilKisah
         {
             if(levelResults)return;
             levelResults=true;levelWon=won;gameOver=!won;levelFailure=reason;skillType=-1;
-            playerVelocity=Vector2.zero;touchMove=Vector2.zero;heldKeys.Clear();
+            playerVelocity=Vector2.zero;ReleaseMobileControls();heldKeys.Clear();shiftBriefOpen=false;
             invoiceStars=won?Mathf.Clamp(4-(missedCustomers>0?1:0)-(priceMistakes>1?1:0)-(chaos>45||shiftTime>ShiftBudget*.8f?1:0),1,4):0;
             if(won){SaveCampaignProgress(CurrentLevel+1);PlaySound("Success");}else PlaySound("Miss");
         }

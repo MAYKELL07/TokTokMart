@@ -1,0 +1,42 @@
+PASS Level one has explicit completion targets
+PASS Higher levels increase traffic, targets and timing difficulty and reduce patience
+PASS Every fifth level cycles through all four bosses
+PASS A boss milestone cannot finish before the boss is defeated
+PASS Calling Ray defeats the milestone boss, unlocks it, and preserves shift progress
+PASS Random encounter pool excludes bosses not yet defeated
+PASS An unlocked boss can actually appear at random on a later non-boss level
+PASS Random boss defeat resumes the same shift
+PASS Completing targets opens a four-star invoice with correct earnings
+PASS Continue advances a level and resets shift counters
+PASS Missing the shift deadline opens retry results
+PASS A failed boss countdown prevents level advancement
+PASS No random boss appears before the first boss is defeated
+PASS Random encounters respect the two-per-shift limit
+PASS Expired customer patience removes the customer and adds a penalty
+PASS A wrong price is counted without completing a sale
+PASS Payment records actual basket revenue and invoice deductions
+PASS Saved campaign resumes its level and defeated-boss pool
+PASS Reference layout has six green shelves plus two red shelves
+PASS Storage and breaker room is at the top right
+PASS Reference layout route (1630.00, -170.00)
+PASS Reference layout route (1603.63, 876.40)
+PASS Reference layout route (1730.00, 450.90)
+PASS Reference layout route (1835.00, 191.90)
+PASS Reference layout route (1240.00, 84.60)
+PASS Reference layout route (493.00, 136.60)
+PASS Reference layout route (1030.00, 138.60)
+PASS Reference layout route (500.00, 415.87)
+PASS Reference layout route (1000.00, 415.87)
+PASS Reference layout route (1470.00, 415.87)
+PASS Reference layout route (500.00, 648.97)
+PASS Reference layout route (1000.00, 648.97)
+PASS Reference layout route (1470.00, 648.97)
+PASS Reference layout route (1850.00, -150.00)
+PASS Reference layout route (1750.00, -240.00)
+PASS Reference layout route (1510.00, -100.00)
+PASS Reference layout route (1650.00, -200.00)
+PASS Reference layout route (1680.00, 717.30)
+PASS Reference layout route (1150.00, 769.10)
+PASS Reference layout route (300.00, 465.70)
+
+40 checks; 0 failures.

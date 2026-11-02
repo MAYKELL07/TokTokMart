@@ -122,6 +122,7 @@ namespace GokilKisah
         {
             if(!sceneInitialized||initialSpillPositions.Count!=authoredSpills.Length)return;
             RefreshSceneGeometry();player=playerStart;helper=helperStart;salmah=ShopLayout.ToGame(shop.salmahSpawn.position);
+            shop.playerCharacter.ResetLocomotion(player);shop.partnerCharacter.ResetLocomotion(helper);lastFootstepContact=0;
             rayX=rayStart.x;shelfStock=new int[sceneShelves.Length];
             for(int i=0;i<sceneShelves.Length;i++)shelfStock[i]=sceneShelves[i].initialStock;
             spills.Clear();spills.AddRange(initialSpillPositions);
@@ -194,6 +195,7 @@ namespace GokilKisah
             if(shop.playerCharacter.heldGun)shop.playerCharacter.heldGun.gameObject.SetActive(hasGun);
             shop.boCarTarget.parent.gameObject.SetActive(encounter==Encounter.Bo);
             shop.playerCharacter.Apply(player,playerFacing,zack?6:0,playerMotion,pulse);
+            SyncPlayerFootsteps();
             shop.partnerCharacter.Apply(helper,helperFacing,zack?0:6,helperMotion,pulse);
             for(int i=0;i<sceneShelves.Length;i++)if(sceneShelves[i])sceneShelves[i].ShowStock(shelfStock[i]);
             foreach(var occluder in softOccluders)if(occluder&&occluder.isActiveAndEnabled)

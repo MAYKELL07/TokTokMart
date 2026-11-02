@@ -31,7 +31,7 @@ namespace GokilKisah
         void ProcessBufferedAction()
         {
             if(bufferedActionUntil<0)return;
-            if(skillType>=0||settingsOpen||autoPaused||mainMenu||!selected||gameOver||levelResults){bufferedActionUntil=-1;return;}
+            if(skillType>=0||settingsOpen||autoPaused||mainMenu||!selected||gameOver||levelResults||shiftBriefOpen){bufferedActionUntil=-1;return;}
             if(InteractionInReach()||Time.unscaledTime>=bufferedActionUntil){bufferedActionUntil=-1;Interact();}
         }
     }

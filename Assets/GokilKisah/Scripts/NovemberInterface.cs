@@ -33,6 +33,7 @@ namespace GokilKisah
             ArcadeText(new Rect(1420,35,40,35),CurrentLevel.ToString(),22,arcadeNavy,TextAnchor.MiddleCenter);
             float left=campaignActive?Mathf.Max(0,ShiftBudget-shiftTime):shiftTime;
             ArcadeText(new Rect(1332,65,133,45),((int)left/60)+":"+((int)left%60).ToString("00"),30,arcadeCream,TextAnchor.MiddleCenter);
+            GoalProgress(new Rect(111,96,180,5),served,campaignActive?ServeGoal:3);
             ArtImage(new Rect(1500,26,68,72),"PauseButton01");
             if(InterfaceButton(new Rect(1495,20,78,86)))SetSettingsOpen(true);
             ArtImage(new Rect(24,132,500,117),"IndicatorContainer");
@@ -41,6 +42,9 @@ namespace GokilKisah
             ArtImage(new Rect(278,149,25,35),"PuddleIcon01");
             ArcadeText(new Rect(314,149,144,38),"CLEAN "+hazardsCleared+" / "+(campaignActive?CleanGoal:1),17,arcadeCream);
             ArtImage(new Rect(475,153,36,36),"HazardIcon01");
+            ArcadeText(new Rect(465,197,55,28),Mathf.RoundToInt(chaos)+"%",14,arcadeCream,TextAnchor.MiddleCenter);
+            GoalProgress(new Rect(83,202,145,5),stockActions,campaignActive?StockGoal:1);
+            GoalProgress(new Rect(314,202,125,5),hazardsCleared,campaignActive?CleanGoal:1);
             if(encounter!=Encounter.Store)
             {
                 Sticker(new Rect(675,140,890,62),resolved?arcadeTeal:arcadeCoral);

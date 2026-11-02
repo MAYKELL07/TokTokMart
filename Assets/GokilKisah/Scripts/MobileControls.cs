@@ -67,7 +67,7 @@ namespace GokilKisah
         }
         void UpdateMobileControls()
         {
-            if(!showTouchControls||!selected||mainMenu||settingsOpen||autoPaused||gameOver||levelResults||skillType>=0||replay)
+            if(!showTouchControls||!selected||mainMenu||settingsOpen||autoPaused||gameOver||levelResults||skillType>=0||replay||shiftBriefOpen)
             {ReleaseMobileControls();return;}
             bool anyTouch=false;
             if(Touchscreen.current!=null)foreach(var touch in Touchscreen.current.touches)

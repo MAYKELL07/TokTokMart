@@ -83,9 +83,11 @@ namespace GokilKisah
             foreach(var actor in new[]{shop.playerCharacter,shop.partnerCharacter})
             {
                 string skin=actor==shop.playerCharacter?(zack?"Zack":"Sam"):(zack?"Sam":"Zack");
-                actor.Apply(actor.LastGamePosition,24,skin=="Sam"?0:6,Vector2.one,0);
-                var first=actor.artwork.sprite;actor.Apply(actor.LastGamePosition,24,skin=="Sam"?0:6,Vector2.one,.1f);
-                check(first==NovemberArt.Walk(skin,0)&&actor.artwork.sprite==NovemberArt.Walk(skin,1),"Keeper advances supplied animation frames: "+actor.name);
+                var origin=actor.LastGamePosition;actor.ResetLocomotion(origin);
+                actor.Apply(origin,24,skin=="Sam"?0:6,Vector2.zero,0);
+                var first=actor.artwork.sprite;
+                actor.Apply(origin+Vector2.right*(actor.walkCycleDistance/NovemberArt.WalkFrameCount(skin)*1.1f),24,skin=="Sam"?0:6,Vector2.one,.1f);
+                check(first==NovemberArt.Idle(skin)&&actor.artwork.sprite==NovemberArt.Walk(skin,1),"Keeper advances supplied animation frames: "+actor.name);
             }
             player=ShopLayout.ToGame(shop.goblinSpawns[0].position);cameraInitialized=false;
             yield return new WaitForSecondsRealtime(.3f);yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(directory,"toyol-encounter.png"));

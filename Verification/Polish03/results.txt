@@ -1,0 +1,107 @@
+PASS Full high-frame-rate sequence and idle pose: Sam (49 frames)
+PASS Full high-frame-rate sequence and idle pose: Zack (49 frames)
+PASS Full high-frame-rate sequence and idle pose: Toyol (41 frames)
+PASS One second of walking has consistent travel and footfalls at 30 fps
+PASS One second of walking has consistent travel and footfalls at 60 fps
+PASS Gait phase agrees with 30 fps at 60 fps
+PASS One second of walking has consistent travel and footfalls at 120 fps
+PASS Gait phase agrees with 30 fps at 120 fps
+PASS Sprint cadence and footfalls follow the actual 1.65x ground speed
+PASS Stopped or wall-blocked movement holds gait phase and shows a proper idle pose
+PASS Changing speed or global clock keeps the current stride phase
+PASS Pause freezes the current animation frame
+PASS Teleport does not produce false strides or footstep sounds
+PASS Rightward travel mirrors the supplied walk
+PASS Leftward travel restores the supplied facing
+PASS Shift 1 raises its customer goal and workload per available second
+PASS Shift 1 opens with reachable cleanup work
+PASS Shift 2 raises its customer goal and workload per available second
+PASS Shift 2 opens with reachable cleanup work
+PASS Shift 3 raises its customer goal and workload per available second
+PASS Shift 3 opens with reachable cleanup work
+PASS Shift 4 raises its customer goal and workload per available second
+PASS Shift 4 opens with reachable cleanup work
+PASS Shift 5 raises its customer goal and workload per available second
+PASS Shift 5 opens with reachable cleanup work
+PASS Shift 6 raises its customer goal and workload per available second
+PASS Shift 6 opens with reachable cleanup work
+PASS Shift 7 raises its customer goal and workload per available second
+PASS Shift 7 opens with reachable cleanup work
+PASS Shift 8 raises its customer goal and workload per available second
+PASS Shift 8 opens with reachable cleanup work
+PASS Shift 9 raises its customer goal and workload per available second
+PASS Shift 9 opens with reachable cleanup work
+PASS Shift 10 raises its customer goal and workload per available second
+PASS Shift 10 opens with reachable cleanup work
+PASS Shift 11 raises its customer goal and workload per available second
+PASS Shift 11 opens with reachable cleanup work
+PASS Shift 12 raises its customer goal and workload per available second
+PASS Shift 12 opens with reachable cleanup work
+PASS Shift 13 raises its customer goal and workload per available second
+PASS Shift 13 opens with reachable cleanup work
+PASS Shift 14 raises its customer goal and workload per available second
+PASS Shift 14 opens with reachable cleanup work
+PASS Shift 15 raises its customer goal and workload per available second
+PASS Shift 15 opens with reachable cleanup work
+PASS Shift 16 raises its customer goal and workload per available second
+PASS Shift 16 opens with reachable cleanup work
+PASS Shift 17 raises its customer goal and workload per available second
+PASS Shift 17 opens with reachable cleanup work
+PASS Shift 18 raises its customer goal and workload per available second
+PASS Shift 18 opens with reachable cleanup work
+PASS Shift 19 raises its customer goal and workload per available second
+PASS Shift 19 opens with reachable cleanup work
+PASS Shift 20 raises its customer goal and workload per available second
+PASS Shift 20 opens with reachable cleanup work
+PASS Shift 21 raises its customer goal and workload per available second
+PASS Shift 21 opens with reachable cleanup work
+PASS Shift 22 raises its customer goal and workload per available second
+PASS Shift 22 opens with reachable cleanup work
+PASS Shift 23 raises its customer goal and workload per available second
+PASS Shift 23 opens with reachable cleanup work
+PASS Shift 24 raises its customer goal and workload per available second
+PASS Shift 24 opens with reachable cleanup work
+PASS Shift 25 raises its customer goal and workload per available second
+PASS Shift 25 opens with reachable cleanup work
+PASS Shift 26 raises its customer goal and workload per available second
+PASS Shift 26 opens with reachable cleanup work
+PASS Shift 27 raises its customer goal and workload per available second
+PASS Shift 27 opens with reachable cleanup work
+PASS Shift 28 raises its customer goal and workload per available second
+PASS Shift 28 opens with reachable cleanup work
+PASS Shift 29 raises its customer goal and workload per available second
+PASS Shift 29 opens with reachable cleanup work
+PASS Shift 30 raises its customer goal and workload per available second
+PASS Shift 30 opens with reachable cleanup work
+PASS Shift 31 raises its customer goal and workload per available second
+PASS Shift 31 opens with reachable cleanup work
+PASS Shift 32 raises its customer goal and workload per available second
+PASS Shift 32 opens with reachable cleanup work
+PASS Shift 33 raises its customer goal and workload per available second
+PASS Shift 33 opens with reachable cleanup work
+PASS Shift 34 raises its customer goal and workload per available second
+PASS Shift 34 opens with reachable cleanup work
+PASS Shift 35 raises its customer goal and workload per available second
+PASS Shift 35 opens with reachable cleanup work
+PASS Shift 36 raises its customer goal and workload per available second
+PASS Shift 36 opens with reachable cleanup work
+PASS Shift 37 raises its customer goal and workload per available second
+PASS Shift 37 opens with reachable cleanup work
+PASS Shift 38 raises its customer goal and workload per available second
+PASS Shift 38 opens with reachable cleanup work
+PASS Shift 39 raises its customer goal and workload per available second
+PASS Shift 39 opens with reachable cleanup work
+PASS Shift 40 raises its customer goal and workload per available second
+PASS Shift 40 opens with reachable cleanup work
+PASS Later cleanup goals replenish reachable work and stop replenishing once complete
+PASS Partner covers checkout and preserves required player restock work
+PASS Partner resumes stocking after the player's restock target is met
+PASS Shift cannot complete with missing customers
+PASS Shift cannot complete with missing restocks
+PASS Shift cannot complete with missing cleanup
+PASS All shift goals open the winning results
+PASS Briefing freezes the shift timer before opening
+PASS Briefing blocks gameplay input
+PASS Touch opens the briefed shift
+PASS Recorded movement starts on a clear route inside the actual shop geometry
+PASS Live recorded walk/run covers the expected ground distance with animated poses
