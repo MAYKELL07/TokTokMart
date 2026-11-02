@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: a7148d46b4b2340439d106148e30bae7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3445422570205131074
+    second: SamWalk_Sheet_24FPS_0
+  - first:
+      213: 9209258346564415017
+    second: SamWalk_Sheet_24FPS_1
+  - first:
+      213: 1778757538498377582
+    second: SamWalk_Sheet_24FPS_2
+  - first:
+      213: -3999306750774386784
+    second: SamWalk_Sheet_24FPS_3
+  - first:
+      213: 7972216155080197825
+    second: SamWalk_Sheet_24FPS_4
+  - first:
+      213: 6742748691680846354
+    second: SamWalk_Sheet_24FPS_5
+  - first:
+      213: 5192802676663128141
+    second: SamWalk_Sheet_24FPS_6
+  - first:
+      213: -1516513515100834616
+    second: SamWalk_Sheet_24FPS_7
+  - first:
+      213: 4140405987944326977
+    second: SamWalk_Sheet_24FPS_8
+  - first:
+      213: 6318814751299649600
+    second: SamWalk_Sheet_24FPS_9
+  - first:
+      213: -8474449187476780054
+    second: SamWalk_Sheet_24FPS_10
+  - first:
+      213: -6798438364964555726
+    second: SamWalk_Sheet_24FPS_11
+  - first:
+      213: 4410439833624890970
+    second: SamWalk_Sheet_24FPS_12
+  - first:
+      213: 8544399630872673750
+    second: SamWalk_Sheet_24FPS_13
+  - first:
+      213: -5458844206317780038
+    second: SamWalk_Sheet_24FPS_14
+  - first:
+      213: 1794609289306650583
+    second: SamWalk_Sheet_24FPS_15
+  - first:
+      213: -1544954185880119251
+    second: SamWalk_Sheet_24FPS_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 776
+        width: 126
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241b03ea29990df20800000000000000
+      internalID: 3445422570205131074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_1
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 777
+        width: 123
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92ee5c76cabddcf70800000000000000
+      internalID: 9209258346564415017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_2
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 779
+        width: 119
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e677eb79e8a6fa810800000000000000
+      internalID: 1778757538498377582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_3
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 778
+        width: 119
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af554c03bb9f78c0800000000000000
+      internalID: -3999306750774386784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_4
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 777
+        width: 119
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c68f2cba5003ae60800000000000000
+      internalID: 7972216155080197825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_5
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 521
+        width: 119
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 212ed51e53e039d50800000000000000
+      internalID: 6742748691680846354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_6
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 521
+        width: 119
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d401433958a801840800000000000000
+      internalID: 5192802676663128141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_7
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 521
+        width: 119
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c4f55b2ef244fae0800000000000000
+      internalID: -1516513515100834616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_8
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 521
+        width: 122
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14762592f4da57930800000000000000
+      internalID: 4140405987944326977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_9
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 522
+        width: 123
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040c6bca980f0b750800000000000000
+      internalID: 6318814751299649600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_10
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 267
+        width: 125
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb49511d55b46a80800000000000000
+      internalID: -8474449187476780054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_11
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 266
+        width: 119
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23476e4a35817a1a0800000000000000
+      internalID: -6798438364964555726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_12
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 266
+        width: 119
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ec17249a7053d30800000000000000
+      internalID: 4410439833624890970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_13
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 265
+        width: 119
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ddf421b13ec39670800000000000000
+      internalID: 8544399630872673750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_14
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 264
+        width: 123
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3ca36dd1a4e34b0800000000000000
+      internalID: -5458844206317780038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_15
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 8
+        width: 125
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d73dbfe3abb7e810800000000000000
+      internalID: 1794609289306650583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SamWalk_Sheet_24FPS_16
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 8
+        width: 126
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28dc5c7a583f8ae0800000000000000
+      internalID: -1544954185880119251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SamWalk_Sheet_24FPS_0: 3445422570205131074
+      SamWalk_Sheet_24FPS_1: 9209258346564415017
+      SamWalk_Sheet_24FPS_10: -8474449187476780054
+      SamWalk_Sheet_24FPS_11: -6798438364964555726
+      SamWalk_Sheet_24FPS_12: 4410439833624890970
+      SamWalk_Sheet_24FPS_13: 8544399630872673750
+      SamWalk_Sheet_24FPS_14: -5458844206317780038
+      SamWalk_Sheet_24FPS_15: 1794609289306650583
+      SamWalk_Sheet_24FPS_16: -1544954185880119251
+      SamWalk_Sheet_24FPS_2: 1778757538498377582
+      SamWalk_Sheet_24FPS_3: -3999306750774386784
+      SamWalk_Sheet_24FPS_4: 7972216155080197825
+      SamWalk_Sheet_24FPS_5: 6742748691680846354
+      SamWalk_Sheet_24FPS_6: 5192802676663128141
+      SamWalk_Sheet_24FPS_7: -1516513515100834616
+      SamWalk_Sheet_24FPS_8: 4140405987944326977
+      SamWalk_Sheet_24FPS_9: 6318814751299649600
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

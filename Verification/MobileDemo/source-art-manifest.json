@@ -1,0 +1,222 @@
+[
+  {
+    "path": "Chracter/Art_TTM_Char_Sam01.png",
+    "sha256": "f024f2f39bbddf5ca8423ba7f6230dcc7e0d8b61849ccee5ffced49669359aee",
+    "bytes": 14981
+  },
+  {
+    "path": "Chracter/Art_TTM_Char_Toyol01.png",
+    "sha256": "5874226e063be5b265539e8344c76ea6bcc40f9bb78b87dcb92984ebb27ccd64",
+    "bytes": 6312
+  },
+  {
+    "path": "Chracter/Art_TTM_Char_Zack01.png",
+    "sha256": "6ad46b31bcc151ecceeabf84237970eb9bbbe32d4e67e264af933331c3b55f9b",
+    "bytes": 19481
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_EntranceDoor01.png",
+    "sha256": "3ca548ae5397901ee9079a7a8e6a50e669942bf999f0d27409ba52d7aab1de76",
+    "bytes": 7115
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_ExtWall01.png",
+    "sha256": "283994d8693fa539b25a0a1ac95fe8d7c2dd6c1975f5619acea0d6240af01234",
+    "bytes": 106780
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_Floor01.png",
+    "sha256": "7a67740aafccf263273780570a741b80fb1992ac7ab2469cf003dcb39684a291",
+    "bytes": 289593
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_Fridge01.png",
+    "sha256": "36f1d98efd2264c181a019876f295c9b494b9e00c5bfe727b53f6aa58aae472d",
+    "bytes": 24268
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_IntWall01.png",
+    "sha256": "ce34978f9866b4cb2b750ba35220aaa4c5805062ede6c21a1612809aa45f63ae",
+    "bytes": 100884
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_Shelf01.png",
+    "sha256": "85a7509efa0cffafbed8570cf2809d653e1f5f1a58251f96fab7d1e3a15138bd",
+    "bytes": 28933
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_Shelf02.png",
+    "sha256": "f197f5c251188769db820674d81283c6727c36dcd109990ab48925eb49b0f2d2",
+    "bytes": 23671
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_StorageDoor01.png",
+    "sha256": "528e76b27d08922181765b61c00e99bd07bbe0e1add6b5d90691e3fd0fa20a1d",
+    "bytes": 38840
+  },
+  {
+    "path": "Environment, Props/Art_TTM_Env_StorageRoom01.png",
+    "sha256": "34e74e2dbdd1a6a5f86b36ba1a3f574ef659c00d907d1c1245caf7cf45846344",
+    "bytes": 1568198
+  },
+  {
+    "path": "Environment, Props/main menu background.png",
+    "sha256": "a74b9d3febf8fa70b1d6a6f9a76c39a8fbebdad71277cdb589cba4fa226190f7",
+    "bytes": 273609
+  },
+  {
+    "path": "UI/Art_TTM_UI_CheckoutIcon01.png",
+    "sha256": "3d31359eb2e6deebfef3ff1c31c8e2cc8e47e42cdc7bd10f57c29a32e6962f89",
+    "bytes": 7665
+  },
+  {
+    "path": "UI/Art_TTM_UI_CustomerCount01.png",
+    "sha256": "c52074150895eaefbd8d3998ae480861627e7b73d18555b8792d2bf443da9ce9",
+    "bytes": 10344
+  },
+  {
+    "path": "UI/Art_TTM_UI_DayTimer01.png",
+    "sha256": "e0a8e8a92b64d25e5064abf416a2c19c68944b354c2e0906a0860f91d92b6605",
+    "bytes": 19581
+  },
+  {
+    "path": "UI/Art_TTM_UI_HazardIcon01.png",
+    "sha256": "659e7d83cad24720e4d0b3899a91f0305526d9064696195d353106187d861c69",
+    "bytes": 4044
+  },
+  {
+    "path": "UI/Art_TTM_UI_IndicatorContainer.png",
+    "sha256": "ba9dc9974d0eee0b61ee92000e5411e7e4d9a94a975f86a06691cbc01b65f276",
+    "bytes": 9644
+  },
+  {
+    "path": "UI/Art_TTM_UI_InteractButton01.png",
+    "sha256": "142405c004dbe65c9a9a6e44e2eed8bc4fc2eb5a9e02dd1980412ef33f9555ac",
+    "bytes": 30647
+  },
+  {
+    "path": "UI/Art_TTM_UI_MoneyCount01.png",
+    "sha256": "11b3085ff46421c7ea0e3e8af91c8214210d7ba5b8556f9d91bfc0c83788062e",
+    "bytes": 13246
+  },
+  {
+    "path": "UI/Art_TTM_UI_PauseButton01.png",
+    "sha256": "b49a2ea31ae71464d0d60e237075bab0368fcadb58a65f76ef479c7cc0d69399",
+    "bytes": 7245
+  },
+  {
+    "path": "UI/Art_TTM_UI_PuddleIcon01.png",
+    "sha256": "a9dee4e8fbb56bfc11f1bc76d5e4aef87f1af6195f2c1b7863f69b9ee67feed8",
+    "bytes": 3357
+  },
+  {
+    "path": "UI/Art_TTM_UI_SprintButton01.png",
+    "sha256": "66ccf9010d51ec39b298a3dcb32e48e40764c20dbc87910e756c48393181098d",
+    "bytes": 24953
+  },
+  {
+    "path": "UI/Asset 11@2x.png",
+    "sha256": "7942dbb9abdcd596fe7f9973bb9e98e8f2829450bd4da92d7966b896433f5e69",
+    "bytes": 93414
+  },
+  {
+    "path": "Animation/Goblin/GoblinWalk/GoblinWalk.fla",
+    "sha256": "f1503f034a017586d4a6e4b9a604bfed0c4289d3b35cb44855a1984a88fa558a",
+    "bytes": 15969
+  },
+  {
+    "path": "Animation/Goblin/GoblinWalk/GoblinWalk_Preview.gif",
+    "sha256": "dd795b59e7315e82fffd68d4faee6f78ed15bf27ed8815e4463cffb5b4d21b80",
+    "bytes": 179779
+  },
+  {
+    "path": "Animation/Goblin/GoblinWalk/GoblinWalk_Sheet_12FPS.png",
+    "sha256": "b702dc9fac5cb1639e5154b797bc23ef4d74994e763ce667f92cc90668426cd2",
+    "bytes": 102403
+  },
+  {
+    "path": "Animation/Goblin/GoblinWalk/GoblinWalk_Sheet_24FPS.png",
+    "sha256": "0f7a13a26b7c95c010a2c4e9bf884918c9a69693df7131deee59c531458418b7",
+    "bytes": 181396
+  },
+  {
+    "path": "Animation/Goblin/GoblinWalk/GoblinWalk_Sheet_60FPS.png",
+    "sha256": "c79353a1fa949e18b78c5b06edc04a4c4219f59bac0ceaf274e5475dc856ca65",
+    "bytes": 385407
+  },
+  {
+    "path": "Animation/Sam/SamWalk/SamWalk.fla",
+    "sha256": "4d8afce53da1cb24b8db607dacb9a6bc0df79f831265ba8736ddc7d0fd8fa9bc",
+    "bytes": 51861
+  },
+  {
+    "path": "Animation/Sam/SamWalk/SamWalk_Preview.gif",
+    "sha256": "e66c57b9300532a99505d8855da7e1e313179c14a4eed8ad197dd24b87e05a34",
+    "bytes": 283850
+  },
+  {
+    "path": "Animation/Sam/SamWalk/SamWalk_Sheet_12FPS.png",
+    "sha256": "05c9bd5383cd94f4af6de133c59c8f946fcc0f7795dfe36d47e9c6e7cb8e94dd",
+    "bytes": 127448
+  },
+  {
+    "path": "Animation/Sam/SamWalk/SamWalk_Sheet_24FPS.png",
+    "sha256": "5f1032b953438dde5a3df4f5481631310e3d84930e4f94f2521845a6d53bfb6c",
+    "bytes": 240043
+  },
+  {
+    "path": "Animation/Sam/SamWalk/SamWalk_Sheet_60FPS.png",
+    "sha256": "2d43e2140497985988b3f4fa7224b62883e42339b546b988bf61517c1b9054d4",
+    "bytes": 616780
+  },
+  {
+    "path": "Animation/Zack/ZackWalk/ZackWalk.fla",
+    "sha256": "d5dbcafe8cc2c6379912c3c76da8501644a804906c3211178b124ffc87e4e43d",
+    "bytes": 49074
+  },
+  {
+    "path": "Animation/Zack/ZackWalk/ZackWalk_Preview.gif",
+    "sha256": "d9f9e73a041c35b77a435a328498d0b285b109f284afb243d83df9abb8cc489f",
+    "bytes": 347293
+  },
+  {
+    "path": "Animation/Zack/ZackWalk/ZackWalk_Sheet_12FPS.png",
+    "sha256": "ae84f6b43f2188531431a2e08b546f4cfa1b72128b048fa05bf4789101aa6294",
+    "bytes": 149088
+  },
+  {
+    "path": "Animation/Zack/ZackWalk/ZackWalk_Sheet_24FPS.png",
+    "sha256": "01a59b647efd4948c39de53f921f25e5536ed3a01924e82fc7b7cd9b40adf6b9",
+    "bytes": 283326
+  },
+  {
+    "path": "Animation/Zack/ZackWalk/ZackWalk_Sheet_60FPS.png",
+    "sha256": "f7ca5066cb14b004d324121400d7f8732346b54f6e296b561f19a9e2d16df5b7",
+    "bytes": 765083
+  },
+  {
+    "path": "Chracter/for vic/sam and zack.ai",
+    "sha256": "8c659231f4589bcf00f1e5e16435fc6ce0710fdc097d7d49b64466e3e13c3d24",
+    "bytes": 273907
+  },
+  {
+    "path": "Chracter/for vic/toyol goblin.ai",
+    "sha256": "e2c7a8968b210024b9dabb981294ab2c1ee15035b0a8bc81554d1d4c2e5ae7f2",
+    "bytes": 237223
+  },
+  {
+    "path": "Chracter/for vic/zack new.ai",
+    "sha256": "d53af50667096b6ed5cd3d5d9103ddb22d50ca8ec2c9d075e32181a22cfd18b6",
+    "bytes": 255548
+  },
+  {
+    "path": "UI/Joystick/Art_TTM_UI_Joystick01.png",
+    "sha256": "be5fa5472ec8e261cd0ba0e29b5275e0838d837a5c21e33a98776048e7613edc",
+    "bytes": 42757
+  },
+  {
+    "path": "UI/Joystick/Art_TTM_UI_Joystick01a.png",
+    "sha256": "468f809a5552c5dd26be77b66ff40d31dcc025a1a36cdbc0c865a5a873b55164",
+    "bytes": 13172
+  }
+]

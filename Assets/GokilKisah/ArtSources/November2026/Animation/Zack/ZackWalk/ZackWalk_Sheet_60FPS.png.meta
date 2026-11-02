@@ -1,0 +1,1391 @@
+fileFormatVersion: 2
+guid: 4a9971f816b1605459503f83231c9b37
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7930498835801269179
+    second: ZackWalk_Sheet_60FPS_0
+  - first:
+      213: -5399575471094875009
+    second: ZackWalk_Sheet_60FPS_1
+  - first:
+      213: -3950306386656930584
+    second: ZackWalk_Sheet_60FPS_2
+  - first:
+      213: 3727810443440668791
+    second: ZackWalk_Sheet_60FPS_3
+  - first:
+      213: -5846673669785294872
+    second: ZackWalk_Sheet_60FPS_4
+  - first:
+      213: -3696406696064890127
+    second: ZackWalk_Sheet_60FPS_5
+  - first:
+      213: -5918586915406611470
+    second: ZackWalk_Sheet_60FPS_6
+  - first:
+      213: 2982674177997172486
+    second: ZackWalk_Sheet_60FPS_7
+  - first:
+      213: 3807103707282776224
+    second: ZackWalk_Sheet_60FPS_8
+  - first:
+      213: -2133539317129911486
+    second: ZackWalk_Sheet_60FPS_9
+  - first:
+      213: 8488756782142312571
+    second: ZackWalk_Sheet_60FPS_10
+  - first:
+      213: -8180705286142211190
+    second: ZackWalk_Sheet_60FPS_11
+  - first:
+      213: 3237266736850343514
+    second: ZackWalk_Sheet_60FPS_12
+  - first:
+      213: 8158319444920831164
+    second: ZackWalk_Sheet_60FPS_13
+  - first:
+      213: -4151886890234206834
+    second: ZackWalk_Sheet_60FPS_14
+  - first:
+      213: 2368457329133592721
+    second: ZackWalk_Sheet_60FPS_15
+  - first:
+      213: 6781647946932515610
+    second: ZackWalk_Sheet_60FPS_16
+  - first:
+      213: -4498128719006837100
+    second: ZackWalk_Sheet_60FPS_17
+  - first:
+      213: -2468495292265099798
+    second: ZackWalk_Sheet_60FPS_18
+  - first:
+      213: 5221549300068667084
+    second: ZackWalk_Sheet_60FPS_19
+  - first:
+      213: 3267827561382706992
+    second: ZackWalk_Sheet_60FPS_20
+  - first:
+      213: -2022459621323513381
+    second: ZackWalk_Sheet_60FPS_21
+  - first:
+      213: 4318441224737605820
+    second: ZackWalk_Sheet_60FPS_22
+  - first:
+      213: 5873812428069941228
+    second: ZackWalk_Sheet_60FPS_23
+  - first:
+      213: -8916511722769789261
+    second: ZackWalk_Sheet_60FPS_24
+  - first:
+      213: -9009356968098231827
+    second: ZackWalk_Sheet_60FPS_25
+  - first:
+      213: 3591689059542758325
+    second: ZackWalk_Sheet_60FPS_26
+  - first:
+      213: 339980241385489964
+    second: ZackWalk_Sheet_60FPS_27
+  - first:
+      213: -6206729682656852519
+    second: ZackWalk_Sheet_60FPS_28
+  - first:
+      213: -4934873919943533705
+    second: ZackWalk_Sheet_60FPS_29
+  - first:
+      213: 87426428023183238
+    second: ZackWalk_Sheet_60FPS_30
+  - first:
+      213: -7260963625235321578
+    second: ZackWalk_Sheet_60FPS_31
+  - first:
+      213: -2023901197227149902
+    second: ZackWalk_Sheet_60FPS_32
+  - first:
+      213: 4448452927466138002
+    second: ZackWalk_Sheet_60FPS_33
+  - first:
+      213: -3671653474099462406
+    second: ZackWalk_Sheet_60FPS_34
+  - first:
+      213: -4625827931825295844
+    second: ZackWalk_Sheet_60FPS_35
+  - first:
+      213: -8566470776823586767
+    second: ZackWalk_Sheet_60FPS_36
+  - first:
+      213: -5604446135736093625
+    second: ZackWalk_Sheet_60FPS_37
+  - first:
+      213: -2539860348962525335
+    second: ZackWalk_Sheet_60FPS_38
+  - first:
+      213: -3898859553340391699
+    second: ZackWalk_Sheet_60FPS_39
+  - first:
+      213: -7182906288213259934
+    second: ZackWalk_Sheet_60FPS_40
+  - first:
+      213: -1770674776166161523
+    second: ZackWalk_Sheet_60FPS_41
+  - first:
+      213: 2100071953522585392
+    second: ZackWalk_Sheet_60FPS_42
+  - first:
+      213: -265174168633128798
+    second: ZackWalk_Sheet_60FPS_43
+  - first:
+      213: 1191573283559900115
+    second: ZackWalk_Sheet_60FPS_44
+  - first:
+      213: -8466506277569581954
+    second: ZackWalk_Sheet_60FPS_45
+  - first:
+      213: 7817452771358440336
+    second: ZackWalk_Sheet_60FPS_46
+  - first:
+      213: 6939138549709959243
+    second: ZackWalk_Sheet_60FPS_47
+  - first:
+      213: 802817687420523491
+    second: ZackWalk_Sheet_60FPS_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1553
+        width: 145
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54c9a60935531f190800000000000000
+      internalID: -7930498835801269179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_1
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1553
+        width: 145
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c3a7b97bad015b0800000000000000
+      internalID: -5399575471094875009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_2
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 1554
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e45b5d5541bd29c0800000000000000
+      internalID: -3950306386656930584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_3
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1554
+        width: 145
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 770c547f8d7dbb330800000000000000
+      internalID: 3727810443440668791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_4
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 1554
+        width: 145
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e761da36417cdea0800000000000000
+      internalID: -5846673669785294872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_5
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 1555
+        width: 145
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa4dafb1b9b3bcc0800000000000000
+      internalID: -3696406696064890127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_6
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 1555
+        width: 145
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fbf9e6fe84fcdda0800000000000000
+      internalID: -5918586915406611470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_7
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1299
+        width: 145
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f604cac56946920800000000000000
+      internalID: 2982674177997172486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_8
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1299
+        width: 145
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a0a9af96ac85d430800000000000000
+      internalID: 3807103707282776224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_9
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 1298
+        width: 145
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24364288b452462e0800000000000000
+      internalID: -2133539317129911486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_10
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1298
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70d748615f1ec570800000000000000
+      internalID: 8488756782142312571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_11
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 1298
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8b455fa2eb487e80800000000000000
+      internalID: -8180705286142211190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_12
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 1298
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56172502f41dec20800000000000000
+      internalID: 3237266736850343514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_13
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 1297
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc0bae7f4c283170800000000000000
+      internalID: 8158319444920831164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_14
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1041
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e852df7fed88166c0800000000000000
+      internalID: -4151886890234206834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_15
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1041
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 190ada864637ed020800000000000000
+      internalID: 2368457329133592721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_16
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 1041
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a137ba480e04d1e50800000000000000
+      internalID: 6781647946932515610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_17
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1041
+        width: 145
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4965d9d13cf6391c0800000000000000
+      internalID: -4498128719006837100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_18
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 1041
+        width: 145
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aed80de3c942ebdd0800000000000000
+      internalID: -2468495292265099798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_19
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 1041
+        width: 145
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce48c76c6ba67840800000000000000
+      internalID: 5221549300068667084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_20
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 1041
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f72777ad7a95d20800000000000000
+      internalID: 3267827561382706992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_21
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 785
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd1e07a90b7cee3e0800000000000000
+      internalID: -2022459621323513381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_22
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 785
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb843efe96f2eeb30800000000000000
+      internalID: 4318441224737605820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_23
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 785
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef22645849f38150800000000000000
+      internalID: 5873812428069941228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_24
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 785
+        width: 145
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be43b074df224480800000000000000
+      internalID: -8916511722769789261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_25
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 785
+        width: 145
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de980d5329558f280800000000000000
+      internalID: -9009356968098231827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_26
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 785
+        width: 145
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3f3b98b2e38d130800000000000000
+      internalID: 3591689059542758325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_27
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 786
+        width: 145
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c260f6e6a3ad7b400800000000000000
+      internalID: 339980241385489964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_28
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 530
+        width: 145
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d58d500d344dd9a0800000000000000
+      internalID: -6206729682656852519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_29
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 530
+        width: 145
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b1d6ed05ec38bb0800000000000000
+      internalID: -4934873919943533705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_30
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 531
+        width: 145
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6879d428fd9963100800000000000000
+      internalID: 87426428023183238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_31
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 532
+        width: 145
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61de0d69d00eb3b90800000000000000
+      internalID: -7260963625235321578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_32
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 532
+        width: 145
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b5b9ce8598a9e3e0800000000000000
+      internalID: -2023901197227149902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_33
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 533
+        width: 145
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2996aad5e541cbd30800000000000000
+      internalID: 4448452927466138002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_34
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 533
+        width: 145
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afef8f95e9aab0dc0800000000000000
+      internalID: -3671653474099462406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_35
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 278
+        width: 145
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e29733102cdcfb0800000000000000
+      internalID: -4625827931825295844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_36
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 278
+        width: 145
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1306aa03738cd1980800000000000000
+      internalID: -8566470776823586767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_37
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 277
+        width: 145
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 744b3a4eee10932b0800000000000000
+      internalID: -5604446135736093625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_38
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 276
+        width: 145
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f2df8287a90ccd0800000000000000
+      internalID: -2539860348962525335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_39
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 275
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deef10ea4e774e9c0800000000000000
+      internalID: -3898859553340391699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_40
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 275
+        width: 145
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 269012c99c0315c90800000000000000
+      internalID: -7182906288213259934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_41
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 274
+        width: 145
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d832fd92cac4d67e0800000000000000
+      internalID: -1770674776166161523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_42
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 17
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f6978a054f42d10800000000000000
+      internalID: 2100071953522585392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_43
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 17
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a84303af79e15cf0800000000000000
+      internalID: -265174168633128798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_44
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 17
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d30f629691598010800000000000000
+      internalID: 1191573283559900115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_45
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 17
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ca9d4e56de08a80800000000000000
+      internalID: -8466506277569581954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_46
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 17
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b763d70eb2d7c60800000000000000
+      internalID: 7817452771358440336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_47
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 17
+        width: 145
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b407eaeeeb5cc4060800000000000000
+      internalID: 6939138549709959243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZackWalk_Sheet_60FPS_48
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 17
+        width: 145
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e3d916ee6e242b00800000000000000
+      internalID: 802817687420523491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ZackWalk_Sheet_60FPS_0: -7930498835801269179
+      ZackWalk_Sheet_60FPS_1: -5399575471094875009
+      ZackWalk_Sheet_60FPS_10: 8488756782142312571
+      ZackWalk_Sheet_60FPS_11: -8180705286142211190
+      ZackWalk_Sheet_60FPS_12: 3237266736850343514
+      ZackWalk_Sheet_60FPS_13: 8158319444920831164
+      ZackWalk_Sheet_60FPS_14: -4151886890234206834
+      ZackWalk_Sheet_60FPS_15: 2368457329133592721
+      ZackWalk_Sheet_60FPS_16: 6781647946932515610
+      ZackWalk_Sheet_60FPS_17: -4498128719006837100
+      ZackWalk_Sheet_60FPS_18: -2468495292265099798
+      ZackWalk_Sheet_60FPS_19: 5221549300068667084
+      ZackWalk_Sheet_60FPS_2: -3950306386656930584
+      ZackWalk_Sheet_60FPS_20: 3267827561382706992
+      ZackWalk_Sheet_60FPS_21: -2022459621323513381
+      ZackWalk_Sheet_60FPS_22: 4318441224737605820
+      ZackWalk_Sheet_60FPS_23: 5873812428069941228
+      ZackWalk_Sheet_60FPS_24: -8916511722769789261
+      ZackWalk_Sheet_60FPS_25: -9009356968098231827
+      ZackWalk_Sheet_60FPS_26: 3591689059542758325
+      ZackWalk_Sheet_60FPS_27: 339980241385489964
+      ZackWalk_Sheet_60FPS_28: -6206729682656852519
+      ZackWalk_Sheet_60FPS_29: -4934873919943533705
+      ZackWalk_Sheet_60FPS_3: 3727810443440668791
+      ZackWalk_Sheet_60FPS_30: 87426428023183238
+      ZackWalk_Sheet_60FPS_31: -7260963625235321578
+      ZackWalk_Sheet_60FPS_32: -2023901197227149902
+      ZackWalk_Sheet_60FPS_33: 4448452927466138002
+      ZackWalk_Sheet_60FPS_34: -3671653474099462406
+      ZackWalk_Sheet_60FPS_35: -4625827931825295844
+      ZackWalk_Sheet_60FPS_36: -8566470776823586767
+      ZackWalk_Sheet_60FPS_37: -5604446135736093625
+      ZackWalk_Sheet_60FPS_38: -2539860348962525335
+      ZackWalk_Sheet_60FPS_39: -3898859553340391699
+      ZackWalk_Sheet_60FPS_4: -5846673669785294872
+      ZackWalk_Sheet_60FPS_40: -7182906288213259934
+      ZackWalk_Sheet_60FPS_41: -1770674776166161523
+      ZackWalk_Sheet_60FPS_42: 2100071953522585392
+      ZackWalk_Sheet_60FPS_43: -265174168633128798
+      ZackWalk_Sheet_60FPS_44: 1191573283559900115
+      ZackWalk_Sheet_60FPS_45: -8466506277569581954
+      ZackWalk_Sheet_60FPS_46: 7817452771358440336
+      ZackWalk_Sheet_60FPS_47: 6939138549709959243
+      ZackWalk_Sheet_60FPS_48: 802817687420523491
+      ZackWalk_Sheet_60FPS_5: -3696406696064890127
+      ZackWalk_Sheet_60FPS_6: -5918586915406611470
+      ZackWalk_Sheet_60FPS_7: 2982674177997172486
+      ZackWalk_Sheet_60FPS_8: 3807103707282776224
+      ZackWalk_Sheet_60FPS_9: -2133539317129911486
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

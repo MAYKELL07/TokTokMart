@@ -1,0 +1,422 @@
+[
+  {
+    "sprite": "Sam_0_0",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_side.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Sam_0_1",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk1.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Sam_0_2",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk2.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Sam_1_0",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_side.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Sam_1_1",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Sam_1_2",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Sam_2_0",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Sam_2_1",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Sam_2_2",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Sam_3_0",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_idle.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Sam_3_1",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Sam_3_2",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_0_0",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_side.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Zack_0_1",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_walk1.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Zack_0_2",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_walk2.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Zack_1_0",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_side.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_1_1",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_1_2",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_2_0",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_2_1",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_2_2",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_3_0",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_idle.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_3_1",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Zack_3_2",
+    "source": "Downloads\\toon-characters\\Male adventurer\\PNG\\Poses HD\\character_maleAdventurer_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_0_0",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_side.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Customer_0_1",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_walk1.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Customer_0_2",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_walk2.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Customer_1_0",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_side.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_1_1",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_1_2",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_2_0",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_2_1",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_2_2",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_3_0",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_idle.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_3_1",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Customer_3_2",
+    "source": "Downloads\\toon-characters\\Female adventurer\\PNG\\Poses HD\\character_femaleAdventurer_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_0_0",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_side.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Salmah_0_1",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_walk1.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Salmah_0_2",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_walk2.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Salmah_1_0",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_side.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_1_1",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_1_2",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_2_0",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_2_1",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_2_2",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_3_0",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_idle.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_3_1",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Salmah_3_2",
+    "source": "Downloads\\toon-characters\\Female person\\PNG\\Poses HD\\character_femalePerson_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_0_0",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_side.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Ray_0_1",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk1.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Ray_0_2",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk2.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Ray_1_0",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_side.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_1_1",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_1_2",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_2_0",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_2_1",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_2_2",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_3_0",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_idle.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_3_1",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Ray_3_2",
+    "source": "Downloads\\toon-characters\\Male person\\PNG\\Poses HD\\character_malePerson_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_0_0",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_side.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Goblin_0_1",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_walk1.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Goblin_0_2",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_walk2.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Goblin_1_0",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_side.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_1_1",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_1_2",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_2_0",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_2_1",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_2_2",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_3_0",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_idle.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_3_1",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Goblin_3_2",
+    "source": "Downloads\\toon-characters\\Zombie\\PNG\\Poses HD\\character_zombie_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_0_0",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_side.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Idol_0_1",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_walk1.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Idol_0_2",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_walk2.png",
+    "adaptation": "mirrored and padded"
+  },
+  {
+    "sprite": "Idol_1_0",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_side.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_1_1",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_1_2",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_2_0",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_2_1",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_2_2",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_back.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_3_0",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_idle.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_3_1",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_walk1.png",
+    "adaptation": "padded to a consistent canvas"
+  },
+  {
+    "sprite": "Idol_3_2",
+    "source": "Downloads\\toon-characters\\Robot\\PNG\\Poses HD\\character_robot_walk2.png",
+    "adaptation": "padded to a consistent canvas"
+  }
+]

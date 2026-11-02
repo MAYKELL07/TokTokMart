@@ -1,0 +1,27 @@
+PASS Template slots, names and capacity: Middle aisle Shelf 1 (15)
+PASS Every authored slot fills: Middle aisle Shelf 1
+PASS Template slots, names and capacity: Middle aisle Shelf 3 (15)
+PASS Every authored slot fills: Middle aisle Shelf 3
+PASS Template slots, names and capacity: Shelf 1 (12)
+PASS Every authored slot fills: Shelf 1
+PASS Template slots, names and capacity: Shelf 2 (12)
+PASS Every authored slot fills: Shelf 2
+PASS Template slots, names and capacity: Shelf 3 (12)
+PASS Every authored slot fills: Shelf 3
+PASS Template slots, names and capacity: Shelf 4 (12)
+PASS Every authored slot fills: Shelf 4
+PASS Template slots, names and capacity: Shelf 5 (12)
+PASS Every authored slot fills: Shelf 5
+PASS Template slots, names and capacity: Shelf 6 (12)
+PASS Every authored slot fills: Shelf 6
+PASS Quiet opening has a four-second first-arrival delay
+PASS Level 1 ramps from 2 to 6 customers, intervals 11.7s to 2.9s
+PASS Later levels raise both opening and closing traffic
+PASS Player and partner do not open customer entrance
+PASS Customer triggers tween and waits for leaf clearance
+PASS Customer entrance fully opens
+PASS Door holds open briefly after customer clears
+PASS Door tweens closed after customer clears
+PASS Long wait produces angry mood before abandonment
+PASS Angry unpaid customer leaves queue with one penalty
+PASS Ten-minute ramp, entrance and register regression: 133 served, 133 departed, 0 prolonged blocks

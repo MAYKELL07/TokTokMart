@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 457a65a100f75d44d8cc9a8f39cd22f7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1220423520098495699
+    second: GoblinWalk_Sheet_60FPS_0
+  - first:
+      213: 7853012045856707841
+    second: GoblinWalk_Sheet_60FPS_1
+  - first:
+      213: 1121083141685876777
+    second: GoblinWalk_Sheet_60FPS_2
+  - first:
+      213: 9216849907033070285
+    second: GoblinWalk_Sheet_60FPS_3
+  - first:
+      213: -447271035289231739
+    second: GoblinWalk_Sheet_60FPS_4
+  - first:
+      213: -2814950819114689464
+    second: GoblinWalk_Sheet_60FPS_5
+  - first:
+      213: 4862796137513398872
+    second: GoblinWalk_Sheet_60FPS_6
+  - first:
+      213: 5073822195475101571
+    second: GoblinWalk_Sheet_60FPS_7
+  - first:
+      213: 6121556888722503813
+    second: GoblinWalk_Sheet_60FPS_8
+  - first:
+      213: -7044597124782611428
+    second: GoblinWalk_Sheet_60FPS_9
+  - first:
+      213: 8294275975886639551
+    second: GoblinWalk_Sheet_60FPS_10
+  - first:
+      213: -9039645014907695674
+    second: GoblinWalk_Sheet_60FPS_11
+  - first:
+      213: 3244977508062164584
+    second: GoblinWalk_Sheet_60FPS_12
+  - first:
+      213: 3448035849709831747
+    second: GoblinWalk_Sheet_60FPS_13
+  - first:
+      213: 7643035053516194168
+    second: GoblinWalk_Sheet_60FPS_14
+  - first:
+      213: -6345158475956934798
+    second: GoblinWalk_Sheet_60FPS_15
+  - first:
+      213: 2257217016617082462
+    second: GoblinWalk_Sheet_60FPS_16
+  - first:
+      213: -809114666828764401
+    second: GoblinWalk_Sheet_60FPS_17
+  - first:
+      213: -2748409048903144326
+    second: GoblinWalk_Sheet_60FPS_18
+  - first:
+      213: 2208586948321131792
+    second: GoblinWalk_Sheet_60FPS_19
+  - first:
+      213: 6381256682087756472
+    second: GoblinWalk_Sheet_60FPS_20
+  - first:
+      213: 7871548032691370735
+    second: GoblinWalk_Sheet_60FPS_21
+  - first:
+      213: -7660626583201869494
+    second: GoblinWalk_Sheet_60FPS_22
+  - first:
+      213: 5850650313613474369
+    second: GoblinWalk_Sheet_60FPS_23
+  - first:
+      213: -1904987236279896862
+    second: GoblinWalk_Sheet_60FPS_24
+  - first:
+      213: -1004847423358719198
+    second: GoblinWalk_Sheet_60FPS_25
+  - first:
+      213: -8076104756723529585
+    second: GoblinWalk_Sheet_60FPS_26
+  - first:
+      213: -4790386724581570909
+    second: GoblinWalk_Sheet_60FPS_27
+  - first:
+      213: 2136380230405123815
+    second: GoblinWalk_Sheet_60FPS_28
+  - first:
+      213: -1687586817829930096
+    second: GoblinWalk_Sheet_60FPS_29
+  - first:
+      213: 6797701023918594847
+    second: GoblinWalk_Sheet_60FPS_30
+  - first:
+      213: -872478247836450131
+    second: GoblinWalk_Sheet_60FPS_31
+  - first:
+      213: 1681524141263702295
+    second: GoblinWalk_Sheet_60FPS_32
+  - first:
+      213: -6667712000637770434
+    second: GoblinWalk_Sheet_60FPS_33
+  - first:
+      213: 4070941481463104025
+    second: GoblinWalk_Sheet_60FPS_34
+  - first:
+      213: -2841680922488064887
+    second: GoblinWalk_Sheet_60FPS_35
+  - first:
+      213: 4742344704029146012
+    second: GoblinWalk_Sheet_60FPS_36
+  - first:
+      213: 3479411955691558030
+    second: GoblinWalk_Sheet_60FPS_37
+  - first:
+      213: -6088642233758307868
+    second: GoblinWalk_Sheet_60FPS_38
+  - first:
+      213: 6970729846846152297
+    second: GoblinWalk_Sheet_60FPS_39
+  - first:
+      213: -6834968850106993754
+    second: GoblinWalk_Sheet_60FPS_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1300
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d235ff8464f201fe0800000000000000
+      internalID: -1220423520098495699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_1
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1301
+        width: 162
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 105172249d08bfc60800000000000000
+      internalID: 7853012045856707841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_2
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 1301
+        width: 162
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9289dd77d23ee8f00800000000000000
+      internalID: 1121083141685876777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_3
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1302
+        width: 162
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca5cc05824d8ef70800000000000000
+      internalID: 9216849907033070285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_4
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 1302
+        width: 162
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e9347fc59fac9f0800000000000000
+      internalID: -447271035289231739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_5
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 1302
+        width: 162
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c597ee4294fe8d0800000000000000
+      internalID: -2814950819114689464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_6
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 1302
+        width: 162
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 852b0a7a25f1c7340800000000000000
+      internalID: 4862796137513398872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_7
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1046
+        width: 162
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38739ce8766d96640800000000000000
+      internalID: 5073822195475101571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_8
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1045
+        width: 162
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58876a09e8324f450800000000000000
+      internalID: 6121556888722503813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_9
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 1045
+        width: 162
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1428972d309c3e90800000000000000
+      internalID: -7044597124782611428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_10
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1045
+        width: 162
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb197cb1e003b1370800000000000000
+      internalID: 8294275975886639551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_11
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 1045
+        width: 162
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cdcbc6c0cabc8280800000000000000
+      internalID: -9039645014907695674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_12
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 1045
+        width: 162
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8667d28d9d9780d20800000000000000
+      internalID: 3244977508062164584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_13
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 1045
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34644ca3652e9df20800000000000000
+      internalID: 3448035849709831747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_14
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 789
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87101baf2e3811a60800000000000000
+      internalID: 7643035053516194168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_15
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 788
+        width: 162
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2772705fbf771f7a0800000000000000
+      internalID: -6345158475956934798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_16
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 788
+        width: 162
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e9d68daee335f10800000000000000
+      internalID: 2257217016617082462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_17
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 788
+        width: 162
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0bec155f7275c4f0800000000000000
+      internalID: -809114666828764401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_18
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 788
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7ca8ae1880bbd9d0800000000000000
+      internalID: -2748409048903144326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_19
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 788
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01dbe3eb02a76ae10800000000000000
+      internalID: 2208586948321131792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_20
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 788
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2bd6c9427ce8850800000000000000
+      internalID: 6381256682087756472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_21
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 532
+        width: 162
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fea7ef00b3b5d3d60800000000000000
+      internalID: 7871548032691370735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_22
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 533
+        width: 162
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a419657d5bcffa590800000000000000
+      internalID: -7660626583201869494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_23
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 533
+        width: 162
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a75ff467fa13150800000000000000
+      internalID: 5850650313613474369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_24
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 533
+        width: 162
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e432ef93302095e0800000000000000
+      internalID: -1904987236279896862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_25
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 534
+        width: 162
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22bac35a7901e02f0800000000000000
+      internalID: -1004847423358719198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_26
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 534
+        width: 162
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f88c6a64389ebef80800000000000000
+      internalID: -8076104756723529585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_27
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 534
+        width: 162
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a6819097a0258db0800000000000000
+      internalID: -4790386724581570909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_28
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 278
+        width: 162
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eee6722082f5ad10800000000000000
+      internalID: 2136380230405123815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_29
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 278
+        width: 162
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b7d9bfabc7498e0800000000000000
+      internalID: -1687586817829930096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_30
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 278
+        width: 162
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b1af3c019465e50800000000000000
+      internalID: 6797701023918594847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_31
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 277
+        width: 162
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da2047bf7a554e3f0800000000000000
+      internalID: -872478247836450131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_32
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 277
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71944412c49f55710800000000000000
+      internalID: 1681524141263702295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_33
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 277
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e35606133478773a0800000000000000
+      internalID: -6667712000637770434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_34
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 277
+        width: 162
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 912c20865b3ee7830800000000000000
+      internalID: 4070941481463104025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_35
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 20
+        width: 162
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9843812c1425098d0800000000000000
+      internalID: -2841680922488064887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_36
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 20
+        width: 162
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9bbc1ed16130d140800000000000000
+      internalID: 4742344704029146012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_37
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 20
+        width: 162
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e841e3e2dba594030800000000000000
+      internalID: 3479411955691558030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_38
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 20
+        width: 162
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e9256cb52cc08ba0800000000000000
+      internalID: -6088642233758307868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_39
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 20
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e5a7afcd10db060800000000000000
+      internalID: 6970729846846152297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinWalk_Sheet_60FPS_40
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 20
+        width: 162
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a333864b005521a0800000000000000
+      internalID: -6834968850106993754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GoblinWalk_Sheet_60FPS_0: -1220423520098495699
+      GoblinWalk_Sheet_60FPS_1: 7853012045856707841
+      GoblinWalk_Sheet_60FPS_10: 8294275975886639551
+      GoblinWalk_Sheet_60FPS_11: -9039645014907695674
+      GoblinWalk_Sheet_60FPS_12: 3244977508062164584
+      GoblinWalk_Sheet_60FPS_13: 3448035849709831747
+      GoblinWalk_Sheet_60FPS_14: 7643035053516194168
+      GoblinWalk_Sheet_60FPS_15: -6345158475956934798
+      GoblinWalk_Sheet_60FPS_16: 2257217016617082462
+      GoblinWalk_Sheet_60FPS_17: -809114666828764401
+      GoblinWalk_Sheet_60FPS_18: -2748409048903144326
+      GoblinWalk_Sheet_60FPS_19: 2208586948321131792
+      GoblinWalk_Sheet_60FPS_2: 1121083141685876777
+      GoblinWalk_Sheet_60FPS_20: 6381256682087756472
+      GoblinWalk_Sheet_60FPS_21: 7871548032691370735
+      GoblinWalk_Sheet_60FPS_22: -7660626583201869494
+      GoblinWalk_Sheet_60FPS_23: 5850650313613474369
+      GoblinWalk_Sheet_60FPS_24: -1904987236279896862
+      GoblinWalk_Sheet_60FPS_25: -1004847423358719198
+      GoblinWalk_Sheet_60FPS_26: -8076104756723529585
+      GoblinWalk_Sheet_60FPS_27: -4790386724581570909
+      GoblinWalk_Sheet_60FPS_28: 2136380230405123815
+      GoblinWalk_Sheet_60FPS_29: -1687586817829930096
+      GoblinWalk_Sheet_60FPS_3: 9216849907033070285
+      GoblinWalk_Sheet_60FPS_30: 6797701023918594847
+      GoblinWalk_Sheet_60FPS_31: -872478247836450131
+      GoblinWalk_Sheet_60FPS_32: 1681524141263702295
+      GoblinWalk_Sheet_60FPS_33: -6667712000637770434
+      GoblinWalk_Sheet_60FPS_34: 4070941481463104025
+      GoblinWalk_Sheet_60FPS_35: -2841680922488064887
+      GoblinWalk_Sheet_60FPS_36: 4742344704029146012
+      GoblinWalk_Sheet_60FPS_37: 3479411955691558030
+      GoblinWalk_Sheet_60FPS_38: -6088642233758307868
+      GoblinWalk_Sheet_60FPS_39: 6970729846846152297
+      GoblinWalk_Sheet_60FPS_4: -447271035289231739
+      GoblinWalk_Sheet_60FPS_40: -6834968850106993754
+      GoblinWalk_Sheet_60FPS_5: -2814950819114689464
+      GoblinWalk_Sheet_60FPS_6: 4862796137513398872
+      GoblinWalk_Sheet_60FPS_7: 5073822195475101571
+      GoblinWalk_Sheet_60FPS_8: 6121556888722503813
+      GoblinWalk_Sheet_60FPS_9: -7044597124782611428
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
