@@ -9,6 +9,7 @@ namespace GokilKisah.Editor
 {
     public static class MobileDemoBuild
     {
+        public static bool IsBuildingDemo {get;private set;}
         [Serializable] class Toolchain {public string sdk;public string ndk;public string jdk;}
         static void ConfigureToolchain()
         {
@@ -42,9 +43,15 @@ namespace GokilKisah.Editor
             PlayerSettings.Android.useCustomKeystore=false;
             PlayerSettings.bundleVersion="0.2.0";PlayerSettings.Android.bundleVersionCode=2;
             EditorUserBuildSettings.buildAppBundle=false;Directory.CreateDirectory(Path.GetDirectoryName(path));
-            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{
-                scenes=new[]{"Assets/GokilKisah/Scenes/TokMartPitch.unity"},locationPathName=path,
-                target=BuildTarget.Android,options=BuildOptions.None});
+            BuildReport report;
+            IsBuildingDemo=true;
+            try
+            {
+                report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{
+                    scenes=new[]{"Assets/GokilKisah/Scenes/TokMartPitch.unity"},locationPathName=path,
+                    target=BuildTarget.Android,options=BuildOptions.None});
+            }
+            finally {IsBuildingDemo=false;}
             string result=report.summary.result+" / "+report.summary.totalErrors+" errors / "+report.summary.totalSize+" bytes";
             Directory.CreateDirectory("Verification/MobileDemo");File.WriteAllText("Verification/MobileDemo/build-result.txt",result);
             if(report.summary.result!=BuildResult.Succeeded)throw new Exception(result);

@@ -18,9 +18,9 @@ Menus and sliders read Input System pointer/touch input directly. Gameplay track
 
 ## Build
 
-Install Android Build Support for the exact editor version, with OpenJDK 17 and Android NDK r27c. Use the Unity-bundled SDK or a recent SDK with build-tools 36.0.0 and Android API 35 installed. Configure these under Unity Preferences > External Tools.
+Install Android Build Support for the exact editor version, with OpenJDK 17 and Android NDK r27c. Use the Unity-bundled SDK: command-line tools 16.0, platform-tools 36.0.0, build-tools 36.0.0 and Android API 35. Configure these under Unity Preferences > External Tools.
 
-Choose **Gokil Kisah > Build Android Demo APK**. Alternatively:
+Choose **Gokil Kisah > Build Android Demo APK**. This helper excludes unused AI inference shader variants from the demo; other builds retain the installed package behavior. Alternatively:
 
 ```powershell
 & 'PATH_TO_UNITY/Editor/Unity.exe' -batchmode -quit -projectPath . -buildTarget Android -executeMethod GokilKisah.Editor.MobileDemoBuild.BatchBuild -logFile Builds/android-build.log

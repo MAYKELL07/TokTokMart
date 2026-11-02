@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "applicationId": "com.toktokmart.demo",
+  "minSdk": 26,
+  "targetSdk": 35,
+  "abi": "arm64-v8a",
+  "apkBytes": 48782929,
+  "sha256": "c4ff7620647edf9b6a3aa3ebc423fd8db830765b28ca6345cdbadee70606b0cd",
+  "buildErrors": 0,
+  "signatureV2Verified": true,
+  "zipIntegrityVerified": true,
+  "pageAlignment16KiBVerified": true,
+  "mobileChecksPassed": 60,
+  "trafficChecksPassed": 27,
+  "simulatedMinutes": 10,
+  "servedCustomers": 133,
+  "completedTrips": 133,
+  "prolongedCustomerBlocks": 0,
+  "physicalDeviceTested": false
+}
