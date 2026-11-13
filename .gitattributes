@@ -169,3 +169,6 @@ Packages/packages-lock.json linguist-generated
 
 # Exceptions for .asset files such as lightning pre-baking
 LightingData.asset     binary
+
+# Canvas baking emits the editable prefab; collapse its generated YAML on GitHub.
+Assets/GokilKisah/Resources/TokMartEditableUI.prefab linguist-generated

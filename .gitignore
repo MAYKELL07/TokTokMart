@@ -125,3 +125,6 @@ Tools/*.local.json
 
 # Raw frames used to record the movement preview
 /Verification/Polish03/frames/
+
+# Local editable-UI recovery snapshots
+/UI-Backups/

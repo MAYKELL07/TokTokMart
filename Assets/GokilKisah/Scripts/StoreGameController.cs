@@ -71,8 +71,8 @@ namespace GokilKisah
         }
         void InitializeCanvas()
         {
-            font = Resources.Load<Font>("Fonts/Lato-Regular") ?? Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            boldFont = Resources.Load<Font>("Fonts/Lato-Bold") ?? font;
+            font = Resources.Load<Font>("Fonts/Bigbesty") ?? Resources.Load<Font>("Fonts/Lato-Regular") ?? Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            boldFont = Resources.Load<Font>("Fonts/Bigbesty") ?? Resources.Load<Font>("Fonts/Lato-Bold") ?? font;
             LoadArtistArt();
             shelves.Clear();
             InitializeSceneBindings();
@@ -115,8 +115,8 @@ namespace GokilKisah
             UpdatePolish();
             UpdateMobileControls();
             pulse+=Time.deltaTime;
-            if(mainMenu || !selected || gameOver || levelResults || settingsOpen || autoPaused || shiftBriefOpen) return;
-            float dt=Time.deltaTime; shiftTime+=dt;
+            if(mainMenu || !selected || gameOver || levelResults || settingsOpen || autoPaused || shiftBriefOpen || scoreGuideOpen) return;
+            float dt=Time.deltaTime; shiftTime+=dt;TickShiftFeedback(dt);
             if(!replay&&!verificationRunning)
             {
                 Vector2 dir=touchMove; var kb=Keyboard.current;
@@ -227,7 +227,7 @@ namespace GokilKisah
         }
         public void Interact()
         {
-            if(!selected||gameOver||levelResults||settingsOpen||autoPaused||shiftBriefOpen||replay && demoRoutine==null)return;
+            if(!selected||gameOver||levelResults||settingsOpen||autoPaused||shiftBriefOpen||scoreGuideOpen||replay && demoRoutine==null)return;
             if(skillType>=0) { AttemptSkill();return; }
             if(encounter==Encounter.Goblins&&!resolved&&Vector2.Distance(player,phone)<76) { if(!rayCalled) { PlaySound("Call");rayCalled=true;rayRemaining=tuning.rayWait;SetStep("02 / CALL MADE / WAIT FOR RAY","Uncle Ray is on his way. Continue tasks while goblins cause trouble."); } return; }
             if(encounter==Encounter.KKung&&!resolved&&Vector2.Distance(player,lightSwitch)<70) { PlaySound("Switch");lightsOn=true;resolved=true;SetStep("03 / FLUORESCENT LIGHTS ON","K-Kung disappears. Next encounter places the switch at a different location.");return; }
@@ -241,19 +241,20 @@ namespace GokilKisah
             if(Vector2.Distance(player,checkout)<135) {if(CustomerAtRegister()!=null)BeginSkill(1,CustomerAtRegister().id);else Toast("Wait for a shopper to reach the checkout.");return;}
             Toast("Move closer to a highlighted station");
         }
-        void BeginSkill(int type,int target) {PrepareTask(type);PlaySound("Click");playerVelocity=Vector2.zero;skillType=type;skillTarget=target;skillClock=0;skillScans=0;}
+        void BeginSkill(int type,int target) {PrepareTask(type);PlaySound("Click");playerVelocity=Vector2.zero;skillType=type;skillTarget=target;skillClock=0;skillScans=0;taskElapsed=0;taskLastAttempt=-1;taskFeedbackFailed=false;}
         float SkillMarker() {return Mathf.PingPong(skillClock*(skillType==2?.75f+.08f*taskCombo:.65f+.09f*taskCombo)*TaskDifficulty,1);}
         float SkillZoneCenter()=>skillType==0?.5f:taskCombo%2==0?.35f:.65f;
         float SkillZoneHalf()=>Mathf.Max(.07f,Mathf.Max(.11f,.18f-taskCombo*.025f)/TaskDifficulty);
         public bool AttemptSkill()
         {
-            if(skillType<0)return false; if(skillType==1)return SubmitPrice(); float marker=SkillMarker();
-            if(Mathf.Abs(marker-SkillZoneCenter())>SkillZoneHalf()){PlaySound("Miss");skillFlash=Time.unscaledTime+.25f;taskFeedback="Missed — aim for the highlighted zone.";Toast("Just missed! Try the green zone.");return false;}
+            if(skillType<0)return false; if(skillType==1)return SubmitPrice();
+            if(Time.unscaledTime<taskLastAttempt+.18f)return false;taskLastAttempt=Time.unscaledTime;float marker=SkillMarker();
+            if(Mathf.Abs(marker-SkillZoneCenter())>SkillZoneHalf()){RecordTaskMiss(marker<SkillZoneCenter()?"Left of the green zone":"Right of the green zone");return false;}
             PlaySound(skillType==1?"Scan":skillType==2?"Mop":"Stock");
-            taskCombo++;skillScans=taskCombo;taskFeedback="Nice! "+taskCombo+" / "+(skillType==0?3:4);if(taskCombo<(skillType==0?3:4)){skillClock=0;return true;}
+            taskFeedbackFailed=false;taskCombo++;skillScans=taskCombo;taskFeedback="Nice! "+taskCombo+" / "+(skillType==0?3:4);if(taskCombo<(skillType==0?3:4)){skillClock=0;return true;}
             if(skillType==0){shelfStock[skillTarget]=ShelfCapacity(skillTarget);carryingCrate=false;stockActions++;SetStep("03 / CHECKOUT / ENTER THE TOTAL","Move to checkout. Add up the receipt and enter the total on the keypad.");}
             else{if(skillTarget<spills.Count)spills.RemoveAt(skillTarget);hazardsCleared++;SetStep("05 / STORE LOOP COMPLETE","Crate, stocking, checkout and hazard clearing demonstrated. The AI partner keeps working.");}
-            skillType=-1;EnsureShiftCleanupWork();return true;
+            skillType=-1;chaos=Mathf.Max(0,chaos-6);Toast("Task complete! +"+(skillScans==3?150:100)+" objective points (up to goal)");EnsureShiftCleanupWork();return true;
         }
         int TotalStock(){int total=0;foreach(int n in shelfStock)total+=n;return total;}
         void ServeCustomer()
@@ -261,7 +262,7 @@ namespace GokilKisah
             var shopper=CustomerAtRegister();
             if(shopper==null)return;
             if(campaignActive)foreach(int item in shopper.items)salesCents+=groceryPrices[item];
-            LeaveRegister(shopper);served++;PlaySound("Confirm");
+            LeaveRegister(shopper);served++;chaos=Mathf.Max(0,chaos-2);PlaySound("Confirm");
         }
         public void StartReplay(Encounter next) {if(demoRoutine!=null)StopCoroutine(demoRoutine);demoRoutine=StartCoroutine(Demo(next));}
         IEnumerator Go(Vector2 goal)
@@ -318,13 +319,13 @@ namespace GokilKisah
             ResetRun(Encounter.Store);selected=false;
         }
         Color ActorColor(bool isZack) {return isZack?new Color(.53f,.64f,1):mint;}
-        void Fill(Rect r,Color c){if(drawingWorldOverlay){r=ClipWorldOverlay(r);if(r.width<=0||r.height<=0)return;}GUI.color=c;GUI.DrawTexture(r,Texture2D.whiteTexture);GUI.color=Color.white;}
-        void Text(Rect r,string value,int size,Color c,FontStyle weight=FontStyle.Normal,TextAnchor align=TextAnchor.UpperLeft)
-        {if(drawingWorldOverlay&&!WorldOverlayVisible(r))return;int pixels=size<28?Mathf.RoundToInt(size*textScale):size;int key=pixels*100+(int)weight*10+(int)align;if(!labelStyles.TryGetValue(key,out var style)){style=new GUIStyle(GUI.skin.label){font=weight==FontStyle.Bold?boldFont:font,fontSize=pixels,fontStyle=FontStyle.Normal,alignment=align,wordWrap=true,padding=new RectOffset(0,0,0,0)};labelStyles[key]=style;}style.normal.textColor=c;GUI.Label(r,value,style);}
+        void Fill(Rect r,Color c,string uiKey=""){using(NativeUiScope(uiKey,"Fill")){if(drawingWorldOverlay){r=ClipWorldOverlay(r);if(r.width<=0||r.height<=0)return;}GUI.color=c;EditableTexture(r,Texture2D.whiteTexture);GUI.color=Color.white;}}
+        void Text(Rect r,string value,int size,Color c,FontStyle weight=FontStyle.Normal,TextAnchor align=TextAnchor.UpperLeft,string uiKey="")
+        {using(NativeUiScope(uiKey,"Text: "+value)){if(drawingWorldOverlay&&!WorldOverlayVisible(r))return;int pixels=size<28?Mathf.RoundToInt(size*textScale):size;int key=pixels*100+(int)weight*10+(int)align;if(!labelStyles.TryGetValue(key,out var style)){style=new GUIStyle(GUI.skin.label){font=weight==FontStyle.Bold?boldFont:font,fontSize=pixels,fontStyle=FontStyle.Normal,alignment=align,wordWrap=true,padding=new RectOffset(0,0,0,0)};labelStyles[key]=style;}style.normal.textColor=c;EditableLabel(r,value,style);}}
         readonly Dictionary<int,GUIStyle> labelStyles=new Dictionary<int,GUIStyle>();
-        bool Button(Rect r,string value,Color c,int size=16)
-        {return UiButton(r,value,c,size);}
-        void Bar(Rect r,float fraction,Color c){Fill(r,new Color(.14f,.23f,.29f));Fill(new Rect(r.x,r.y,r.width*Mathf.Clamp01(fraction),r.height),c);}
+        bool Button(Rect r,string value,Color c,int size=16,string uiKey="")
+        {using(NativeUiScope(uiKey,"Button")){return UiButton(r,value,c,size, uiKey:"StoreGameController_25424");}}
+        void Bar(Rect r,float fraction,Color c){Fill(r,new Color(.14f,.23f,.29f), uiKey:"StoreGameController_25499");Fill(new Rect(r.x,r.y,r.width*Mathf.Clamp01(fraction),r.height),c, uiKey:"StoreGameController_25533");}
         void Actor(Vector2 p,string title,Color c,bool ai=false)
         {
             DrawArtistActor(p,title,ai);
@@ -332,8 +333,8 @@ namespace GokilKisah
         void Station(Vector2 p,string label,Color c,string symbol)
         {
             DrawArtistStation(p,symbol);
-            Text(new Rect(p.x-76,p.y+29,152,24),label,13,ink,FontStyle.Bold,TextAnchor.MiddleCenter);
-            if(Vector2.Distance(player,p)<75) {Text(new Rect(p.x-30,p.y-48,60,22),"ACTION",11,new Color(.05f,.4f,.3f),FontStyle.Bold,TextAnchor.MiddleCenter);}
+            Text(new Rect(p.x-76,p.y+29,152,24),label,13,ink,FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"StoreGameController_25858");
+            if(Vector2.Distance(player,p)<75) {Text(new Rect(p.x-30,p.y-48,60,22),"ACTION",11,new Color(.05f,.4f,.3f),FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"StoreGameController_25995");}
         }
     }
 }

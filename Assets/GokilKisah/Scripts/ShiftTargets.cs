@@ -14,7 +14,7 @@ namespace GokilKisah
             int n=Mathf.Clamp(shift,1,10000)-1;
             serve=3+n;stock=1+n/3;clean=1+n/4;
             workloadSeconds=serve*8+stock*16+clean*12;
-            duration=150+workloadSeconds;
+            duration=120+workloadSeconds;
         }
     }
 }

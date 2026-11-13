@@ -1,8 +1,21 @@
-# TokTokMart mobile demo
+# TokTokMart demo 0.4.0
 
 Unity 6.3 LTS **6000.3.9f1**. Open `Assets/GokilKisah/Scenes/TokMartPitch.unity` and press Play.
 
+Prebuilt Android APK and Windows x64 ZIP: [GitHub release 0.4.0](https://github.com/MAYKELL07/TokTokMart/releases/tag/v0.4.0-demo). Extract the Windows ZIP before running `TokTokMart.exe`.
+
 The November demo includes the supplied storefront illustration, logo, UI, Sam and Zack portraits and walk cycles, and Toyol encounter animation. The existing shop, storage room, customer traffic, checkout, restocking, cleaning and encounters are retained.
+
+## November 11 update (0.4.0)
+
+- New Bigbesty typeface and the supplied task cards, star, touch controls, counter and storage-box artwork.
+- Main-menu level selection with locked shifts, saved best scores and up to three stars per shift.
+- Fixed objective points plus visible accuracy, speed and chaos bonuses. The briefing, scoring guide and results show the same thresholds. Money is separate from the star score.
+- Customer patience bars, task deadlines, countdown warnings and explicit feedback for missed timing and wrong receipt totals.
+- Editable Canvas screens and native buttons/sliders, with the existing gameplay bindings retained.
+- Returning bosses respect the selected shift's milestone difficulty when replaying older levels.
+
+See [the design and scoring notes](GAME-DESIGN-NOVEMBER11.md) and [verification summary](Verification/November11/summary.txt). All 127 scoring, Canvas and touch checks passed. Full shifts 1 and 5 completed with perfect scores (1050/1050 and 1900/1900).
 
 ## Android demo
 
@@ -36,7 +49,7 @@ Source hashes, Play Mode checks and screenshots are in `Verification/MobileDemo`
 
 Additional art/audio/font credits: `Assets/GokilKisah/ASSET-CREDITS.md` and the included third-party license files. Supplied TokTokMart artwork retains its original ownership.
 
-## Movement and shift polish (0.3.0)
+## Movement and shift goals
 
 Gaits follow actual ground distance after collisions, with uninterrupted phase when switching between walking and sprinting. Idle uses the supplied standing artwork. Footstep contacts follow the same stride; blocked movement, pause and teleports produce no extra footsteps. The supplied walk cycles are retimed for sprinting; no separate run drawings were supplied.
 
@@ -44,10 +57,10 @@ Every shift opens with a goal briefing before its timer starts. Customer targets
 
 | Shift | Customers | Restocks | Cleanups | Time |
 | --- | ---: | ---: | ---: | ---: |
-| 1 | 3 | 1 | 1 | 3:22 |
-| 2 | 4 | 1 | 1 | 3:30 |
-| 5 | 7 | 2 | 2 | 4:22 |
-| 10 | 12 | 4 | 3 | 5:46 |
-| 20 | 22 | 7 | 5 | 8:18 |
+| 1 | 3 | 1 | 1 | 2:52 |
+| 2 | 4 | 1 | 1 | 3:00 |
+| 5 | 7 | 2 | 2 | 3:52 |
+| 10 | 12 | 4 | 3 | 5:16 |
+| 20 | 22 | 7 | 5 | 7:48 |
 
 Boss encounters remain every fifth shift. Completing all targets and any required boss unlocks the next shift. The HUD shows goal progress and shop chaos. Movement/shift checks, the first 20 shifts' curve, and a recorded walk/run preview are in `Verification/Polish03`.

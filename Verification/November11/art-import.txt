@@ -1,0 +1,19 @@
+Updated source: Environment, Props/Art_TTM_Env_CounterTable01.png
+Updated source: Environment, Props/Art_TTM_Env_StorageBox01.png
+Updated source: Font/Bigbesty.ttf
+Updated source: UI/Art_TTM_UI_CheckoutCard01.png
+Updated source: UI/Art_TTM_UI_HazardCard01.png
+Updated source: UI/Art_TTM_UI_InteractButton01.png
+Updated source: UI/Art_TTM_UI_MoneyCount01.png
+Updated source: UI/Art_TTM_UI_ProgressBar01.png
+Updated source: UI/Art_TTM_UI_ProgressBar01a.png
+Updated source: UI/Art_TTM_UI_PuddleCard01.png
+Updated source: UI/Art_TTM_UI_SprintButton01.png
+Updated source: UI/Asset 12.png
+Updated source: UI/Asset 13.png
+Updated source: UI/Asset 14.png
+Updated source: UI/Asset 15.png
+Updated source: UI/Asset 16.png
+Updated source: UI/Asset 17.png
+Bigbesty font imported and applied to authored Canvas text.
+Updated UI art, 3-star icon, counter and storage box installed; original interaction geometry retained.

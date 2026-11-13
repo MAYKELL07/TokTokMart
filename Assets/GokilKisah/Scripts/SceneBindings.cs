@@ -206,7 +206,7 @@ namespace GokilKisah
                 alive.Add(c.id);
                 if(!shopperViews.TryGetValue(c.id,out var view)||!view)
                 {view=SpawnView(shop.customerTemplate,"Customer "+c.id);view.gameObject.AddComponent<CustomerMoodPresentation>();shopperViews[c.id]=view;}
-                view.GetComponent<CustomerMoodPresentation>().SetFrustration(CustomerFrustration(c));
+                view.GetComponent<CustomerMoodPresentation>().SetFrustration(CustomerFrustration(c),c.state==ShopperState.Queuing);
                 if(view.heldStock)view.heldStock.gameObject.SetActive(c.basket>0);
                 view.Apply(c.position,c.facing,customerSkinRows[c.id%3],c.motion,pulse+c.id*.14f);
             }

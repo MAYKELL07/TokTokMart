@@ -34,7 +34,7 @@ namespace GokilKisah
         void DrawStamina()
         {
             if(!selected)return;
-            Text(new Rect(200,16,110,40),"Stamina",20,ink,FontStyle.Normal,TextAnchor.MiddleLeft);
+            Text(new Rect(200,16,110,40),"Stamina",20,ink,FontStyle.Normal,TextAnchor.MiddleLeft, uiKey:"SprintAndRinggit_1559");
             Bar(new Rect(316,32,150,8),Stamina/maxStamina,sprintExhausted?red:teal);
         }
         static string Ringgit(int sen)=>"RM "+RinggitNumber(sen);

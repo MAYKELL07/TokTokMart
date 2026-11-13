@@ -1,0 +1,81 @@
+{
+  "version": "0.4.0",
+  "versionCode": 4,
+  "applicationId": "com.toktokmart.demo",
+  "minSdk": 26,
+  "targetSdk": 35,
+  "abi": "arm64-v8a",
+  "apkBytes": 49596527,
+  "sha256": "49aa13c8f0d834e1ef79b63718ca18f337fd22782b7fd0b6e4b8b92114dccaf7",
+  "buildErrors": 0,
+  "signatureV2Verified": true,
+  "upgradeCertificateMatches030": true,
+  "zipIntegrityVerified": true,
+  "alignment16KiBVerified": true,
+  "nativeLibraries": [
+    {
+      "name": "lib/arm64-v8a/lib_burst_generated.so",
+      "loadAlignment": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libc++_shared.so",
+      "loadAlignment": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libgame.so",
+      "loadAlignment": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libil2cpp.so",
+      "loadAlignment": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libmain.so",
+      "loadAlignment": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libswappywrapper.so",
+      "loadAlignment": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libunity.so",
+      "loadAlignment": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    }
+  ],
+  "gameplayCanvasAndTouchChecksPassed": 127,
+  "fullShiftPlaythroughsPassed": 2,
+  "physicalDeviceTested": false
+}

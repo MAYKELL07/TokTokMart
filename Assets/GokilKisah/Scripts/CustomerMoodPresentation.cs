@@ -8,8 +8,8 @@ namespace GokilKisah
         CharacterSpriteAnimator actor;
         SpriteRenderer mark;
         Color normal;
-        float frustration;
-        static Sprite angerSprite;
+        float frustration;bool queuing;SpriteRenderer patienceBack,patienceFill;
+        static Sprite angerSprite,patienceSprite;
         void Awake()
         {
             actor=GetComponent<CharacterSpriteAnimator>();normal=actor.artwork.color;
@@ -29,10 +29,19 @@ namespace GokilKisah
             var go=new GameObject("Anger expression");go.transform.SetParent(transform,false);
             mark=go.AddComponent<SpriteRenderer>();mark.sprite=angerSprite;mark.color=new Color(.94f,.18f,.12f);mark.enabled=false;
         }
-        public void SetFrustration(float amount){frustration=amount;}
+        public void SetFrustration(float amount,bool waiting=false){frustration=amount;queuing=waiting;}
+        void EnsurePatience()
+        {
+            if(patienceBack)return;
+            SpriteRenderer Make(string name,int order){var go=new GameObject(name);go.transform.SetParent(transform,false);var r=go.AddComponent<SpriteRenderer>();if(!patienceSprite)patienceSprite=Sprite.Create(Texture2D.whiteTexture,new Rect(0,0,1,1),Vector2.one*.5f,1);r.sprite=patienceSprite;r.sortingOrder=order;return r;}
+            patienceBack=Make("Patience track",10000);patienceFill=Make("Patience remaining",10001);
+        }
         void LateUpdate()
         {
             if(!actor||!actor.artwork)return;
+            EnsurePatience();bool visible=queuing&&actor.artwork.enabled;patienceBack.enabled=patienceFill.enabled=visible;
+            if(visible){var bounds=actor.artwork.bounds;float left=1-frustration;var pos=new Vector3(bounds.center.x,bounds.max.y+.13f,0);patienceBack.transform.position=pos;patienceBack.transform.localScale=new Vector3(.55f,.075f,1);patienceBack.color=new Color(.10f,.16f,.18f);patienceFill.transform.position=pos+new Vector3(-.25f*(1-left),0,0);patienceFill.transform.localScale=new Vector3(.50f*left,.045f,1);patienceFill.color=left<.25f?new Color(1,.25f,.2f):left<.5f?new Color(1,.75f,.2f):new Color(.3f,.85f,.45f);}
+
             float annoyed=Mathf.InverseLerp(.45f,.85f,frustration);
             actor.artwork.color=Color.Lerp(normal,new Color(1,.68f,.57f,normal.a),annoyed*.45f);
             mark.enabled=frustration>=.75f&&actor.artwork.enabled;

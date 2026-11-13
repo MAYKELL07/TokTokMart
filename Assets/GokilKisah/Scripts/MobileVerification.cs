@@ -22,6 +22,9 @@ namespace GokilKisah
             yield return null;yield return null;
             InputSystem.QueueStateEvent(device,new TouchState{touchId=502,phase=UnityEngine.InputSystem.TouchPhase.Ended,position=position});
             yield return null;yield return null;yield return new WaitForEndOfFrame();
+            // Retained Canvas binds the new screen during Repaint, after input dispatch.
+            // Wait for that visible layout before the next simulated pointer-down.
+            yield return null;yield return new WaitForEndOfFrame();
         }
         public void BeginMobileVerification(string directory)=>StartCoroutine(MobileVerification(directory));
         IEnumerator MobileVerification(string directory)

@@ -1,0 +1,7 @@
+Gameplay and scoring: 57 passed; 0 failed.
+Canvas UI: 10 passed; 0 failed.
+Touch input and art: 60 passed; 0 failed.
+Complete playthroughs: 2 passed; 0 failed.
+Manual Computer-plugin checks: level map, saved locks, character selection, briefing and scoring guide passed.
+Unity compilation succeeded. Source whitespace check clean. Editable Canvas saved with 3081 elements.
+Shift 1: 79.0/172s, 1050/1050 points, 3 stars. Boss shift 5: 161.5/232s, 1900/1900 points, 3 stars.

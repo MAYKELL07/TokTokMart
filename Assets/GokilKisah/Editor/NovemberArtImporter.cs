@@ -22,7 +22,7 @@ namespace GokilKisah.Editor
         {
             var t=new Texture2D(2,2);if(!t.LoadImage(File.ReadAllBytes(path)))throw new IOException(path);return t;
         }
-        static void ImportUI(string input,string output,int max=512)
+        public static void ImportUI(string input,string output,int max=512)
         {
             var t=Read(Source+input);var b=Bounds(t.GetPixels32(),t.width,t.height);
             var crop=new Texture2D(b.width,b.height,TextureFormat.RGBA32,false);

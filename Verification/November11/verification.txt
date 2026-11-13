@@ -1,0 +1,59 @@
+PASS Perfect score is reachable and totals exactly 1050 on shift one
+PASS Full bonus includes the exact 70% time and 15% chaos boundaries (1050 pts)
+PASS Speed bonus switches only at the advertised boundaries
+PASS Chaos bands match the scoring guide
+PASS Three stars begins exactly at the displayed threshold
+PASS Two stars begins at objectives +300; completion still earns one star
+PASS An incomplete shift earns zero stars and no completion bonuses
+PASS Repeating tasks and extra customers cannot farm rating points
+PASS A timing miss records a visible 25-point accuracy deduction
+PASS Input debounce prevents repeated misses in the same frame
+PASS Task timeout exits safely, keeps the crate and applies one penalty
+PASS Wrong checkout total is explained and does not complete a sale
+PASS Correct checkout records actual revenue separately from fixed rating points
+PASS Customer patience expires even during checkout; stale receipt closes
+PASS A boss shift requires its boss as well as every task target
+PASS Replaying an opening shift cannot import bosses unlocked in later shifts
+PASS Returning bosses respect the selected shift's milestone difficulty
+PASS Playable work, capped timing difficulty and patience on shift 1
+PASS Playable work, capped timing difficulty and patience on shift 2
+PASS Playable work, capped timing difficulty and patience on shift 3
+PASS Playable work, capped timing difficulty and patience on shift 4
+PASS Playable work, capped timing difficulty and patience on shift 5
+PASS Playable work, capped timing difficulty and patience on shift 6
+PASS Playable work, capped timing difficulty and patience on shift 7
+PASS Playable work, capped timing difficulty and patience on shift 8
+PASS Playable work, capped timing difficulty and patience on shift 9
+PASS Playable work, capped timing difficulty and patience on shift 10
+PASS Playable work, capped timing difficulty and patience on shift 11
+PASS Playable work, capped timing difficulty and patience on shift 12
+PASS Playable work, capped timing difficulty and patience on shift 13
+PASS Playable work, capped timing difficulty and patience on shift 14
+PASS Playable work, capped timing difficulty and patience on shift 15
+PASS Playable work, capped timing difficulty and patience on shift 16
+PASS Playable work, capped timing difficulty and patience on shift 17
+PASS Playable work, capped timing difficulty and patience on shift 18
+PASS Playable work, capped timing difficulty and patience on shift 19
+PASS Playable work, capped timing difficulty and patience on shift 20
+PASS Completing every objective awards the three-star result
+PASS Replaying old shifts preserves later unlocks and saves best stars
+PASS A worse replay never overwrites the best score or stars
+PASS Level map starts on an unlocked shift
+PASS New star, task cards and separate progress-bar art load
+PASS Bigbesty is applied to every visible Canvas text
+PASS Native Canvas level-map buttons are interactable
+PASS New counter and storage-box artwork exist in the playable scene
+PASS Gameplay route retained to (1630.00, -170.00)
+PASS Gameplay route retained to (1730.00, 473.10)
+PASS Gameplay route retained to (1835.00, 191.90)
+PASS Gameplay route retained to (1240.00, 84.60)
+PASS Gameplay route retained to (493.00, 136.60)
+PASS Gameplay route retained to (1030.00, 138.60)
+PASS Gameplay route retained to (500.00, 415.87)
+PASS Gameplay route retained to (1000.00, 415.87)
+PASS Gameplay route retained to (1470.00, 415.87)
+PASS Gameplay route retained to (500.00, 648.97)
+PASS Gameplay route retained to (1000.00, 648.97)
+PASS Gameplay route retained to (1470.00, 648.97)
+
+57 checks; 0 failures.

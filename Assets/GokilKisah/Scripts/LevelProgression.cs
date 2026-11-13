@@ -8,7 +8,7 @@ namespace GokilKisah
 {
     public sealed partial class StoreGameController
     {
-        const string LevelSave="TokMart.Campaign.NextLevel", BossSave="TokMart.Campaign.Bosses";
+        const string LevelSave="TokMart.Campaign.NextLevel", BossSave="TokMart.Campaign.Bosses", UnlockSave="TokMart.Campaign.HighestUnlocked";
         public int CurrentLevel {get;private set;}=1;
         public int UnlockedBossMask {get;private set;}
         public bool LevelResultsVisible=>levelResults;
@@ -27,10 +27,10 @@ namespace GokilKisah
         public float ShiftRush=>Mathf.SmoothStep(0,1,Mathf.Clamp01(shiftTime/(campaignActive?ShiftBudget:240f)));
         public float CurrentArrivalInterval=>Mathf.Max(1.4f,(campaignActive?ArrivalInterval:4.5f)*Mathf.Lerp(2.6f,.65f,ShiftRush));
         public int CustomerLimit=>Mathf.RoundToInt(Mathf.Lerp(campaignActive?Mathf.Min(5,2+(CurrentLevel-1)/5):2,campaignActive?Mathf.Min(10,6+(CurrentLevel-1)/3):6,ShiftRush));
-        public float CustomerPatience=>Mathf.Max(28,85/(1+(CurrentLevel-1)*.045f));
-        public float TaskDifficulty=>campaignActive?Mathf.Min(1.65f,1+(CurrentLevel-1)*.025f):1;
+        public float CustomerPatience=>Mathf.Max(45,95/(1+(CurrentLevel-1)*.025f));
+        public float TaskDifficulty=>campaignActive?Mathf.Min(1.35f,1+(CurrentLevel-1)*.018f):1;
         public static Encounter MilestoneBoss(int level)=>(Encounter)(1+((Mathf.Max(5,level)/5-1)%4));
-        int SavedLevel=>Mathf.Max(1,PlayerPrefs.GetInt(LevelSave,1));
+        int SavedLevel=>canvasPreviewLevel>0?canvasPreviewLevel:chosenLevel>0?chosenLevel:Mathf.Max(1,PlayerPrefs.GetInt(LevelSave,1));
 
         public void BeginCampaignLevel(int level,bool persist=true)
         {
@@ -40,7 +40,7 @@ namespace GokilKisah
             customerArrival=Mathf.Max(1.5f,4f/(1+(CurrentLevel-1)*.065f));
             UnlockedBossMask=PlayerPrefs.GetInt(BossSave,0)&15;
             mandatoryBossPending=CurrentLevel%5==0;bossActive=false;
-            salesCents=0;missedCustomers=0;priceMistakes=0;randomFights=0;levelFailure="";
+            salesCents=0;missedCustomers=0;priceMistakes=0;timingMistakes=0;randomFights=0;levelFailure="";milestoneCleared=false;ResetShiftFeedback();
             encounterRollClock=mandatoryBossPending?5:UnityEngine.Random.Range(24f,42f);
             tuning.boDeadline=Mathf.Max(11,21-CurrentLevel*.2f);
             tuning.rayWait=Mathf.Min(15,5+CurrentLevel*.3f);
@@ -48,7 +48,7 @@ namespace GokilKisah
             EnsureShiftCleanupWork();
             notifiedShiftGoals=0;
             shiftBriefOpen=!testing&&!verificationRunning&&!replay;
-            if(persist){PlayerPrefs.SetInt(LevelSave,CurrentLevel);PlayerPrefs.Save();}
+            if(persist){PlayerPrefs.SetInt(UnlockSave,Mathf.Max(HighestUnlocked,CurrentLevel));PlayerPrefs.SetInt(LevelSave,CurrentLevel);PlayerPrefs.Save();}
             SetStep("LEVEL "+CurrentLevel,"Serve customers, restock shelves, and clear spills before closing.");
             if(!shiftBriefOpen)Toast(mandatoryBossPending?"Boss shift: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]:"Shift "+CurrentLevel+" · Open for business");
             else noticeUntil=0;
@@ -56,7 +56,8 @@ namespace GokilKisah
         void SaveCampaignProgress(int nextLevel)
         {
             if(!campaignPersistence)return;
-            PlayerPrefs.SetInt(LevelSave,nextLevel);PlayerPrefs.SetInt(BossSave,UnlockedBossMask);PlayerPrefs.Save();
+            PlayerPrefs.SetInt(UnlockSave,Mathf.Max(HighestUnlocked,nextLevel));
+            PlayerPrefs.SetInt(LevelSave,nextLevel);PlayerPrefs.SetInt(BossSave,PlayerPrefs.GetInt(BossSave,0)|UnlockedBossMask);PlayerPrefs.Save();
         }
         void StartCampaignEncounter(Encounter next)
         {
@@ -73,7 +74,7 @@ namespace GokilKisah
         }
         Encounter PickUnlockedBoss()
         {
-            var pool=new List<Encounter>();for(int i=1;i<=4;i++)if((UnlockedBossMask&(1<<(i-1)))!=0)pool.Add((Encounter)i);
+            var pool=new List<Encounter>();for(int i=1;i<=4;i++)if(i*5<CurrentLevel&&(UnlockedBossMask&(1<<(i-1)))!=0)pool.Add((Encounter)i);
             return pool.Count==0?Encounter.Store:pool[UnityEngine.Random.Range(0,pool.Count)];
         }
         void TickCampaign(float dt,bool verification=false)
@@ -83,7 +84,7 @@ namespace GokilKisah
             if(gameOver){FinishCampaignLevel(false,"Bo beat the countdown.");return;}
             if(bossActive&&resolved)
             {
-                UnlockedBossMask|=1<<((int)encounter-1);bossActive=false;
+                UnlockedBossMask|=1<<((int)encounter-1);bossActive=false;if(CurrentLevel%5==0)milestoneCleared=true;chaos=Mathf.Max(0,chaos-35);
                 SaveCampaignProgress(CurrentLevel);
                 Toast(scenarioTitles[(int)encounter]+" defeated · Can now return at random");
                 encounter=Encounter.Store;encounterRollClock=UnityEngine.Random.Range(24f,42f);
@@ -107,7 +108,8 @@ namespace GokilKisah
             if(levelResults)return;
             levelResults=true;levelWon=won;gameOver=!won;levelFailure=reason;skillType=-1;
             playerVelocity=Vector2.zero;ReleaseMobileControls();heldKeys.Clear();shiftBriefOpen=false;
-            invoiceStars=won?Mathf.Clamp(4-(missedCustomers>0?1:0)-(priceMistakes>1?1:0)-(chaos>45||shiftTime>ShiftBudget*.8f?1:0),1,4):0;
+            invoiceStars=Rating(won).stars;
+            if(won&&campaignPersistence)SaveLevelBest();
             if(won){SaveCampaignProgress(CurrentLevel+1);PlaySound("Success");}else PlaySound("Miss");
         }
         string CampaignObjective()
@@ -120,18 +122,19 @@ namespace GokilKisah
         void DrawCampaignStatus()
         {
             if(!campaignActive||!selected||levelResults)return;
-            Panel(new Rect(24,92,390,92),surface);
-            Text(new Rect(40,102,355,28),"LEVEL "+CurrentLevel+(mandatoryBossPending||bossActive&&CurrentLevel%5==0?"  /  BOSS SHIFT":""),19,paper,FontStyle.Bold);
+            Panel(new Rect(24,92,390,92),surface, uiKey:"LevelProgression_7543");
+            Text(new Rect(40,102,355,28),"LEVEL "+CurrentLevel+(mandatoryBossPending||bossActive&&CurrentLevel%5==0?"  /  BOSS SHIFT":""),19,paper,FontStyle.Bold, uiKey:"LevelProgression_7594");
             float left=Mathf.Max(0,ShiftBudget-shiftTime);
-            Text(new Rect(40,136,355,28),"Closing in "+((int)left/60)+":"+((int)left%60).ToString("00")+"   ·   Chaos "+Mathf.RoundToInt(chaos)+"%",18,left<35?gold:mint);
+            Text(new Rect(40,136,355,28),"Closing in "+((int)left/60)+":"+((int)left%60).ToString("00")+"   ·   Chaos "+Mathf.RoundToInt(chaos)+"%",18,left<35?gold:mint, uiKey:"LevelProgression_7817");
             if(bossActive)
             {
-                Panel(new Rect(24,196,480,49),surface);
-                Text(new Rect(38,201,452,38),"Goals: "+served+"/"+ServeGoal+" served  ·  "+stockActions+"/"+StockGoal+" stocked  ·  "+hazardsCleared+"/"+CleanGoal+" cleaned",16,paper);
+                Panel(new Rect(24,196,480,49),surface, uiKey:"LevelProgression_8033");
+                Text(new Rect(38,201,452,38),"Goals: "+served+"/"+ServeGoal+" served  ·  "+stockActions+"/"+StockGoal+" stocked  ·  "+hazardsCleared+"/"+CleanGoal+" cleaned",16,paper, uiKey:"LevelProgression_8089");
             }
         }
         Texture2D InvoiceStar()
         {
+            var supplied=NovemberArt.UI("Star");if(supplied)return supplied;
             if(invoiceStar)return invoiceStar;
             invoiceStar=new Texture2D(96,96,TextureFormat.RGBA32,false){filterMode=FilterMode.Bilinear};
             var vertices=new Vector2[10];for(int i=0;i<10;i++){float angle=(90+i*36)*Mathf.Deg2Rad;vertices[i]=new Vector2(48,48)+new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*(i%2==0?45:20);}
@@ -145,24 +148,24 @@ namespace GokilKisah
         }
         void DrawLevelInvoice()
         {
-            Fill(new Rect(0,0,1600,900),new Color(.94f,.95f,.97f));var blue=new Color(.24f,.45f,.66f);var paleBlue=new Color(.34f,.56f,.76f);
-            Fill(new Rect(370,132,860,602),blue);Panel(new Rect(346,104,908,82),paleBlue,true);
-            Text(new Rect(410,202,780,65),levelWon?"Invoice":"Shift interrupted",49,paper,FontStyle.Bold,TextAnchor.MiddleCenter);
-            Text(new Rect(410,275,780,35),"LEVEL "+CurrentLevel+(levelWon?"  COMPLETE":"  /  TRY AGAIN"),21,paper,FontStyle.Bold,TextAnchor.MiddleCenter);
+            Fill(new Rect(0,0,1600,900),new Color(.94f,.95f,.97f), uiKey:"LevelProgression_9215");var blue=new Color(.24f,.45f,.66f);var paleBlue=new Color(.34f,.56f,.76f);
+            Fill(new Rect(370,132,860,602),blue, uiKey:"LevelProgression_9357");Panel(new Rect(346,104,908,82),paleBlue,true, uiKey:"LevelProgression_9394");
+            Text(new Rect(410,202,780,65),levelWon?"Invoice":"Shift interrupted",49,paper,FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"LevelProgression_9453");
+            Text(new Rect(410,275,780,35),"LEVEL "+CurrentLevel+(levelWon?"  COMPLETE":"  /  TRY AGAIN"),21,paper,FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"LevelProgression_9584");
             string[] labels={"Sales · "+served+" customers","Shelf restocking","Cleanup bonus","Mistakes & lost customers"};
             int[] amounts={salesCents,stockActions*75,hazardsCleared*50,-InvoicePenalty};
             for(int i=0;i<4;i++)
             {
-                Text(new Rect(445,334+i*45,520,35),labels[i],23,paper);
-                Text(new Rect(965,334+i*45,190,35),(amounts[i]<0?"− ":"")+Ringgit(Mathf.Abs(amounts[i])),23,paper,FontStyle.Bold,TextAnchor.UpperRight);
+                Text(new Rect(445,334+i*45,520,35),labels[i],23,paper, uiKey:"LevelProgression_10005");
+                Text(new Rect(965,334+i*45,190,35),(amounts[i]<0?"− ":"")+Ringgit(Mathf.Abs(amounts[i])),23,paper,FontStyle.Bold,TextAnchor.UpperRight, uiKey:"LevelProgression_10077");
             }
-            Fill(new Rect(445,521,710,2),paleBlue);
-            Text(new Rect(445,538,440,40),"Shift total",25,paper,FontStyle.Bold);
-            Text(new Rect(950,538,205,40),(InvoiceTotal<0?"− ":"")+Ringgit(Mathf.Abs(InvoiceTotal)),25,paper,FontStyle.Bold,TextAnchor.UpperRight);
-            for(int i=0;i<4;i++){GUI.color=i<invoiceStars?gold:new Color(.16f,.31f,.47f);GUI.DrawTexture(new Rect(504+i*151,598,108,108),InvoiceStar());}GUI.color=Color.white;
-            if(!levelWon)Text(new Rect(370,748,860,44),levelFailure,19,paper,FontStyle.Normal,TextAnchor.MiddleCenter);
-            if(Button(new Rect(370,805,625,57),levelWon?"Continue  →  Level "+(CurrentLevel+1):"Retry level "+CurrentLevel,paleBlue,24))BeginCampaignLevel(levelWon?CurrentLevel+1:CurrentLevel,campaignPersistence);
-            if(Button(new Rect(1010,805,220,57),"Main menu",surface,21))ReturnToMainMenu();
+            Fill(new Rect(445,521,710,2),paleBlue, uiKey:"LevelProgression_10240");
+            Text(new Rect(445,538,440,40),"Shift total",25,paper,FontStyle.Bold, uiKey:"LevelProgression_10292");
+            Text(new Rect(950,538,205,40),(InvoiceTotal<0?"− ":"")+Ringgit(Mathf.Abs(InvoiceTotal)),25,paper,FontStyle.Bold,TextAnchor.UpperRight, uiKey:"LevelProgression_10374");
+            for(int i=0;i<4;i++){GUI.color=i<invoiceStars?gold:new Color(.16f,.31f,.47f);EditableTexture(new Rect(504+i*151,598,108,108),InvoiceStar());}GUI.color=Color.white;
+            if(!levelWon)Text(new Rect(370,748,860,44),levelFailure,19,paper,FontStyle.Normal,TextAnchor.MiddleCenter, uiKey:"LevelProgression_10711");
+            if(Button(new Rect(370,805,625,57),levelWon?"Continue  →  Level "+(CurrentLevel+1):"Retry level "+CurrentLevel,paleBlue,24, uiKey:"LevelProgression_10821"))BeginCampaignLevel(levelWon?CurrentLevel+1:CurrentLevel,campaignPersistence);
+            if(Button(new Rect(1010,805,220,57),"Main menu",surface,21, uiKey:"LevelProgression_11035"))ReturnToMainMenu();
         }
 
         public void BeginLevelVerification(string directory){StartCoroutine(VerifyLevels(directory));}
@@ -185,7 +188,7 @@ namespace GokilKisah
             check(randomAppeared&&encounter==Encounter.Goblins&&randomFights==1,"An unlocked boss can actually appear at random on a later non-boss level");
             int keptServed=served;resolved=true;TickCampaign(0,true);check(!bossActive&&encounter==Encounter.Store&&served==keptServed,"Random boss defeat resumes the same shift");
             BeginCampaignLevel(1,false);served=ServeGoal;stockActions=StockGoal;hazardsCleared=CleanGoal;salesCents=1050;TickCampaign(0,true);
-            check(levelResults&&levelWon&&invoiceStars==4&&InvoiceTotal==1175,"Completing targets opens a four-star invoice with correct earnings");
+            check(levelResults&&levelWon&&invoiceStars==3&&InvoiceTotal==1175,"Completing targets opens a three-star invoice with correct earnings");
             int previous=CurrentLevel;BeginCampaignLevel(CurrentLevel+1,false);check(CurrentLevel==previous+1&&served==0&&!levelResults,"Continue advances a level and resets shift counters");
             shiftTime=ShiftBudget;TickCampaign(0,true);check(levelResults&&!levelWon&&gameOver,"Missing the shift deadline opens retry results");
             BeginCampaignLevel(20,false);StartCampaignEncounter(Encounter.Bo);boRemaining=.01f;UpdateEncounter(.1f);TickCampaign(.1f,true);check(levelResults&&!levelWon,"A failed boss countdown prevents level advancement");

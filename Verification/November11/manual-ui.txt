@@ -1,0 +1,9 @@
+PASS Computer plugin: main-menu CHOOSE A LEVEL opens the level map.
+PASS Computer plugin: only the saved unlocked shift is enabled; later shifts show LOCKED.
+PASS Computer plugin: PLAY SHIFT 1 opens character selection.
+PASS Computer plugin: PICK SAM opens the shift briefing.
+PASS Computer plugin: briefing shows objectives, all three point thresholds, and the reachable perfect score.
+PASS Computer plugin: SCORING RULES opens a readable modal with separate accuracy, speed and chaos rules.
+PASS Computer plugin: GOT IT closes the guide and returns to the paused briefing.
+PASS Visual review: supplied star art, new task cards, mobile controls and Bigbesty text are visible.
+PASS Visual review: new counter art is visible at the checkout; original navigation checks still pass.

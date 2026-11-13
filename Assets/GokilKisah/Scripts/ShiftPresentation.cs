@@ -12,26 +12,26 @@ namespace GokilKisah
             ReleaseMobileControls();heldKeys.Clear();Time.timeScale=settingsOpen||autoPaused?0:1;
             PlaySound("Confirm");
         }
-        void DrawShiftBriefing()
-        {
-            Shade();Sticker(new Rect(345,128,910,640),arcadeCream,true,6);
-            Panel(new Rect(351,134,898,111),arcadeTeal);
-            ArcadeText(new Rect(380,145,840,74),"SHIFT "+CurrentLevel.ToString("00"),52,arcadeCream,TextAnchor.MiddleCenter);
+        void DrawLegacyShiftBriefing()
+        {using(NativeUiScope("DrawShiftBriefing","DrawShiftBriefing")){
+            Shade(uiKey:"ShiftPresentation_493");Sticker(new Rect(345,128,910,640),arcadeCream,true,6, uiKey:"ShiftPresentation_501");
+            Panel(new Rect(351,134,898,111),arcadeTeal, uiKey:"ShiftPresentation_568");
+            ArcadeText(new Rect(380,145,840,74),"SHIFT "+CurrentLevel.ToString("00"),52,arcadeCream,TextAnchor.MiddleCenter, uiKey:"ShiftPresentation_625");
             string[] labels={"SERVE CUSTOMERS","RESTOCK SHELVES","CLEAN SPILLS"};
             string[] icons={"CustomerCount01","CheckoutIcon01","PuddleIcon01"};int[] goals={ServeGoal,StockGoal,CleanGoal};
             for(int i=0;i<3;i++)
             {
                 float y=277+i*90;
-                if(i==0)GUI.DrawTextureWithTexCoords(new Rect(398,y,54,64),NovemberArt.UI("CustomerCount01"),new Rect(0,0,.28f,1));
-                else ArtImage(new Rect(393,y,64,64),icons[i]);
-                ArcadeText(new Rect(480,y,555,60),labels[i],28,arcadeNavy);
-                ArcadeText(new Rect(1060,y,135,60),goals[i].ToString(),40,arcadeTeal,TextAnchor.MiddleCenter);
+                if(i==0)EditableTextureUV(new Rect(398,y,54,64),NovemberArt.UI("CustomerCount01"),new Rect(0,0,.28f,1));
+                else ArtImage(new Rect(393,y,64,64),icons[i], uiKey:"ShiftPresentation_1179");
+                ArcadeText(new Rect(480,y,555,60),labels[i],28,arcadeNavy, uiKey:"ShiftPresentation_1237");
+                ArcadeText(new Rect(1060,y,135,60),goals[i].ToString(),40,arcadeTeal,TextAnchor.MiddleCenter, uiKey:"ShiftPresentation_1313");
             }
-            ArcadeText(new Rect(390,556,820,36),"CLOSING IN  "+((int)ShiftBudget/60)+":"+((int)ShiftBudget%60).ToString("00"),26,arcadeNavy,TextAnchor.MiddleCenter);
+            ArcadeText(new Rect(390,556,820,36),"CLOSING IN  "+((int)ShiftBudget/60)+":"+((int)ShiftBudget%60).ToString("00"),26,arcadeNavy,TextAnchor.MiddleCenter, uiKey:"ShiftPresentation_1434");
             string note=mandatoryBossPending?"BOSS SHIFT: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]+" — clear the encounter too.":"Your partner covers checkout while you tackle restocking.";
-            Text(new Rect(390,602,820,48),note,20,arcadeNavy,FontStyle.Normal,TextAnchor.MiddleCenter);
-            if(UiButton(new Rect(448,675,704,65),"OPEN SHIFT",arcadeGold,30))StartBriefedShift();
-        }
+            Text(new Rect(390,602,820,48),note,20,arcadeNavy,FontStyle.Normal,TextAnchor.MiddleCenter, uiKey:"ShiftPresentation_1800");
+            if(UiButton(new Rect(448,675,704,65),"OPEN SHIFT",arcadeGold,30, uiKey:"ShiftPresentation_1907"))StartBriefedShift();
+        }}
         void EnsureShiftCleanupWork()
         {
             if(!campaignActive||sceneShelves.Length==0)return;
@@ -60,10 +60,10 @@ namespace GokilKisah
                 PlaySound("Footstep",IsSprinting?.24f:.18f);
             lastFootstepContact=contact;
         }
-        void GoalProgress(Rect r,int done,int target)
-        {
-            Fill(r,new Color(.13f,.21f,.22f));
-            Fill(new Rect(r.x,r.y,r.width*Mathf.Clamp01((float)done/Mathf.Max(1,target)),r.height),done>=target?arcadeTeal:arcadeGold);
-        }
+        void GoalProgress(Rect r,int done,int target,string uiKey="")
+        {using(NativeUiScope(uiKey,"GoalProgress")){
+            Fill(r,new Color(.13f,.21f,.22f), uiKey:"ShiftPresentation_3547");
+            Fill(new Rect(r.x,r.y,r.width*Mathf.Clamp01((float)done/Mathf.Max(1,target)),r.height),done>=target?arcadeTeal:arcadeGold, uiKey:"ShiftPresentation_3594");
+        }}
     }
 }

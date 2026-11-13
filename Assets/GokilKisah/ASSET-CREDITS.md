@@ -1,6 +1,9 @@
 # Current art and audio credits
 
-The active shop now uses free non-pixel assets downloaded from Kenney. All packs below are CC0 and permit personal, educational and commercial use. Original licenses are saved under ThirdPartyLicenses; downloaded archives are retained under Downloads at the project root.
+The active scene uses the supplied TokTokMart environment, Sam/Zack/Toyol drawings and animations, November UI exports and Bigbesty font. The November 11 bundle adds the counter, storage box, task cards and star artwork. These supplied project assets retain their original ownership; originals are preserved under ArtSources/November2026. Kenney resources below remain as supporting art and legacy fallbacks.
+
+
+The supporting non-pixel assets are downloaded from Kenney. All packs below are CC0 and permit personal, educational and commercial use. Original licenses are saved under ThirdPartyLicenses; downloaded archives are retained under Downloads at the project root.
 
 | Pack | Used for | Source |
 |---|---|---|

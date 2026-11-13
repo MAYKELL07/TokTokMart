@@ -29,6 +29,10 @@ namespace GokilKisah.Editor
             {
                 switch(command.action)
                 {
+                    case "november11art":NovemberUpdateTools.Apply(command.path);ReplyTo(command.action,"New art and Bigbesty imported");break;
+                    case "november11playtest":RequireGame().BeginNovemberPlaytest(command.path);ReplyTo(command.action,"Full shift playthroughs started");break;
+                    case "november11verify":RequireGame().BeginNovemberVerification(command.path);ReplyTo(command.action,"Score, campaign and feedback verification started");break;
+                    case "canvasverify":RequireGame().BeginCanvasVerification(command.path);ReplyTo(command.action,"Canvas checks started");break;
                     case "polishverify":RequireGame().BeginPolishVerification(command.path);ReplyTo(command.action,"Locomotion and shift checks started");break;
                     case "novemberart":NovemberArtImporter.Apply();ReplyTo(command.action,"November artwork imported");break;
                     case "mobileverify":RequireGame().BeginMobileVerification(command.path);ReplyTo(command.action,"Mobile checks started");break;

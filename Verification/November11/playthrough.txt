@@ -1,0 +1,2 @@
+PASS Complete shift 1 through actual navigation, task timing, shoppers and partner AI: 3/3 served, 1/1 stocked, 1/1 cleaned; 79.0s / 172s; stars 3; score 1050/1050
+PASS Complete shift 5 through actual navigation, task timing, shoppers and partner AI: 7/7 served, 2/2 stocked, 2/2 cleaned; 161.5s / 232s; stars 3; score 1900/1900

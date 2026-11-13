@@ -29,10 +29,21 @@ namespace GokilKisah
             if(mouse!=null)TrackInterfacePointer(ScreenToCanvas(mouse.position.ReadValue()),mouse.leftButton.wasPressedThisFrame,mouse.leftButton.isPressed,mouse.leftButton.wasReleasedThisFrame);
             else uiPointerHeld=false;
         }
+        Vector2 LocalInterfacePoint(Vector2 point)
+        {
+            return GUI.matrix.inverse.MultiplyPoint3x4(interfaceCanvasMatrix.MultiplyPoint3x4(point));
+        }
         bool InterfaceButton(Rect rect)
         {
+            if(editableUI&&!useOriginalImgui)
+            {
+                if(!NativeUiReady)return false;
+                bool clicked=editableUI.Button(rect,GUI.enabled,NativeMatrix);
+                if(!clicked||uiClickConsumedFrame==Time.frameCount)return false;
+                uiClickConsumedFrame=Time.frameCount;return true;
+            }
             bool native=GUI.Button(rect,GUIContent.none,GUIStyle.none);
-            bool pointer=Event.current.type==EventType.Repaint&&uiReleasedFrame==Time.frameCount&&rect.Contains(uiPointerDown)&&rect.Contains(uiPointerPosition);
+            bool pointer=Event.current.type==EventType.Repaint&&uiReleasedFrame==Time.frameCount&&rect.Contains(LocalInterfacePoint(uiPointerDown))&&rect.Contains(LocalInterfacePoint(uiPointerPosition));
             if(!GUI.enabled||uiClickConsumedFrame==Time.frameCount||(!native&&!pointer))return false;
             uiClickConsumedFrame=Time.frameCount;return true;
         }

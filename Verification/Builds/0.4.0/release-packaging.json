@@ -1,0 +1,15 @@
+{
+  "version": "0.4.0",
+  "packagedDate": "2026-11-13",
+  "windowsArchive": "TokTokMart-Windows-0.4.0.zip",
+  "windowsArchiveBytes": 60788124,
+  "windowsFileCount": 191,
+  "windowsZipIntegrityVerified": true,
+  "windowsManualChecks": [
+    "Application launches to main menu",
+    "Choose a Level opens campaign and star thresholds"
+  ],
+  "androidZipIntegrityVerified": true,
+  "androidSha256MatchesPriorValidation": true,
+  "physicalAndroidDeviceTested": false
+}

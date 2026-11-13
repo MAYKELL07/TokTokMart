@@ -118,8 +118,8 @@ namespace GokilKisah
                 if(c.state==ShopperState.Queuing)
                 {
                     c.timer+=dt;
-                    if(c.timer>CustomerPatience&&(skillType!=1||skillTarget!=c.id))
-                    {c.angry=true;LeaveRegister(c);missedCustomers++;chaos=Mathf.Min(100,chaos+8);}
+                    if(c.timer>CustomerPatience)
+                    {c.angry=true;LeaveRegister(c);missedCustomers++;chaos=Mathf.Min(100,chaos+8);if(skillType==1&&skillTarget==c.id)skillType=-1;Toast("Customer left! -100 accuracy points. Watch the patience bar.");PlaySound("Miss",.55f);}
                 }
                 if(c.state==ShopperState.Queuing)c.goal=QueuePoint(customerQueue.IndexOf(c));
                 float remaining=Vector2.Distance(c.position,c.goal);
@@ -190,7 +190,7 @@ namespace GokilKisah
         void DrawShopper(Shopper c)
         {
             Vector2 p=c.position;
-            Fill(new Rect(p.x-17,p.y+1,34,5),new Color(.14f,.13f,.16f,.2f));
+            Fill(new Rect(p.x-17,p.y+1,34,5),new Color(.14f,.13f,.16f,.2f), uiKey:"CustomerSimulation_10043");
             int row=new[]{9,12,3}[c.id%3];
             if(c.motion.sqrMagnitude>.001f)row+=(int)(pulse*7+c.id)%3;
             Tile(urbanArt,c.facing,row,new Rect(p.x-32,p.y-58,64,64));

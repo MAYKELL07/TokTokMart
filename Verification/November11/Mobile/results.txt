@@ -1,0 +1,60 @@
+PASS Input System touch opens menu settings without legacy IMGUI input
+PASS Touch selects Controls settings tab
+PASS Touch updates the joystick scale slider
+PASS Touch closes settings
+PASS Touch opens character selection
+PASS Touch selects Sam
+PASS Artist UI loaded: CheckoutIcon01
+PASS Artist UI loaded: CustomerCount01
+PASS Artist UI loaded: DayTimer01
+PASS Artist UI loaded: HazardIcon01
+PASS Artist UI loaded: IndicatorContainer
+PASS Artist UI loaded: InteractButton01
+PASS Artist UI loaded: MoneyCount01
+PASS Artist UI loaded: PauseButton01
+PASS Artist UI loaded: PuddleIcon01
+PASS Artist UI loaded: SprintButton01
+PASS Artist UI loaded: JoystickBase
+PASS Artist UI loaded: JoystickKnob
+PASS Artist UI loaded: Logo
+PASS Artist UI loaded: MenuBackground
+PASS Walk frame with foot pivot: Sam0
+PASS Walk frame with foot pivot: Sam1
+PASS Walk frame with foot pivot: Sam2
+PASS Walk frame with foot pivot: Sam3
+PASS Walk frame with foot pivot: Sam4
+PASS Walk frame with foot pivot: Sam5
+PASS Walk frame with foot pivot: Sam6
+PASS Walk frame with foot pivot: Sam7
+PASS Walk frame with foot pivot: Sam8
+PASS Walk frame with foot pivot: Zack0
+PASS Walk frame with foot pivot: Zack1
+PASS Walk frame with foot pivot: Zack2
+PASS Walk frame with foot pivot: Zack3
+PASS Walk frame with foot pivot: Zack4
+PASS Walk frame with foot pivot: Zack5
+PASS Walk frame with foot pivot: Zack6
+PASS Walk frame with foot pivot: Zack7
+PASS Walk frame with foot pivot: Zack8
+PASS Walk frame with foot pivot: Toyol0
+PASS Walk frame with foot pivot: Toyol1
+PASS Walk frame with foot pivot: Toyol2
+PASS Walk frame with foot pivot: Toyol3
+PASS Walk frame with foot pivot: Toyol4
+PASS Walk frame with foot pivot: Toyol5
+PASS Walk frame with foot pivot: Toyol6
+PASS Walk frame with foot pivot: Toyol7
+PASS Walk frame with foot pivot: Toyol8
+PASS Independent joystick and held sprint fingers
+PASS Joystick moves player through normal collision path
+PASS Third finger interacts while joystick and sprint are held
+PASS Release clears movement and sprint
+PASS Pause cancels held touch input
+PASS Scale, both paddings and both heights survive preferences reload
+PASS Adjusted controls stay in screen safe area
+PASS Goblin encounter uses supplied Toyol animation
+PASS Live Toyol encounter view
+PASS Live Toyol encounter view
+PASS Live Toyol encounter view
+PASS Keeper advances supplied animation frames: Player
+PASS Keeper advances supplied animation frames: Partner
