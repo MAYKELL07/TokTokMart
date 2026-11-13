@@ -15,7 +15,7 @@ Other screens are inactive until gameplay needs them. The preview buttons only c
 ## Data bindings
 Tok Mart Canvas Element keeps the connection to game data. Leave Bind Game Data enabled for counters, timers, receipt values and feedback. Static text and artwork can be edited directly. Disable Bind Game Data only when you intentionally want a fixed authored value. Leave Animate Layout enabled on progress bars, joystick knobs and task timing markers; disable it to freeze a visual at its authored location.
 
-The gameplay controller still controls visibility and sibling draw order. Move or resize existing elements without deleting their binding components, changing hidden keys, or reparenting bound elements. Add decorative objects freely within a screen group. New gameplay actions still need a code connection.
+The gameplay controller controls visibility; the saved hierarchy controls sibling draw order. Move or resize existing elements without deleting their binding components, changing hidden keys, or reparenting bound elements. Add decorative objects freely within a screen group. New gameplay actions still need a code connection.
 
 ## Mobile sizing
 Store Game Controller > Mobile UI sizing retains Mobile Hud Scale and Default Touch Scale. In-game Settings > Controls retains player control size/position sliders. Moving the authored mobile control groups moves their touch hit areas too.
@@ -23,3 +23,11 @@ Store Game Controller > Mobile UI sizing retains Mobile Hud Scale and Default To
 ## Recovery and validation
 Store Game Controller > Editable Canvas UI > Use Original Imgui is an emergency visual fallback. Keep it off for the editable Canvas.
 Original scripts and scene are backed up under UI-Backups. Verification/EditableCanvasFinal contains original-versus-Canvas captures and button, slider, character selection and mobile hit-area check results. This is a retained Canvas renderer with a compatibility binding pass, not a rewrite of gameplay or the world renderer.
+
+## Authored-only runtime
+
+Normal play does not create Canvas objects, controls or missing UI components. Assign the scene Canvas in Store Game Controller > Editable UI. Run **TokTokMart > UI > Validate and prepare authored scene** once for an older scene to save an EventSystem and check missing script references. A missing binding produces a warning instead of silently generating a new control.
+
+Manually selected fonts are preserved. Existing static text, images, colors, positions and sibling order remain authored; live counters and animations continue through their binding components. Disable **Bind Game Data** for a fixed custom visual and **Animate Layout** for a fixed placement. Do not rename hidden binding keys. You can rename visible GameObject names and move a whole control group. Reparenting bound elements requires updating the binding design.
+
+The compatibility presentation pass still supplies gameplay state, button actions and animated values. It is not a fully separate presenter architecture yet. World labels remain drawn by the world renderer. Historical screen generation is an explicit Editor migration only, not part of normal play or the design workflow.

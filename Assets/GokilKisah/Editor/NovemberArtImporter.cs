@@ -40,7 +40,7 @@ namespace GokilKisah.Editor
         {
             var t=Read(Source+"Animation/"+folder+"/"+folder+"Walk/"+folder+"Walk_Sheet_60FPS.png");
             // Full supplied sequence, top-left to bottom-right; one common crop keeps feet anchored.
-            int columns=t.width/256,rows=t.height/256,count=NovemberArt.WalkFrameCount(skin);
+            int columns=t.width/256,rows=t.height/256,count=GameArtLibrary.WalkFrameCount(skin);
             int l=256,b=256,r=0,top=0;
             for(int i=0;i<count;i++)
             {

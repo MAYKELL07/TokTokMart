@@ -1,0 +1,13 @@
+PASS Authored Canvas prefab is bound
+PASS Binding pass preserves a manually assigned font
+PASS Native Settings button exists
+PASS Native Settings click reaches existing game action
+PASS Native volume slider exists
+PASS Native slider updates volume data
+PASS Native Open Shop button exists
+PASS Native Open Shop opens character selection
+PASS Native character selection keeps existing Choose action
+PASS Mobile control image is bound
+PASS Moving native Interact group moves its touch hit area
+PASS Screen transitions do not generate UI objects
+PASS All exercised controls have authored bindings

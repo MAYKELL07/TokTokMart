@@ -4,7 +4,7 @@ using UnityEngine;
 namespace GokilKisah
 {
     // Cropped, mobile-sized runtime assets; the original artist exports remain in ArtSources.
-    public static class NovemberArt
+    public static class GameArtLibrary
     {
         static readonly Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         static readonly Dictionary<string, Sprite[]> walks = new Dictionary<string, Sprite[]>();

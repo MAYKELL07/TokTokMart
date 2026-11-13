@@ -37,6 +37,7 @@ namespace GokilKisah.Editor
                     case "novemberart":NovemberArtImporter.Apply();ReplyTo(command.action,"November artwork imported");break;
                     case "mobileverify":RequireGame().BeginMobileVerification(command.path);ReplyTo(command.action,"Mobile checks started");break;
                     case "androidbuild":ReplyTo(command.action,MobileDemoBuild.Build(command.path));break;
+                    case "prepareauthoredui":AuthoredUIProjectTools.Prepare();ReplyTo(command.action,"Authored UI scene prepared");break;
                     case "refresh":AssetDatabase.Refresh();ReplyTo(command.action,"Refreshed");break;
                     case "shelfinspect":ShelfTrafficSetup.Inspect();ReplyTo(command.action,"Shelf templates inspected");break;
                     case "shelfslotorder":ShelfTrafficSetup.OrderSlots();ReplyTo(command.action,"Stock slots ordered in hierarchy");break;

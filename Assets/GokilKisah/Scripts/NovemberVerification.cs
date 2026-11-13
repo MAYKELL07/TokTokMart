@@ -74,7 +74,7 @@ namespace GokilKisah
                 OpenLevelMap();check(mapSelection<=HighestUnlocked&&mapPage==0,"Level map starts on an unlocked shift");
                 BeginCampaignLevel(1,false);shiftBriefOpen=true;mainMenu=false;yield return NovemberShot(folder,"01-briefing");
                 shiftBriefOpen=false;showTouchControls=true;var queued=SpawnCustomer();queued.basket=1;queued.items.Add(0);queued.state=ShopperState.Queuing;queued.position=QueuePoint(0);queued.timer=CustomerPatience*.82f;customerQueue.Add(queued);yield return NovemberShot(folder,"02-mobile-hud");
-                check(NovemberArt.UI("Star")&&NovemberArt.UI("CheckoutCard01")&&NovemberArt.UI("ProgressBar01"),"New star, task cards and separate progress-bar art load");
+                check(GameArtLibrary.UI("Star")&&GameArtLibrary.UI("CheckoutCard01")&&GameArtLibrary.UI("ProgressBar01"),"New star, task cards and separate progress-bar art load");
                 check(font&&font.name=="Bigbesty"&&editableUI.GetComponentsInChildren<Text>().All(x=>x.font==font),"Bigbesty is applied to every visible Canvas text");
                 scoreGuideOpen=true;yield return NovemberShot(folder,"03-score-guide");scoreGuideOpen=false;
                 skillType=2;PrepareTask(2);taskFeedbackFailed=true;taskFeedback="Right of the green zone. -25 accuracy points; try again.";taskElapsed=21;yield return NovemberShot(folder,"04-task-failure-countdown");skillType=-1;

@@ -18,7 +18,10 @@ namespace GokilKisah
         {
             if(editableUI){editableUI.GetComponent<Canvas>().enabled=!useOriginalImgui;return;}
             editableUI=FindFirstObjectByType<TokMartCanvas>();
-            if(!editableUI){var prefab=Resources.Load<TokMartCanvas>("TokMartEditableUI");editableUI=prefab?Instantiate(prefab):TokMartCanvas.Create();}
+#if UNITY_EDITOR
+            if(!editableUI&&testing)editableUI=TokMartCanvas.Create();
+#endif
+            if(!editableUI)throw new InvalidOperationException("Assign the authored Canvas to Store Game Controller > Editable UI. Runtime UI generation is disabled.");
         }
         sealed class EmptyUiScope:IDisposable{public void Dispose(){}}
         static readonly IDisposable emptyUiScope=new EmptyUiScope();

@@ -14,10 +14,21 @@ namespace GokilKisah
             System.Action<bool,string> check=(ok,label)=>report.AppendLine((ok?"PASS ":"FAIL ")+label);
             yield return null;yield return new WaitForEndOfFrame();
             check(editableUI&&editableUI.GetComponentsInChildren<TokMartCanvasElement>(true).Length>100,"Authored Canvas prefab is bound");
+            int authoredCount=editableUI.GetComponentsInChildren<Transform>(true).Length;
+            var authoredText=editableUI.GetComponentInChildren<Text>();
+            var savedFont=authoredText.font;authoredText.font=null;
+            yield return null;yield return new WaitForEndOfFrame();
+            check(authoredText.font==null,"Binding pass preserves a manually assigned font");authoredText.font=savedFont;
             yield return CanvasPair(folder,"01-Menu");
             Button FindButton(string label)
             {
-                foreach(var e in editableUI.GetComponentsInChildren<TokMartCanvasElement>())if(e.name=="UiButton: "+label)return e.GetComponentInChildren<Button>();return null;
+                foreach(var e in editableUI.GetComponentsInChildren<TokMartCanvasElement>())
+                {
+                    if(e.kind!="Group")continue;
+                    var buttons=e.GetComponentsInChildren<Button>();if(buttons.Length!=1)continue;var button=buttons[0];
+                    foreach(var text in e.GetComponentsInChildren<Text>())if(text.text==label)return button;
+                }
+                return null;
             }
             var settings=FindButton("SETTINGS");check(settings,"Native Settings button exists");if(settings)settings.onClick.Invoke();yield return null;yield return new WaitForEndOfFrame();yield return null;
             check(settingsOpen,"Native Settings click reaches existing game action");
@@ -40,6 +51,8 @@ namespace GokilKisah
             skillType=0;PrepareTask(0);yield return CanvasPair(folder,"06-Task");skillType=1;PrepareTask(1);yield return CanvasPair(folder,"07-Cashier");
             skillType=-1;levelResults=true;levelWon=true;yield return CanvasPair(folder,"08-Results");
             levelResults=false;mainMenu=true;selected=false;showTouchControls=savedTouch;useOriginalImgui=false;settingsOpen=false;masterVolume=savedVolume;ApplyAudio();testing=false;ResetRun(Encounter.Store);
+            check(editableUI.GetComponentsInChildren<Transform>(true).Length==authoredCount,"Screen transitions do not generate UI objects");
+            check(editableUI.MissingBindingCount==0,"All exercised controls have authored bindings");
             File.WriteAllText(Path.Combine(folder,"canvas-verification.txt"),report.ToString());
         }
         IEnumerator CanvasPair(string folder,string name)

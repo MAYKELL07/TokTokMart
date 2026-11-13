@@ -31,13 +31,13 @@ namespace GokilKisah
             var probe=Instantiate(shop.playerCharacter,runtimeObjects);probe.name="Locomotion check";probe.smoothSkin="Sam";
             foreach(string skin in new[]{"Sam","Zack","Toyol"})
             {
-                bool valid=true;int count=NovemberArt.WalkFrameCount(skin);
+                bool valid=true;int count=GameArtLibrary.WalkFrameCount(skin);
                 for(int i=0;i<count;i++)
                 {
-                    var sprite=NovemberArt.Walk(skin,i);
+                    var sprite=GameArtLibrary.Walk(skin,i);
                     valid&=sprite&&sprite.pivot.y==0&&sprite.rect.xMax<=sprite.texture.width&&sprite.rect.yMax<=sprite.texture.height;
                 }
-                check(valid&&NovemberArt.Idle(skin),"Full high-frame-rate sequence and idle pose: "+skin+" ("+count+" frames)");
+                check(valid&&GameArtLibrary.Idle(skin),"Full high-frame-rate sequence and idle pose: "+skin+" ("+count+" frames)");
             }
             float referencePhase=0,walkDistance=0;
             foreach(int fps in new[]{30,60,120})
@@ -53,7 +53,7 @@ namespace GokilKisah
             check(Mathf.Abs(probe.TravelledDistance/walkDistance-sprintMultiplier)<.001f&&probe.FootstepContacts==4,"Sprint cadence and footfalls follow the actual 1.65x ground speed");
             float phase=probe.CyclePhase,travel=probe.TravelledDistance;
             for(int i=0;i<60;i++)probe.Apply(Vector2.right*travel,26,0,Vector2.one,i*10);
-            check(probe.TravelledDistance==travel&&Mathf.Abs(probe.CyclePhase-phase)<.0001f&&probe.artwork.sprite==NovemberArt.Idle("Sam"),"Stopped or wall-blocked movement holds gait phase and shows a proper idle pose");
+            check(probe.TravelledDistance==travel&&Mathf.Abs(probe.CyclePhase-phase)<.0001f&&probe.artwork.sprite==GameArtLibrary.Idle("Sam"),"Stopped or wall-blocked movement holds gait phase and shows a proper idle pose");
             probe.ResetLocomotion(Vector2.zero);probe.Apply(Vector2.right*60,26,0,Vector2.right,0);phase=probe.CyclePhase;
             probe.Apply(Vector2.right*70,26,0,Vector2.right,500);
             check(Mathf.Abs(probe.CyclePhase-phase-10/probe.walkCycleDistance)<.0001f,"Changing speed or global clock keeps the current stride phase");
@@ -118,7 +118,7 @@ namespace GokilKisah
                 float speed=i<30?tuning.moveSpeed:i<60?tuning.moveSpeed*sprintMultiplier:0;
                 ApplyResponsiveMovement(speed>0?Vector2.right:Vector2.zero,speed,1f/30);IsSprinting=i>=30&&i<60;
                 TrackArtistMotion();yield return new WaitForEndOfFrame();
-                if(i<60&&shop.playerCharacter.artwork.sprite!=NovemberArt.Idle(zack?"Zack":"Sam"))animatedFrames++;
+                if(i<60&&shop.playerCharacter.artwork.sprite!=GameArtLibrary.Idle(zack?"Zack":"Sam"))animatedFrames++;
                 ScreenCapture.CaptureScreenshot(Path.Combine(frameDir,i.ToString("D3")+".png"));yield return null;
             }
             check(Vector2.Distance(player,previewStart)>650&&Walkable(player)&&animatedFrames>=58,"Live recorded walk/run covers the expected ground distance with animated poses");

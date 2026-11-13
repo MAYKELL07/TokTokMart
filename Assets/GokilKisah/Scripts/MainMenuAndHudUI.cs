@@ -5,11 +5,11 @@ namespace GokilKisah
     public sealed partial class StoreGameController
     {
         void ArtImage(Rect area,string name,string uiKey="")
-        {using(NativeUiScope(uiKey,"ArtImage: "+name)){var art=NovemberArt.UI(name);if(art)EditableTexture(area,art,ScaleMode.ScaleToFit,true);}}
+        {using(NativeUiScope(uiKey,"ArtImage: "+name)){var art=GameArtLibrary.UI(name);if(art)EditableTexture(area,art,ScaleMode.ScaleToFit,true);}}
         void DrawNovemberMenu()
         {using(NativeUiScope("November11Menu","Main menu")){
             if(levelMapOpen){DrawLevelMap();return;}
-            var bg=NovemberArt.UI("MenuBackground");if(bg)EditableTexture(new Rect(0,0,1600,900),bg,ScaleMode.ScaleAndCrop);
+            var bg=GameArtLibrary.UI("MenuBackground");if(bg)EditableTexture(new Rect(0,0,1600,900),bg,ScaleMode.ScaleAndCrop);
             Fill(new Rect(0,0,680,900),new Color(.06f,.16f,.18f,.89f), uiKey:"NovemberInterface_424");
             ArtImage(new Rect(90,38,485,248),"Logo", uiKey:"NovemberInterface_496");
             ArcadeText(new Rect(85,295,530,42),"A LITTLE SHOP. A LOT OF CHAOS.",22,arcadeCream,TextAnchor.MiddleCenter, uiKey:"NovemberInterface_550");

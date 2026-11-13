@@ -51,9 +51,9 @@ namespace GokilKisah
             check(selected&&!zack,"Touch selects Sam");
             InputSystem.RemoveDevice(screen);
             foreach(string name in new[]{"CheckoutIcon01","CustomerCount01","DayTimer01","HazardIcon01","IndicatorContainer","InteractButton01","MoneyCount01","PauseButton01","PuddleIcon01","SprintButton01","JoystickBase","JoystickKnob","Logo","MenuBackground"})
-                check(NovemberArt.UI(name),"Artist UI loaded: "+name);
+                check(GameArtLibrary.UI(name),"Artist UI loaded: "+name);
             foreach(string skin in new[]{"Sam","Zack","Toyol"})for(int i=0;i<9;i++)
-            {var sprite=NovemberArt.Walk(skin,i);check(sprite&&sprite.pivot.y==0,"Walk frame with foot pivot: "+skin+i);}
+            {var sprite=GameArtLibrary.Walk(skin,i);check(sprite&&sprite.pivot.y==0,"Walk frame with foot pivot: "+skin+i);}
             ReturnToMainMenu();yield return new WaitForSecondsRealtime(.3f);
             yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(directory,"menu.png"));
             BeginCampaignLevel(1,false);selected=true;showTouchControls=true;noticeUntil=0;
@@ -89,8 +89,8 @@ namespace GokilKisah
                 var origin=actor.LastGamePosition;actor.ResetLocomotion(origin);
                 actor.Apply(origin,24,skin=="Sam"?0:6,Vector2.zero,0);
                 var first=actor.artwork.sprite;
-                actor.Apply(origin+Vector2.right*(actor.walkCycleDistance/NovemberArt.WalkFrameCount(skin)*1.1f),24,skin=="Sam"?0:6,Vector2.one,.1f);
-                check(first==NovemberArt.Idle(skin)&&actor.artwork.sprite==NovemberArt.Walk(skin,1),"Keeper advances supplied animation frames: "+actor.name);
+                actor.Apply(origin+Vector2.right*(actor.walkCycleDistance/GameArtLibrary.WalkFrameCount(skin)*1.1f),24,skin=="Sam"?0:6,Vector2.one,.1f);
+                check(first==GameArtLibrary.Idle(skin)&&actor.artwork.sprite==GameArtLibrary.Walk(skin,1),"Keeper advances supplied animation frames: "+actor.name);
             }
             player=ShopLayout.ToGame(shop.goblinSpawns[0].position);cameraInitialized=false;
             yield return new WaitForSecondsRealtime(.3f);yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(directory,"toyol-encounter.png"));

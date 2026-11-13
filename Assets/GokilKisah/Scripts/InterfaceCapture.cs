@@ -7,7 +7,7 @@ namespace GokilKisah
     {
         public void BeginPresentationCapture(string folder){StartCoroutine(PresentationCapture(folder));}
         IEnumerator Shot(string folder,string name)
-        {yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(folder,name+".png"));yield return null;}
+        {yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(Path.Combine(folder,name+".png"));yield return null;yield return new WaitForEndOfFrame();yield return null;}
         IEnumerator PresentationCapture(string folder)
         {
             Directory.CreateDirectory(folder);testing=true;showPitchControls=false;showTouchControls=false;settingsOpen=false;Time.timeScale=1;

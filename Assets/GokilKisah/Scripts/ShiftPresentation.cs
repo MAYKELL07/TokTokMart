@@ -22,7 +22,7 @@ namespace GokilKisah
             for(int i=0;i<3;i++)
             {
                 float y=277+i*90;
-                if(i==0)EditableTextureUV(new Rect(398,y,54,64),NovemberArt.UI("CustomerCount01"),new Rect(0,0,.28f,1));
+                if(i==0)EditableTextureUV(new Rect(398,y,54,64),GameArtLibrary.UI("CustomerCount01"),new Rect(0,0,.28f,1));
                 else ArtImage(new Rect(393,y,64,64),icons[i], uiKey:"ShiftPresentation_1179");
                 ArcadeText(new Rect(480,y,555,60),labels[i],28,arcadeNavy, uiKey:"ShiftPresentation_1237");
                 ArcadeText(new Rect(1060,y,135,60),goals[i].ToString(),40,arcadeTeal,TextAnchor.MiddleCenter, uiKey:"ShiftPresentation_1313");

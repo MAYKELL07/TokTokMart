@@ -134,7 +134,7 @@ namespace GokilKisah
         }
         Texture2D InvoiceStar()
         {
-            var supplied=NovemberArt.UI("Star");if(supplied)return supplied;
+            var supplied=GameArtLibrary.UI("Star");if(supplied)return supplied;
             if(invoiceStar)return invoiceStar;
             invoiceStar=new Texture2D(96,96,TextureFormat.RGBA32,false){filterMode=FilterMode.Bilinear};
             var vertices=new Vector2[10];for(int i=0;i<10;i++){float angle=(90+i*36)*Mathf.Deg2Rad;vertices[i]=new Vector2(48,48)+new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*(i%2==0?45:20);}

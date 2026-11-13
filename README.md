@@ -6,6 +6,59 @@ Prebuilt Android APK and Windows x64 ZIP: [GitHub release 0.4.0](https://github.
 
 The November demo includes the supplied storefront illustration, logo, UI, Sam and Zack portraits and walk cycles, and Toyol encounter animation. The existing shop, storage room, customer traffic, checkout, restocking, cleaning and encounters are retained.
 
+## Collaborating with a friend
+
+### First setup
+
+1. The repository owner invites your GitHub username in **Settings > Collaborators**; accept the invitation. Without write access, fork the repository and open pull requests from your fork.
+2. Install Git (or GitHub Desktop), Unity Hub and **Unity 6000.3.9f1**. Add Android Build Support only if building APKs. Match the version in `ProjectSettings/ProjectVersion.txt`; do not upgrade the project independently.
+3. Clone `https://github.com/MAYKELL07/TokTokMart.git` into your own local folder. Avoid a shared OneDrive/Dropbox folder for the working copy.
+4. In Unity Hub choose **Add project from disk**, select the clone and let packages import. Open `Assets/GokilKisah/Scenes/TokMartPitch.unity`, then press Play.
+5. In Editor Settings use **Visible Meta Files** and **Force Text** serialization. Commit each asset together with its `.meta` file. Rename/move assets in Unity's Project window to preserve GUID references.
+
+### Daily workflow
+
+Use one branch per change. In GitHub Desktop: fetch/pull main, create a branch, edit, review the diff, commit, push, then open a pull request. Equivalent commands:
+
+```sh
+git switch main
+git pull --ff-only
+git switch -c feature/your-change
+# Edit in Unity, stop Play Mode and save scenes/prefabs.
+git status
+git add <specific-files-and-their-meta-files>
+git commit -m "Describe the change"
+git push -u origin feature/your-change
+```
+
+Ask the other person to review the pull request before merging. After merge, switch to main and pull again. Never force-push main. If pull reports local changes, commit them on your feature branch or stash them before switching; do not discard work to resolve it.
+
+Agree on ownership before editing: one person per scene or prefab at a time. Prefer editing separate prefabs instead of both editing the main scene. If a YAML scene/prefab conflict occurs, stop and resolve it together in Unity; do not blindly choose one whole file. UnityYAMLMerge (Smart Merge) is bundled with the editor and can be configured as a Git merge tool.
+
+Commit `Assets/`, `Packages/`, `ProjectSettings/` and relevant documentation. Keep `Library/`, `Temp/`, logs, local toolchains, signing keys and generated builds out of Git. Share APKs and the complete Windows ZIP through GitHub Releases. Keep source-art credits and licenses when adding assets.
+
+### UI work without rebuilding screens in code
+
+Use the saved Canvas in `TokMartPitch.unity` or edit `Assets/GokilKisah/Resources/TokMartEditableUI.prefab`. See [the UI editing guide](UI-ADJUSTMENTS.md). Existing screens and controls must be authored before play: the game no longer creates missing UI objects or components during normal play. Scripts update data and actions; designers own the saved hierarchy, fonts, artwork and sibling order.
+
+Before committing, test the main menu, level selection, character selection, shift briefing, settings/sliders, a task and pause/resume. For UI changes also check a wide desktop aspect ratio and a phone landscape aspect ratio. Attach screenshots to the PR and say what you tested. Android changes still need a real phone check before release.
+
+### Code and tool map
+
+| File or folder | Responsibility |
+| --- | --- |
+| `StoreGameController.cs` | Core controller and shared gameplay state; related systems are partial files |
+| `MainMenuAndHudUI.cs` | Menu and HUD state/data bindings |
+| `CampaignScoring.cs`, `ShiftScore.cs` | Campaign results, scoring and star rules |
+| `CanvasUIBinding.cs` | Connects gameplay to the authored Canvas |
+| `TokMartCanvas.cs`, `TokMartCanvasElement.cs` | Canvas element lookup, game-data and interaction bindings |
+| `GameArtLibrary.cs` | Runtime art lookup/cache; resource folder names stay stable |
+| `Editor/` | Editor-only import, build and migration tools |
+| `Tools/Legacy/` | Historical one-off source patches; do not run on the current project |
+| `Verification/` | Recorded checks and captures; not game content |
+
+Use names describing responsibility rather than dates. Preserve hidden UI binding keys and asset GUIDs when refactoring. A new gameplay button needs both an authored control and an explicit code binding. Do not run the historical Canvas migration to apply normal visual edits: it can overwrite hand-authored work.
+
 ## November 11 update (0.4.0)
 
 - New Bigbesty typeface and the supplied task cards, star, touch controls, counter and storage-box artwork.

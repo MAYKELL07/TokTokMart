@@ -25,7 +25,7 @@ namespace GokilKisah
         static string ClockText(float seconds){int n=Mathf.CeilToInt(Mathf.Max(0,seconds));return (n/60)+":"+(n%60).ToString("00");}
         void DrawLevelMap()
         {using(NativeUiScope("November11LevelMap","Choose a level")){
-            var bg=NovemberArt.UI("MenuBackground");if(bg)EditableTexture(new Rect(0,0,1600,900),bg,ScaleMode.ScaleAndCrop);
+            var bg=GameArtLibrary.UI("MenuBackground");if(bg)EditableTexture(new Rect(0,0,1600,900),bg,ScaleMode.ScaleAndCrop);
             Fill(new Rect(0,0,1600,900),new Color(.04f,.14f,.16f,.91f));
             ArcadeText(new Rect(75,33,950,80),"CHOOSE YOUR SHIFT",55,arcadeCream);
             Text(new Rect(80,117,1070,35),"Earn up to 3 stars. Clear a shift to unlock the next. Replay to beat your best!",23,arcadeCream);
