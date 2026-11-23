@@ -9,7 +9,7 @@ namespace GokilKisah
         public bool Blocks(Vector2 point,float radius)
         {
             foreach(var shape in shapes)
-                if(shape&&shape.enabled&&shape.gameObject.activeInHierarchy&&
+                if(shape&&shape.enabled&&!shape.isTrigger&&shape.gameObject.activeInHierarchy&&
                    ((Vector2)shape.ClosestPoint(point)-point).sqrMagnitude<(radius-.00001f)*(radius-.00001f))return true;
             return false;
         }

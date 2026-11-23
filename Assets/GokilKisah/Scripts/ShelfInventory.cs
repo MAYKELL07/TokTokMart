@@ -14,6 +14,13 @@ namespace GokilKisah
         public Sprite stockedSprite, emptySprite;
         public int CurrentStock {get;private set;}
         int displayedStock=-1;
+        Sprite[] stockVariants;
+        public void UseStockVariants(Sprite[] sprites)
+        {
+            stockVariants=sprites;
+            displayedStock=-1;
+            ShowStock(initialStock);
+        }
         public bool CanInteract(Vector2 worldPoint)=>interactionZone&&interactionZone.enabled&&interactionZone.OverlapPoint(worldPoint);
         public void ShowStock(int amount)
         {
@@ -22,7 +29,7 @@ namespace GokilKisah
             if(displayedStock==CurrentStock)return;
             displayedStock=CurrentStock;
             for(int i=0;i<stockSlots.Length;i++)if(stockSlots[i])
-                stockSlots[i].sprite=i<CurrentStock?stockedSprite:emptySprite;
+                stockSlots[i].sprite=i<CurrentStock?(stockVariants!=null&&i<stockVariants.Length&&stockVariants[i]?stockVariants[i]:stockedSprite):emptySprite;
         }
         void OnValidate()
         {capacity=Mathf.Max(1,capacity);initialStock=Mathf.Clamp(initialStock,0,capacity);displayedStock=-1;ShowStock(initialStock);}

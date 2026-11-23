@@ -19,6 +19,25 @@ namespace GokilKisah
         }
         public static int CustomerWalkCount(string skin){CustomerPose(skin,true,0);return Mathf.Max(1,walks["Customer/"+skin+"Walk"].Length);}
         public static int WalkFrameCount(string skin)=>skin=="Toyol"?41:49;
+        public static Sprite KeeperIdle(string skin,int frame)
+        {
+            const int columns=6, rows=4;
+            string key=skin+"Idle";
+            if(!walks.TryGetValue(key,out var frames))
+            {
+                var sheet=Resources.Load<Texture2D>("NovemberArt/KeeperIdle/"+skin);
+                if(!sheet)return Idle(skin);
+                int cellWidth=sheet.width/columns,cellHeight=sheet.height/rows;
+                walks[key]=frames=new Sprite[columns*rows];
+                for(int i=0;i<frames.Length;i++)
+                {
+                    var rect=new Rect(i%columns*cellWidth+1,(rows-1-i/columns)*cellHeight+1,cellWidth-2,cellHeight-2);
+                    frames[i]=Sprite.Create(sheet,rect,new Vector2(.5f,0),rect.height/1.88f,0,SpriteMeshType.FullRect);
+                    frames[i].name=skin+" idle "+i;
+                }
+            }
+            return frames[frame%frames.Length];
+        }
         public static Sprite Idle(string skin)
         {
             if(!idles.TryGetValue(skin,out var sprite))

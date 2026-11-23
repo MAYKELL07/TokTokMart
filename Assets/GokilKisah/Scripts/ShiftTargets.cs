@@ -10,7 +10,7 @@ namespace GokilKisah
         public readonly ShiftFocus focus;
         public int taskCount=>serve+stock+clean;
         public string Title=>focus==ShiftFocus.Rush?"LUNCH RUSH":focus==ShiftFocus.Restock?"STOCK UP":focus==ShiftFocus.Cleanup?"MOP UP":focus==ShiftFocus.Chaos?"CHAOS SHIFT":"WELCOME SHIFT";
-        public string Hint=>focus==ShiftFocus.Rush?"Beat the clock. Keep the checkout moving!":focus==ShiftFocus.Restock?"Grab crates and refill shelves. Your partner covers the till.":focus==ShiftFocus.Cleanup?"Clear the puddles and open up the aisles.":focus==ShiftFocus.Chaos?"Handle the surprise guest and keep chaos below 100%.":"Stock, serve and clean. Find your rhythm!";
+        public string Hint=>focus==ShiftFocus.Rush?"Beat the clock. Keep the checkout moving!":focus==ShiftFocus.Restock?"Grab crates and refill shelves. Keep an eye on the till.":focus==ShiftFocus.Cleanup?"Clear the puddles and open up the aisles.":focus==ShiftFocus.Chaos?"Handle the surprise guest and keep chaos below 100%.":"Stock, serve and clean. Find your rhythm!";
         public float ArrivalScale=>focus==ShiftFocus.Rush?.72f:focus==ShiftFocus.Cleanup?1.25f:focus==ShiftFocus.Restock?1.1f:.95f;
         public int SpillEvery=>focus==ShiftFocus.Cleanup?2:focus==ShiftFocus.Chaos?3:focus==ShiftFocus.Rush?8:6;
         public ShiftTargets(int shift)

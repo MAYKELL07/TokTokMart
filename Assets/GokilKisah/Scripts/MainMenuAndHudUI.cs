@@ -13,7 +13,7 @@ namespace GokilKisah
         }}
         void DrawNovemberMenu()
         {using(NativeUiScope("ArtMenu","Main menu")){
-            if(levelMapOpen){DrawLevelMap();return;}
+            if(levelMapOpen)return;
             var bg=GameArtLibrary.UI("MenuBackground");if(bg)EditableTexture(new Rect(0,0,1600,900),bg,ScaleMode.ScaleAndCrop);
             Fill(new Rect(0,0,630,900),new Color(.06f,.16f,.18f,.70f));
             ArtImage(new Rect(74,35,485,248),"Logo");

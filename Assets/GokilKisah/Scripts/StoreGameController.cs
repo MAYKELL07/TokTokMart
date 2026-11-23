@@ -33,8 +33,8 @@ namespace GokilKisah
         public readonly List<Rect> shelves = new List<Rect>();
         public readonly List<Vector2> spills = new List<Vector2>();
         public int switchIndex = -1, canIndex = -1;
-        int skillType = -1, skillTarget, skillScans, aiPhase, aiShelf;
-        float skillClock, aiWork, aiWait, noticeUntil, pulse, nextMess, nextAttack, customerHit;
+        int skillType = -1, skillTarget, skillScans;
+        float skillClock, aiWork, noticeUntil, pulse, nextMess, nextAttack, customerHit;
         Vector2 aiGoal, touchOrigin, touchMove;
         bool touchHeld;
         bool cleanCaptureMode;
@@ -80,7 +80,7 @@ namespace GokilKisah
             InitializeSceneBindings();
         }
         void OnDestroy() { Time.captureFramerate=0; Time.timeScale=1; foreach(var icon in arcadeIcons.Values)if(icon)Destroy(icon);arcadeIcons.Clear(); if(invoiceStar)Destroy(invoiceStar);if(roundedPanel)Destroy(roundedPanel);if(shopFloor)Destroy(shopFloor);if(streetFloor)Destroy(streetFloor); }
-        public void Choose(bool chooseZack) { mainMenu=false; selected=true; zack=chooseZack; if(!testing&&!verificationRunning&&!replay)BeginCampaignLevel(SavedLevel); PlaySound("Confirm"); aiStatus="Restocking shelves"; }
+        public void Choose(bool chooseZack) { mainMenu=false; selected=true; zack=chooseZack; if(!testing&&!verificationRunning&&!replay)BeginCampaignLevel(SavedLevel); PlaySound("Confirm"); aiStatus="On register standby"; }
         public void ResetRun(Encounter next)
         {
             if(campaignActive){tuning.rayWait=5;tuning.boDeadline=18;tuning.nailHits=3;}
@@ -92,14 +92,14 @@ namespace GokilKisah
             bufferedActionUntil=-1;bufferedActionUntil=-1;lastPlayer=player;lastHelper=helper;playerMotion=Vector2.zero;helperMotion=Vector2.zero;playerFacing=24;helperFacing=24;
             carryingCrate=false; hasGun=false; rayCalled=false; lightsOn=false; canFlying=false; canKicked=false;
             rayRemaining=0; rayX=1490; boRemaining=tuning.boDeadline; chaos=0; shiftTime=0; nailsHit=0; nailCooldown=0;
-            served=0; stockActions=0; hazardsCleared=0; skillType=-1; aiPhase=0; aiWork=0; aiWait=0; aiShelf=0; nextMess=3; nextAttack=1; customerHit=0;
+            served=0; stockActions=0; hazardsCleared=0; skillType=-1; aiWork=0; nextMess=3; nextAttack=1; customerHit=0;
             shelfStock=new[]{0,4,2,4,0,3}; spills.Clear(); spills.Add(new Vector2(795,490));
             goblins=next==Encounter.Goblins?3:0;
             int newSwitch=UnityEngine.Random.Range(0,switches.Length-1); if(newSwitch>=switchIndex) newSwitch++; switchIndex=newSwitch; lightSwitch=switches[newSwitch];
             int newCan=UnityEngine.Random.Range(0,cans.Length-1); if(newCan>=canIndex) newCan++; canIndex=newCan; can=cans[newCan];
             ResetSceneState();
             ResetCustomers();ResetActiveEncounter(next);
-            aiGoal=supply; aiStatus="Restocking shelves";
+            aiGoal=supply; aiStatus="On register standby";registerArrivals=0;ResetShopMishaps();
             switch(next)
             {
                 case Encounter.Store: SetStep("01 / COLLECT A CRATE","Go to the stockroom, restock a shelf, scan a checkout and clear a spill."); break;
@@ -118,7 +118,7 @@ namespace GokilKisah
             UpdatePolish();
             UpdateMobileControls();
             pulse+=Time.deltaTime;
-            if(mainMenu || !selected || gameOver || levelResults || settingsOpen || autoPaused || shiftBriefOpen || scoreGuideOpen) return;
+            if(shiftTransition!=null || mainMenu || !selected || gameOver || levelResults || settingsOpen || autoPaused || shiftBriefOpen || scoreGuideOpen) return;
             float dt=Time.deltaTime; shiftTime+=dt;TickShiftFeedback(dt);
             if(!replay&&!verificationRunning)
             {
@@ -169,30 +169,35 @@ namespace GokilKisah
             int steps=Mathf.Max(1,Mathf.CeilToInt(delta.magnitude/5));var step=delta/steps;
             for(int i=0;i<steps;i++)
             {
-                var x=player+new Vector2(step.x,0);if(Walkable(x))player=x;
-                var y=player+new Vector2(0,step.y);if(Walkable(y))player=y;
+                var x=player+new Vector2(step.x,0);if(PlayerStepClear(x))player=x;
+                var y=player+new Vector2(0,step.y);if(PlayerStepClear(y))player=y;
             }
         }
+        int registerArrivals;
         void UpdateAI(float dt)
         {
-            if(shelves.Count==0){aiStatus="Waiting for shelves";return;}
-            // Keep the player's stocking work available. The partner covers checkout first,
-            // then resumes the normal stock/serve loop once the restock target is complete.
-            if((campaignActive&&stockActions<StockGoal||ActiveFight||customerQueue.Count>=2)&&aiPhase!=2)
-            {aiPhase=2;aiWork=0;aiWait=0;aiStatus="Covering checkout while you restock";}
-            if(aiWait>0) { aiWait-=dt; return; }
-            aiGoal=aiPhase==0?supply:aiPhase==1?ShelfPoint(Mathf.Clamp(aiShelf,0,shelves.Count-1)):ShopLayout.ToGame(shop.partnerCheckoutSpot.position);
-            if(Vector2.Distance(helper,aiGoal)>8) { helper=Navigate(helper,aiGoal,170*dt); return; }
-            aiWork+=dt; if(aiWork<1.7f) return; aiWork=0;
-            if(aiPhase==0) { aiShelf=0; for(int i=0;i<shelves.Count;i++) if(shelfStock[i]<shelfStock[aiShelf])aiShelf=i; aiGoal=ShelfPoint(aiShelf); aiPhase=1; aiStatus="Carrying stock to shelf "+(aiShelf+1); }
-            else if(aiPhase==1) { if(skillType!=0||skillTarget!=aiShelf) shelfStock[aiShelf]=ShelfCapacity(aiShelf); aiPhase=2; aiGoal=ShopLayout.ToGame(shop.partnerCheckoutSpot.position); aiStatus="Helping at checkout"; }
-            else
+            var shopper=CustomerAtRegister();
+            if(shopper!=null&&shopper.registerTurn==0)
+                shopper.registerTurn=++registerArrivals;
+
+            aiGoal=ShopLayout.ToGame(shop.partnerCheckoutSpot.position);
+            if(Vector2.Distance(helper,aiGoal)>8)
+                helper=Navigate(helper,aiGoal,80*dt);
+
+            if(shopper==null||shopper.registerTurn%5!=0||skillType==1)
             {
-                if(skillType!=1&&CustomerAtRegister()!=null)ServeCustomer();
-                if(campaignActive&&stockActions<StockGoal||ActiveFight||customerQueue.Count>=2)
-                {aiPhase=2;aiStatus=ActiveFight?"Covering checkout during the fight":"Covering checkout while you restock";aiWait=.6f;}
-                else {aiPhase=0;aiGoal=supply;aiStatus="Collecting stockroom crate";aiWait=2;}
+                aiWork=0;
+                aiStatus="On register standby";
+                return;
             }
+            if(Vector2.Distance(helper,aiGoal)>8)return;
+
+            aiStatus="Slowly ringing up a customer";
+            aiWork+=dt;
+            if(aiWork<5.5f)return;
+            aiWork=0;
+            Speak(shopper,"Wah, service finally respawned.");
+            ServeCustomer();
         }
         public Vector2 ShelfPoint(int i) {return ShopLayout.ToGame(sceneShelves[i].shoppingPoint.position);}
         // Static routes and collision geometry are shared by all actors.
@@ -211,12 +216,14 @@ namespace GokilKisah
             if(!selected||gameOver||levelResults||settingsOpen||autoPaused||shiftBriefOpen||scoreGuideOpen||replay && demoRoutine==null)return;
             if(skillType>=0) { AttemptSkill();return; }
             if(TryEncounterInteraction())return;
+            int droppedIndex=NearestDroppedItem();
+            if(droppedIndex>=0){PickUpDroppedItem(droppedIndex);return;}
             int spillIndex=NearestSpill();
             if(spillIndex>=0){BeginSkill(2,spillIndex);return;}
-            if(Vector2.Distance(player,supply)<75) { PlaySound("Pickup");carryingCrate=true;SetStep("02 / RESTOCK WITH A SKILL CHECK","Bring the crate to an empty shelf. Press ACTION when the marker enters the green zone.");Toast("Stock crate collected");return; }
+            if(StationInReach(shop.stockroom)) { PlaySound("Pickup");carryingCrate=true;SetStep("02 / RESTOCK WITH A SKILL CHECK","Bring the crate to an empty shelf. Press ACTION when the marker enters the green zone.");Toast("Stock crate collected");return; }
             int shelfIndex=NearestShelf();
             if(shelfIndex>=0) {if(!carryingCrate)Toast("Collect a crate from the stockroom first");else if(shelfStock[shelfIndex]>=ShelfCapacity(shelfIndex))Toast("This shelf is full");else BeginSkill(0,shelfIndex);return;}
-            if(Vector2.Distance(player,checkout)<135) {if(CustomerAtRegister()!=null)BeginSkill(1,CustomerAtRegister().id);else Toast("Wait for a shopper to reach the checkout.");return;}
+            if(StationInReach(shop.register)) {if(CustomerAtRegister()!=null)BeginSkill(1,CustomerAtRegister().id);else Toast("Wait for a shopper to reach the checkout.");return;}
             Toast("Move closer to a highlighted station");
         }
         void BeginSkill(int type,int target) {if(type==2)CaptureMopTarget(target);else mopTargetView=null;PrepareTask(type);PlaySound("Click");playerVelocity=Vector2.zero;skillType=type;skillTarget=target;skillClock=0;skillScans=0;taskElapsed=0;taskLastAttempt=-1;taskFeedbackFailed=false;}
@@ -239,7 +246,7 @@ namespace GokilKisah
         {
             var shopper=CustomerAtRegister();
             if(shopper==null)return;
-            if(campaignActive)foreach(int item in shopper.items)salesCents+=groceryPrices[item];
+            if(campaignActive)foreach(int item in shopper.items)salesCents+=UnitPrice(item);
             LeaveRegister(shopper);served++;chaos=Mathf.Max(0,chaos-2);PlaySound("Confirm");
         }
         public void StartReplay(Encounter next) {if(demoRoutine!=null)StopCoroutine(demoRoutine);demoRoutine=StartCoroutine(Demo(next));}
@@ -260,8 +267,6 @@ namespace GokilKisah
             replay=true;Choose(zack);ResetRun(next);yield return new WaitForSeconds(1.6f);
             if(next==Encounter.Store)
             {
-                // Keep the AI on a different shelf so the player can demonstrate stocking shelf 5.
-                aiShelf=0;aiPhase=1;aiGoal=ShelfPoint(0);aiStatus="Restocking shelf 1";
                 yield return Go(supply);Interact();yield return Go(ShelfPoint(4));Interact();yield return CompleteSkill();
                 yield return Go(ShopLayout.ToGame(shop.register.approachPoint.position));
                 float wait=35;while(CustomerAtRegister()==null&&wait>0){wait-=Time.deltaTime;yield return null;}

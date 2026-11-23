@@ -206,7 +206,7 @@ namespace GokilKisah
             check(missedCustomers==1&&!customerQueue.Contains(impatient)&&chaos==8,"Expired customer patience removes the customer and adds a penalty");
             BeginCampaignLevel(1,false);var sale=SpawnCustomer();sale.basket=2;sale.items.AddRange(new[]{0,1});sale.state=ShopperState.Queuing;sale.position=QueuePoint(0);customerQueue.Add(sale);player=ShopLayout.ToGame(shop.register.approachPoint.position);Interact();
             priceEntry="1";SubmitPrice();check(priceMistakes==1&&served==0,"A wrong price is counted without completing a sale");
-            priceEntry=RinggitNumber(receiptTotal);SubmitPrice();check(served==1&&salesCents==600&&InvoicePenalty==25,"Payment records actual basket revenue and invoice deductions");
+            priceEntry=RinggitNumber(receiptTotal);SubmitPrice();check(served==1&&salesCents==UnitPrice(0)+UnitPrice(1)&&InvoicePenalty==25,"Payment records actual basket revenue and invoice deductions");
             bool hadLevel=PlayerPrefs.HasKey(LevelSave),hadBoss=PlayerPrefs.HasKey(BossSave);int savedLevel=PlayerPrefs.GetInt(LevelSave),savedBoss=PlayerPrefs.GetInt(BossSave);
             try
             {

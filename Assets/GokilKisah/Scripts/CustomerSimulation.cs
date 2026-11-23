@@ -8,12 +8,13 @@ namespace GokilKisah
         enum ShopperState { Entering, Browsing, Picking, Queuing, Leaving }
         sealed class Shopper
         {
-            public int id, shelf=-1, basket, wanted, facing=25, visits;
+            public int id, shelf=-1, basket, wanted, facing=25, visits, registerTurn;
             public readonly List<int> items=new List<int>();
             public Vector2 position, goal, motion;
             public ShopperState state;
-            public float timer, scared, blocked;
-            public bool clumsy, spilled, exitingRegister, angry;
+            public float timer, scared, blocked, slipCooldown, speechUntil, yieldUntil;
+            public bool clumsy, spilled, droppedItem, exitingRegister, angry;
+            public string speech;
             public Vector2 detour;
             public float detourTime;
         }
@@ -45,7 +46,7 @@ namespace GokilKisah
         Shopper SpawnCustomer()
         {
             var c=new Shopper{id=++nextCustomer,position=ShopDoor,goal=ShopLayout.ToGame(shop.customerEntryTarget.position),
-                wanted=1+(nextCustomer%3),clumsy=campaignActive?nextCustomer%Targets.SpillEvery==1:nextCustomer%3==1,state=ShopperState.Entering};
+                wanted=1+((nextCustomer-1)%MaxBasketItems),clumsy=campaignActive?nextCustomer%Targets.SpillEvery==1:nextCustomer%3==1,state=ShopperState.Entering};
             customers.Add(c);return c;
         }
         void ChooseShelf(Shopper c)
@@ -60,9 +61,12 @@ namespace GokilKisah
                 value+=((i+c.id)%6)*26;
                 if(value<score){score=value;best=i;}
             }
-            if(best<0||c.basket>=c.wanted||c.visits>=4)
+            if(best<0||c.basket>=c.wanted||c.visits>=MaxBasketItems)
             {JoinQueueOrLeave(c);return;}
-            c.shelf=best;c.goal=ShelfPoint(best)+new Vector2((c.id%2==0?1:-1)*32,0);
+            c.shelf=best;
+            Vector2 point=ShelfPoint(best);
+            var offset=Vector2.right*((c.id%2==0?1:-1)*27);
+            c.goal=StaticSegmentClear(point,point+offset)?point+offset:point;
             c.state=ShopperState.Browsing;c.timer=0;
         }
         void JoinQueueOrLeave(Shopper c)
@@ -74,7 +78,9 @@ namespace GokilKisah
         void LeaveRegister(Shopper c)
         {
             customerQueue.Remove(c);c.state=ShopperState.Leaving;c.timer=0;c.blocked=0;
-            c.exitingRegister=true;c.goal=QueuePoint(0)+Vector2.left*45;c.detourTime=0;
+            c.exitingRegister=Vector2.Distance(c.position,QueuePoint(0))<38;
+            c.goal=c.exitingRegister?QueuePoint(0)+Vector2.left*45:ShopDoor;
+            c.detourTime=0;
         }
         Vector2 QueuePoint(int index)=>ShopLayout.ToGame(shop.queueFront.position+(Vector3)(shop.queueSpacing*index));
         Shopper CustomerAtRegister()
@@ -88,7 +94,10 @@ namespace GokilKisah
             if(c.spilled)return;
             // A mishap is attached to the shopper's actual position, never a timer-spawned random puddle.
             if(!TrySpawnSpill(c.position,6))return;
-            c.spilled=true;customerSpills++;c.scared=1.4f;PlaySound("Impact");
+            c.spilled=true;customerSpills++;c.scared=1.4f;c.slipCooldown=3;
+            PlaySound("Splash");
+            AddSplash(c.position);
+            Speak(c,SpillLines[(c.id-1)%SpillLines.Length]);
         }
         void ScareCustomer()
         {
@@ -115,22 +124,29 @@ namespace GokilKisah
             for(int n=customers.Count-1;n>=0;n--)
             {
                 var c=customers[n];c.motion=Vector2.zero;c.scared=Mathf.Max(0,c.scared-dt);
+                c.slipCooldown-=dt;
                 if(c.state==ShopperState.Queuing)
                 {
                     c.timer+=dt;
                     if(c.timer>CustomerPatience)
-                    {c.angry=true;LeaveRegister(c);missedCustomers++;chaos=Mathf.Min(100,chaos+8);if(skillType==1&&skillTarget==c.id)skillType=-1;Toast("Customer left! -100 accuracy points. Watch the patience bar.");PlaySound("Miss",.55f);}
+                    {c.angry=true;Speak(c,"Lambatnya! My queue number grew a beard.");LeaveRegister(c);missedCustomers++;chaos=Mathf.Min(100,chaos+8);if(skillType==1&&skillTarget==c.id)skillType=-1;Toast("Customer left! -100 accuracy points. Watch the patience bar.");PlaySound("Miss",.55f);}
                 }
                 if(c.state==ShopperState.Queuing)c.goal=QueuePoint(customerQueue.IndexOf(c));
                 float remaining=Vector2.Distance(c.position,c.goal);
                 if(c.state==ShopperState.Picking)
                 {
                     c.timer+=dt;
-                    if(c.timer>=1.1f)
+                    if(c.timer>=1.1f+(c.id%3==0?2.3f:0))
                     {
                         // Stock is removed when collected. Payment never takes stock a second time.
-                        if(shelfStock[c.shelf]>0){shelfStock[c.shelf]--;c.items.Add(c.shelf%groceries.Length);c.basket++;c.visits++;}
+                        if(shelfStock[c.shelf]>0)
+                        {
+                            int slot=--shelfStock[c.shelf];
+                            c.items.Add(ReleaseShopArt.ShelfProduct(c.shelf,slot));
+                            c.basket++;c.visits++;
+                        }
                         if(c.clumsy&&c.basket>0)CustomerSpill(c);
+                        else if(c.visits==1&&c.id%4==2)TryDropShelfItem(c);
                         ChooseShelf(c);
                     }
                     continue;
@@ -138,7 +154,11 @@ namespace GokilKisah
                 if(remaining<8)
                 {
                     if(c.state==ShopperState.Entering)ChooseShelf(c);
-                    else if(c.state==ShopperState.Browsing){c.state=ShopperState.Picking;c.timer=0;}
+                    else if(c.state==ShopperState.Browsing)
+                    {
+                        c.state=ShopperState.Picking;c.timer=0;
+                        c.facing=FaceColumn(ShopLayout.ToGame(sceneShelves[c.shelf].collisionBase.bounds.center)-c.position);
+                    }
                     else if(c.state==ShopperState.Leaving)
                     {if(c.exitingRegister){c.exitingRegister=false;c.goal=ShopDoor;}else{customers.RemoveAt(n);completedShoppingTrips++;}}
                     continue;
@@ -147,8 +167,18 @@ namespace GokilKisah
                 if(entrancePresentation&&(c.state==ShopperState.Entering||c.state==ShopperState.Leaving)&&Vector2.Distance(c.position,ShopDoor)<100&&!entrancePresentation.IsPassable)continue;
                 float speed=c.scared>0?130:100+(c.id%3)*12;
                 bool nearSpill=false;
-                foreach(var spill in spills)if(Vector2.Distance(c.position,spill)<46)nearSpill=true;
-                if(nearSpill)speed*=.45f;
+                foreach(var spill in spills)
+                {
+                    if((c.position-spill).sqrMagnitude>46*46)continue;
+                    nearSpill=true;
+                    if(c.slipCooldown>0||(c.position-spill).sqrMagnitude>33*33)continue;
+                    c.slipCooldown=12;
+                    PlaySound("Splash",.65f);
+                    AddSplash(c.position);
+                    Speak(c,SlipLines[(c.id-1)%SlipLines.Length]);
+                }
+                if(nearSpill)speed*=.55f;
+                if(Time.time<c.yieldUntil&&c.state!=ShopperState.Queuing)speed*=.5f;
                 routingShopper=c;
                 c.detourTime-=dt;
                 if(c.detourTime<=0&&c.blocked>.18f&&TryCustomerDetour(c,out var detour))
@@ -156,6 +186,7 @@ namespace GokilKisah
                 Vector2 routeGoal=c.detourTime>0&&Vector2.Distance(c.position,c.detour)>5?c.detour:c.goal;
                 Vector2 candidate=Navigate(c.position,routeGoal,speed*dt);
                 routingShopper=null;
+                if(BlocksPlayerStep(c.position,candidate,player,26))candidate=c.position;
                 // Let a paid customer clear the till before the next customer advances.
                 if(c.state==ShopperState.Queuing)foreach(var departing in customers)
                     if(departing.exitingRegister&&Vector2.Distance(departing.position,QueuePoint(0))<38)candidate=c.position;
@@ -179,7 +210,7 @@ namespace GokilKisah
                         var alternate=c.position+side*speed*dt;
                         bool clear=LineClear(c.position,alternate);
                         foreach(var other in customers)if(other!=c&&Vector2.Distance(alternate,other.position)<29)clear=false;
-                        if(clear)candidate=alternate;
+                        if(clear&&!BlocksPlayerStep(c.position,alternate,player,26))candidate=alternate;
                     }
                 }
                 else c.blocked=0;

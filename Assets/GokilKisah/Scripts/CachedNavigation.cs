@@ -30,7 +30,7 @@ namespace GokilKisah
             var unique=new HashSet<Collider2D>();collisionCache.Clear();
             foreach(var c in blockingShapes)if(c&&c.enabled&&c.gameObject.activeInHierarchy&&!c.isTrigger)unique.Add(c);
             foreach(var obstacle in sceneObstacles)if(obstacle&&obstacle.shapes!=null)
-                foreach(var c in obstacle.shapes)if(c&&c.enabled&&c.gameObject.activeInHierarchy)unique.Add(c);
+                foreach(var c in obstacle.shapes)if(c&&c.enabled&&c.gameObject.activeInHierarchy&&!c.isTrigger)unique.Add(c);
             foreach(var c in unique)
             {
                 float z=c.transform.eulerAngles.z;
@@ -59,7 +59,7 @@ namespace GokilKisah
             geometryPollAt=Time.unscaledTime+.5f;
             foreach(var c in blockingShapes)if(c&&c.transform.hasChanged)return true;
             foreach(var shape in collisionCache)
-                if(!shape.collider||!shape.collider.enabled||!shape.collider.gameObject.activeInHierarchy||BoundsRect(shape.collider.bounds)!=shape.bounds)return true;
+                if(!shape.collider||!shape.collider.enabled||shape.collider.isTrigger||!shape.collider.gameObject.activeInHierarchy||BoundsRect(shape.collider.bounds)!=shape.bounds)return true;
             return false;
         }
         static float PointSegmentDistanceSquared(Vector2 p,Vector2 a,Vector2 b)

@@ -46,6 +46,6 @@ namespace GokilKisah
             decimal cents=value*100;if(cents!=decimal.Truncate(cents))return false;sen=(int)cents;return true;
         }
         void EnterPricePoint()
-        {if(priceEntry.Contains("."))return;if(priceEntry.Length==0)priceEntry="0";if(priceEntry.Length<7)priceEntry+=".";}
+        {if(WholeRinggitCheckout||priceEntry.Contains("."))return;if(priceEntry.Length==0)priceEntry="0";if(priceEntry.Length<7)priceEntry+=".";}
     }
 }

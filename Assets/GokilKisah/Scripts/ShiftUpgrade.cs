@@ -14,8 +14,13 @@ namespace GokilKisah
         int receiptTotal, taskCombo;
         string[] receiptNames;
         int[] receiptPrices;
-        readonly string[] groceries={"Milk", "Bread", "Rice", "Tea", "Eggs", "Noodles"};
-        readonly int[] groceryPrices={350,250,500,150,450,200};
+        string receiptItemsText="", receiptPricesText="";
+        readonly int[] groceryPrices={400,200,500,300,400,200,100,200,300,200};
+        readonly int[] advancedGroceryPrices={450,270,520,360,390,220,160,250,310,190};
+        bool WholeRinggitCheckout=>!campaignActive||CurrentLevel<=3;
+        int MaxBasketItems=>!campaignActive?3:Mathf.Clamp(3+(CurrentLevel-2)/2,3,6);
+        int UnitPrice(int item)=>(WholeRinggitCheckout?groceryPrices:advancedGroceryPrices)[item];
+        string ReceiptMoney(int sen)=>WholeRinggitCheckout?"RM "+(sen/100):Ringgit(sen);
         void FollowPlayerCamera(Camera camera)
         {
             camera.orthographic=true;camera.orthographicSize=gameplayZoom;
@@ -37,13 +42,15 @@ namespace GokilKisah
         {
             taskCombo=0;taskFeedback="";priceEntry="";receiptTotal=0;
             if(type!=1)return;
-            var customer=CustomerAtRegister();int count=Mathf.Clamp(customer==null?1:customer.basket,1,6);
+            var customer=CustomerAtRegister();int count=Mathf.Clamp(customer==null?6:customer.basket,1,6);
             receiptNames=new string[count];receiptPrices=new int[count];
             for(int i=0;i<count;i++)
             {
-                int item=customer!=null&&i<customer.items.Count?customer.items[i]:((customer==null?0:customer.id)+i)%groceries.Length;
-                receiptNames[i]=groceries[item];receiptPrices[i]=groceryPrices[item];receiptTotal+=groceryPrices[item];
+                int item=customer!=null&&i<customer.items.Count?customer.items[i]:((customer==null?0:customer.id)+i)%ReleaseShopArt.ProductCount;
+                receiptNames[i]=ReleaseShopArt.ProductName(item);receiptPrices[i]=UnitPrice(item);receiptTotal+=receiptPrices[i];
             }
+            receiptItemsText=string.Join("\n",receiptNames);
+            receiptPricesText=string.Join("\n",System.Array.ConvertAll(receiptPrices,ReceiptMoney));
         }
         void EnterPriceDigit(char digit)
         {int dot=priceEntry.IndexOf('.');if(priceEntry.Length<8&&(dot<0||priceEntry.Length-dot<=2)){priceEntry+=digit;PlaySound("Click",.4f);taskFeedback="";}}
@@ -53,7 +60,7 @@ namespace GokilKisah
             if(customer==null||customer.id!=skillTarget){skillType=-1;Toast("The customer has left the register.");return false;}
             if(!TryRinggit(priceEntry,out int total)||total!=receiptTotal)
             {if(Time.unscaledTime<taskLastAttempt+.25f)return false;taskLastAttempt=Time.unscaledTime;if(campaignActive)priceMistakes++;taskFeedbackFailed=true;PlaySound("Miss");taskFeedback="Wrong total: -25 accuracy points. Add the receipt prices and retry.";skillFlash=Time.unscaledTime+.4f;return false;}
-            ServeCustomer();skillType=-1;PlaySound("Success");Toast("Correct total · "+Ringgit(receiptTotal));SetStep("04 / KEEP YOUR SHOP RUNNING","Keep serving customers, stocking shelves and clearing spills.");return true;
+            ServeCustomer();skillType=-1;PlaySound("Success");Toast("Correct total · "+ReceiptMoney(receiptTotal));SetStep("04 / KEEP YOUR SHOP RUNNING","Keep serving customers, stocking shelves and clearing spills.");return true;
         }
         void CashierKeyboard()
         {

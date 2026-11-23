@@ -23,36 +23,6 @@ namespace GokilKisah
         void DrawStars(Rect r,int earned,string id,int size=50)
         {using(NativeUiScope(id,"Three stars")){for(int i=0;i<3;i++){GUI.color=i<earned?Color.white:new Color(.25f,.30f,.29f,.45f);EditableTexture(new Rect(r.x+i*(size+9),r.y,size,size),InvoiceStar(),ScaleMode.ScaleToFit);}GUI.color=Color.white;}}
         static string ClockText(float seconds){int n=Mathf.CeilToInt(Mathf.Max(0,seconds));return (n/60)+":"+(n%60).ToString("00");}
-        void DrawLevelMap()
-        {using(NativeUiScope("ShiftSelect","Choose a shift")){
-            var bg=GameArtLibrary.UI("MenuBackground");if(bg)EditableTexture(new Rect(0,0,1600,900),bg,ScaleMode.ScaleAndCrop);
-            Fill(new Rect(0,0,1600,900),new Color(.04f,.14f,.16f,.92f));
-            ArcadeText(new Rect(75,38,950,80),"CHOOSE YOUR SHIFT",55,arcadeCream);
-            Text(new Rect(80,121,1070,35),"A new challenge every shift. Clear one to unlock the next!",23,arcadeCream);
-            if(UiButton(new Rect(1295,53,220,60),"MAIN MENU",arcadeCream,23))levelMapOpen=false;
-            int first=mapPage*LevelsPerPage+1;
-            for(int i=0;i<LevelsPerPage;i++)
-            {using(NativeUiScope("Level"+i,"Level tile "+(first+i))){
-                int level=first+i;bool unlocked=level<=HighestUnlocked;var r=new Rect(80+(i%5)*196,185+(i/5)*146,178,129);
-                Sticker(r,level==mapSelection?arcadeGold:unlocked?arcadeCream:new Color(.22f,.32f,.32f),true,4);
-                ArcadeText(new Rect(r.x+12,r.y+8,154,40),unlocked?"SHIFT "+level.ToString("00"):"LOCKED",26,unlocked?arcadeNavy:muted,TextAnchor.MiddleCenter);
-                DrawStars(new Rect(r.x+30,r.y+49,135,38),unlocked?PlayerPrefs.GetInt(BestKey(level,"Stars"),0):0,"TileStars",34);
-                ArcadeText(new Rect(r.x+8,r.y+94,162,25),new ShiftTargets(level).Title,14,unlocked?arcadeNavy:muted,TextAnchor.MiddleCenter);
-                GUI.enabled=unlocked;if(InterfaceButton(r))mapSelection=level;GUI.enabled=true;
-            }}
-            Sticker(new Rect(1100,185,420,565),arcadeCream,true,4);
-            var t=new ShiftTargets(mapSelection);
-            ArcadeText(new Rect(1120,211,380,50),"SHIFT "+mapSelection.ToString("00"),35,arcadeNavy,TextAnchor.MiddleCenter);
-            ArcadeText(new Rect(1120,273,380,44),t.Title,29,arcadeTeal,TextAnchor.MiddleCenter);
-            Text(new Rect(1130,337,360,78),t.Hint,22,arcadeNavy,FontStyle.Normal,TextAnchor.MiddleCenter);
-            Text(new Rect(1140,447,340,110),t.serve+" customers\n"+t.stock+(t.stock==1?" restock\n":" restocks\n")+t.clean+(t.clean==1?" spill":" spills"),25,arcadeNavy,FontStyle.Bold,TextAnchor.MiddleCenter);
-            ArcadeText(new Rect(1130,577,360,38),"CLOSING IN "+ClockText(t.duration),24,arcadeTeal,TextAnchor.MiddleCenter);
-            Text(new Rect(1130,626,360,32),mapSelection%5==0?"Boss: "+scenarioTitles[(int)MilestoneBoss(mapSelection)]:"Quick, accurate, tidy = more stars!",19,arcadeNavy,FontStyle.Normal,TextAnchor.MiddleCenter);
-            if(UiButton(new Rect(1130,682,360,52),"PLAY SHIFT "+mapSelection,arcadeGold,25)){chosenLevel=mapSelection;levelMapOpen=false;mainMenu=false;selected=false;}
-            GUI.enabled=mapPage>0;if(UiButton(new Rect(80,798,180,55),"PREVIOUS",arcadeCream,22)){mapPage--;mapSelection=mapPage*20+1;}GUI.enabled=true;
-            ArcadeText(new Rect(285,794,545,60),"SHIFTS "+first+" - "+(first+19),23,arcadeCream,TextAnchor.MiddleCenter);
-            GUI.enabled=first+20<=HighestUnlocked;if(UiButton(new Rect(860,798,180,55),"NEXT",arcadeCream,22)){mapPage++;mapSelection=mapPage*20+1;}GUI.enabled=true;
-        }}
         void DrawScoreGuide()
         {using(NativeUiScope("StarHint","Star hint")){
             Shade();if(NativeUiReady)editableUI.Button(new Rect(0,0,1600,900),true,NativeMatrix);
@@ -67,27 +37,11 @@ namespace GokilKisah
             Shade();Sticker(new Rect(305,166,990,566),arcadeCream,true,5);
             ArcadeText(new Rect(340,187,920,65),"SHIFT "+CurrentLevel.ToString("00")+"  /  "+Targets.Title,42,arcadeNavy,TextAnchor.MiddleCenter);
             Text(new Rect(370,271,860,58),Targets.Hint,25,arcadeTeal,FontStyle.Bold,TextAnchor.MiddleCenter);
-            int[] goal={ServeGoal,StockGoal,CleanGoal};string[] labels={"SERVE","RESTOCK","CLEAN"};string[] icons={"CheckoutIcon01","StockIcon01","PuddleIcon01"};
+            int[] goal={ServeGoal,StockGoal,CleanGoal};string[] labels={"SERVE","RESTOCK","CLEAN"};string[] icons={"CheckoutIcon01","StockCard01","PuddleIcon01"};
             for(int i=0;i<3;i++){var r=new Rect(370+i*295,355,270,135);Panel(r,new Color(.90f,.91f,.83f));ArtImage(new Rect(r.x+20,r.y+25,64,64),icons[i]);ArcadeText(new Rect(r.x+99,r.y+12,150,55),goal[i].ToString(),42,arcadeNavy,TextAnchor.MiddleCenter);ArcadeText(new Rect(r.x+90,r.y+74,165,35),labels[i],25,arcadeTeal,TextAnchor.MiddleCenter);}
             ArtImage(new Rect(397,523,42,42),"TimerIcon01",uiKey:"ClosingTimerIcon");
             Text(new Rect(370,524,860,42),"CLOSING IN "+ClockText(ShiftBudget)+(mandatoryBossPending?"  /  BOSS: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]:"  /  QUICK, ACCURATE, TIDY!"),23,arcadeNavy,FontStyle.Bold,TextAnchor.MiddleCenter);
             if(UiButton(new Rect(520,617,560,70),"LET'S OPEN!",arcadeGold,32))StartBriefedShift();
-        }}
-        void DrawArcadeResults()
-        {using(NativeUiScope("ShiftResults","Shift results")){
-            Fill(new Rect(0,0,1600,900),new Color(.07f,.24f,.27f));
-            ArcadeText(new Rect(180,30,1240,90),levelWon?"SHIFT COMPLETE!":"ONE MORE TRY?",59,levelWon?arcadeGold:arcadeCoral,TextAnchor.MiddleCenter);
-            var s=Rating(levelWon);Sticker(new Rect(340,157,920,560),arcadeCream,true,5);
-            DrawStars(new Rect(605,193,390,118),invoiceStars,"ResultStars",112);
-            ArcadeText(new Rect(390,350,820,65),s.total+" POINTS",48,arcadeNavy,TextAnchor.MiddleCenter);
-            ArcadeText(new Rect(390,424,820,40),"SHIFT "+CurrentLevel+"  /  "+Targets.Title,25,arcadeTeal,TextAnchor.MiddleCenter);
-            Text(new Rect(410,490,780,52),"SERVED "+Mathf.Min(served,ServeGoal)+"/"+ServeGoal+"     STOCKED "+Mathf.Min(stockActions,StockGoal)+"/"+StockGoal+"     CLEANED "+Mathf.Min(hazardsCleared,CleanGoal)+"/"+CleanGoal,25,arcadeNavy,FontStyle.Bold,TextAnchor.MiddleCenter);
-            string tip=!levelWon?levelFailure:invoiceStars==3?"BOOM! What a shift!":s.speed<200?"Try finishing a little faster next time.":s.accuracy<200?"Take care with receipts and timing next time.":"A tidier shop earns more stars!";
-            Text(new Rect(405,567,790,60),tip,25,arcadeTeal,FontStyle.Bold,TextAnchor.MiddleCenter);
-            ArcadeText(new Rect(405,650,790,35),"SHOP TAKINGS  "+Ringgit(InvoiceTotal),23,arcadeNavy,TextAnchor.MiddleCenter);
-            if(UiButton(new Rect(255,764,460,66),levelWon?"NEXT SHIFT "+(CurrentLevel+1):"RETRY SHIFT "+CurrentLevel,arcadeGold,27))BeginCampaignLevel(levelWon?CurrentLevel+1:CurrentLevel,campaignPersistence);
-            if(UiButton(new Rect(735,764,285,66),"REPLAY",arcadeCream,26))BeginCampaignLevel(CurrentLevel,campaignPersistence);
-            if(UiButton(new Rect(1040,764,305,66),"LEVEL SELECT",arcadeCream,25)){ReturnToMainMenu();OpenLevelMap();}
         }}
         void ResetShiftFeedback(){taskElapsed=0;taskLastAttempt=-1;lastCountdown=-1;taskFeedbackFailed=false;scoreGuideOpen=false;}
         float TaskBudget=>skillType==1?30:skillType==2?24:20;
@@ -112,7 +66,12 @@ namespace GokilKisah
         void DrawTaskDrive()
         {using(NativeUiScope("TaskDrive","Task progress and icon")){
             var r=new Rect(412,351,36,74);ArtImage(r,"ProgressBar01");
-            float progress=(float)taskCombo/(skillType==0?3:4);Fill(new Rect(r.x+5,r.yMax-6-(r.height-12)*progress,r.width-10,(r.height-12)*progress),new Color(.41f,.86f,.18f));
+            float progress=(float)taskCombo/(skillType==0?3:4);
+            using(NativeUiScope("","Fill"))
+            {
+                float height=(r.height-12)*progress;
+                EditableTextureUV(new Rect(r.x+5,r.yMax-6-height,r.width-10,height),GameArtLibrary.UI("ProgressBar01a"),new Rect(0,0,1,progress));
+            }
             ArtImage(new Rect(r.x+7,r.y+23,22,28),skillType==0?"StockIcon01":"PuddleIcon01");
         }}
         void HudCard(Rect r,string art,string label,int done,int goal)

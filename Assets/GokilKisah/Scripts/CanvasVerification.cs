@@ -69,7 +69,7 @@ namespace GokilKisah
             var open=FindButton(SavedLevel>1?"BACK TO SHIFT "+SavedLevel:"OPEN THE SHOP");check(open,"Native Open Shop button exists");if(open)open.onClick.Invoke();yield return null;yield return new WaitForEndOfFrame();yield return null;
             check(!mainMenu&&!selected,"Native Open Shop opens character selection");
             yield return CanvasPair(folder,"03-Selection");
-            var sam=FindButton("PICK SAM");if(sam)sam.onClick.Invoke();yield return null;yield return new WaitForEndOfFrame();yield return null;check(selected&&!zack,"Native character selection keeps existing Choose action");
+            var sam=FindButton("PICK SAM");if(sam)sam.onClick.Invoke();yield return null;yield return new WaitForEndOfFrame();yield return null;while(shiftTransition!=null)yield return null;check(selected&&!zack,"Native character selection keeps existing Choose action");
             BeginCampaignLevel(1,false);shiftBriefOpen=true;yield return CanvasPair(folder,"04-Briefing");
             shiftBriefOpen=false;showTouchControls=true;yield return CanvasPair(folder,"05-Mobile-HUD");
             var control=editableUI.ControlImage("InteractButton01");check(control,"Mobile control image is bound");

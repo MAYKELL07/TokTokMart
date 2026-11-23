@@ -171,7 +171,7 @@ namespace GokilKisah
                 Portrait(new Rect(r.x+103,r.y-24,194,252),pickZack, uiKey:"ArcadeInterface_13615");
                 ArcadeText(new Rect(r.x+25,r.y+243,350,53),pickZack?"ZACK":"SAM",43,arcadeNavy,TextAnchor.MiddleCenter, uiKey:"ArcadeInterface_13684");
                 ArcadeText(new Rect(r.x+25,r.y+303,350,28),pickZack?"READY FOR THE RUSH":"YOUR NEIGHBOURHOOD KEEPER",17,arcadeNavy,TextAnchor.MiddleCenter, uiKey:"ArcadeInterface_13805");
-                if(UiButton(new Rect(r.x+28,r.y+363,344,64),pickZack?"PICK ZACK":"PICK SAM",color,28, uiKey:"ArcadeInterface_13965"))Choose(pickZack);
+                if(UiButton(new Rect(r.x+28,r.y+363,344,64),pickZack?"PICK ZACK":"PICK SAM",color,28, uiKey:"ArcadeInterface_13965"))QueueShiftTransition(()=>Choose(pickZack));
             }
             if(MobileInterface)
                 ArcadeText(new Rect(300,768,1000,64),"DRAG JOYSTICK TO MOVE   /   HOLD SPRINT   /   TAP INTERACT",24,arcadeCream,TextAnchor.MiddleCenter, uiKey:"ArcadeInterface_14128");
@@ -235,23 +235,25 @@ namespace GokilKisah
             Sticker(new Rect(343,158,397,582),arcadeCream,false,3, uiKey:"ArcadeInterface_18488");
             Icon(new Rect(497,172,72,72),"serve",arcadeTeal, uiKey:"ArcadeInterface_18556");
             ArcadeText(new Rect(368,242,347,47),"CUSTOMER RECEIPT",29,arcadeNavy,TextAnchor.MiddleCenter, uiKey:"ArcadeInterface_18618");
-            ArcadeText(new Rect(368,289,347,28),"ADD IT UP. RING IT THROUGH.",16,arcadeTeal,TextAnchor.MiddleCenter, uiKey:"ArcadeInterface_18725");
+            ArcadeText(new Rect(368,289,347,28),WholeRinggitCheckout?"ADD UP THE WHOLE RINGGIT":"ADD UP THE RINGGIT AND SEN",16,arcadeTeal,TextAnchor.MiddleCenter, uiKey:"ArcadeInterface_18725");
             for(int x=372;x<710;x+=17)Fill(new Rect(x,331,8,2),new Color(.60f,.65f,.59f), uiKey:"ArcadeInterface_18869");
-            for(int i=0;receiptNames!=null&&i<receiptNames.Length;i++)
-            {
-                Text(new Rect(372,352+i*40,213,34),receiptNames[i],22,arcadeNavy, uiKey:"ArcadeInterface_19023");
-                ArcadeText(new Rect(586,352+i*40,125,34),Ringgit(receiptPrices[i]),24,arcadeNavy,TextAnchor.MiddleRight, uiKey:"ArcadeInterface_19106");
-            }
+            Text(new Rect(372,347,224,197),receiptItemsText,21,arcadeNavy, uiKey:"ArcadeInterface_19023");
+            Text(new Rect(599,347,112,197),receiptPricesText,21,arcadeNavy,FontStyle.Normal,TextAnchor.UpperRight, uiKey:"ArcadeInterface_19106");
             DrawTaskCountdown(new Rect(372,558,338,16));
             if(taskFeedback.Length>0)Text(new Rect(371,608,340,66),taskFeedback,19,arcadeCoral,FontStyle.Bold, uiKey:"ArcadeInterface_19263");
             if(UiButton(new Rect(372,678,338,43),"CANCEL  /  ESC",new Color(.83f,.87f,.79f),19, uiKey:"ArcadeInterface_19353"))skillType=-1;
             Sticker(new Rect(762,158,492,582),new Color(.33f,.65f,.60f),false,3, uiKey:"ArcadeInterface_19460");
             ArcadeText(new Rect(785,174,446,42),"TOKTOK TILL",30,arcadeCream,TextAnchor.MiddleCenter, uiKey:"ArcadeInterface_19542");
             Sticker(new Rect(785,228,446,83),Time.unscaledTime<skillFlash?arcadeCoral:arcadeNavy,false,4, uiKey:"ArcadeInterface_19645");
-            ArcadeText(new Rect(800,240,413,59),"RM "+(priceEntry.Length==0?"0.00":priceEntry),40,arcadeGold,TextAnchor.MiddleRight, uiKey:"ArcadeInterface_19752");
-            string[] keys={"7","8","9","4","5","6","1","2","3",".","0","DEL"};GUI.enabled=!replay;
-            for(int i=0;i<12;i++)if(UiButton(new Rect(785+i%3*152,331+i/3*72,141,60),keys[i],i==11?arcadeCoral:arcadeCream,29, uiKey:"ArcadeInterface_20009"))
+            ArcadeText(new Rect(800,240,413,59),"RM "+(priceEntry.Length==0?(WholeRinggitCheckout?"0":"0.00"):priceEntry),40,arcadeGold,TextAnchor.MiddleRight, uiKey:"ArcadeInterface_19752");
+            string[] keys={"7","8","9","4","5","6","1","2","3",WholeRinggitCheckout?"-":".","0","DEL"};
+            for(int i=0;i<12;i++)
+            {
+                GUI.enabled=!replay&&(i!=9||!WholeRinggitCheckout);
+                if(UiButton(new Rect(785+i%3*152,331+i/3*72,141,60),keys[i],i==11?arcadeCoral:arcadeCream,29, uiKey:"ArcadeInterface_20009"))
             {if(i==9)EnterPricePoint();else if(i==11){if(priceEntry.Length>0)priceEntry=priceEntry.Substring(0,priceEntry.Length-1);}else EnterPriceDigit(keys[i][0]);}
+            }
+            GUI.enabled=!replay;
             if(UiButton(new Rect(785,637,446,68),"CHARGE  /  ENTER",arcadeGold,28, uiKey:"ArcadeInterface_20284"))SubmitPrice();
             GUI.enabled=true;
         }}

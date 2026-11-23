@@ -70,8 +70,8 @@ namespace GokilKisah
             settingsOpen=false;
             for(int task=0;task<3;task++)
             {skillType=task;PrepareTask(task);taskFeedback="Task feedback";yield return new WaitForEndOfFrame();yield return null;taskCombo=4;yield return new WaitForEndOfFrame();yield return null;taskCombo=0;}
-            skillType=-1;levelResults=true;levelWon=true;yield return new WaitForEndOfFrame();yield return null;
-            levelWon=false;yield return new WaitForEndOfFrame();yield return null;
+            skillType=-1;levelResults=true;levelWon=true;resultsVisualDirty=true;yield return new WaitForEndOfFrame();yield return null;
+            levelWon=false;resultsVisualDirty=true;yield return new WaitForEndOfFrame();yield return null;
             levelResults=false;gameOver=true;yield return new WaitForEndOfFrame();yield return null;
             gameOver=false;showTouchControls=wasTouch;mainMenu=true;selected=false;settingsOpen=false;taskFeedback="";
             yield return new WaitForEndOfFrame();yield return null;editableUI.authoringBake=false;CanvasBakeComplete=true;

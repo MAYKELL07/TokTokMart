@@ -26,7 +26,19 @@ namespace GokilKisah
         readonly Dictionary<Texture2D,Sprite> panelSprites=new Dictionary<Texture2D,Sprite>();
         public static Color GuiColor(Color c){c.a=1-Mathf.Pow(1-Mathf.Clamp01(c.a),2.2f);return c;}
         void Awake(){GetComponent<Canvas>().vertexColorAlwaysGammaSpace=true;Index();}
-        void Index(){elements.Clear();foreach(var e in GetComponentsInChildren<TokMartCanvasElement>(true)){elements[e.key]=e;e.owner=this;e.Wire();var raw=e.GetComponent<RawImage>();if(raw&&raw.texture&&e.key.StartsWith("DrawMobileControls_"))controlImages[raw.texture.name]=raw;}}
+        void Index()
+        {
+            elements.Clear();
+            controlImages.Clear();
+            foreach(var e in GetComponentsInChildren<TokMartCanvasElement>(true))
+            {
+                elements[e.key]=e;
+                e.owner=this;
+                e.Wire();
+                var raw=e.GetComponent<RawImage>();
+                if(raw&&raw.texture&&e.key.StartsWith("DrawMobileControls_"))controlImages[raw.texture.name]=raw;
+            }
+        }
         public static TokMartCanvas Create()
         {
 #if !UNITY_EDITOR
@@ -41,7 +53,14 @@ namespace GokilKisah
         }
         void EnsureEvents(){if(!EventSystem.current&&!FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include)){var go=new GameObject("UI EventSystem",typeof(EventSystem),typeof(InputSystemUIInputModule));go.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();}}
         public void Begin(Matrix4x4 matrix){if(elements.Count==0)Index();sourceMatrix=matrix;seen.Clear();counts.Clear();parents.Clear();parents.Push(designRoot);building=true;}
-        public void End(){foreach(var e in elements.Values)if(e)e.gameObject.SetActive(!e.hideFromGame&&seen.Contains(e));building=false;}
+        public void End(){foreach(var e in elements.Values)
+            {
+                if(!e)continue;
+                bool visible=!e.hideFromGame&&seen.Contains(e);
+                if(e.gameObject.activeSelf!=visible)e.gameObject.SetActive(visible);
+                if(!visible){clicks.Remove(e.key);sliders.Remove(e.key);}
+            }
+            building=false;}
         bool CanAuthor {
             get {
 #if UNITY_EDITOR
@@ -118,7 +137,7 @@ namespace GokilKisah
         public bool Button(Rect rect,bool enabled,Matrix4x4 matrix)
         {
             var e=Visual("Button","Button hit area","Button",rect,matrix);if(!e)return false;var b=e.GetComponent<Button>();if(!b&&!CanAuthor){ReportMissing(e.key+"/Button");return false;}if(!b){var image=e.gameObject.AddComponent<Image>();image.color=Color.clear;b=e.gameObject.AddComponent<Button>();b.transition=Selectable.Transition.None;e.Wire();}b.interactable=enabled;
-            return enabled&&clicks.Remove(e.key);
+            return clicks.Remove(e.key)&&enabled;
         }
         public float Slider(Rect rect,float value,bool enabled,Matrix4x4 matrix)
         {

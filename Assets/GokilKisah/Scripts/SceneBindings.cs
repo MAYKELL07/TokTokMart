@@ -22,7 +22,7 @@ namespace GokilKisah
         SoftOccluder[] softOccluders=Array.Empty<SoftOccluder>();
         readonly List<CharacterSpriteAnimator> goblinViews=new List<CharacterSpriteAnimator>(),idolViews=new List<CharacterSpriteAnimator>();
         Transform runtimeObjects;
-        bool sceneInitialized;
+        bool sceneInitialized, releaseArtApplied;
         RoomPresentation roomPresentation;
         void InitializeSceneBindings()
         {
@@ -48,6 +48,7 @@ namespace GokilKisah
             if(runtimeObjects){foreach(Transform child in runtimeObjects)if(child.GetComponent<CharacterSpriteAnimator>()||child.GetComponent<SpillHazard>()){child.gameObject.SetActive(false);Destroy(child.gameObject);}}
             shopperViews.Clear();goblinViews.Clear();idolViews.Clear();spillViews.Clear();
             RefreshSceneGeometry();
+            if(!releaseArtApplied){ReleaseShopArt.Apply(shop,sceneShelves);releaseArtApplied=true;}
         }
         void RefreshSceneGeometry()
         {
@@ -74,7 +75,6 @@ namespace GokilKisah
                     if(c.shelf<0){c.shelf=-1;c.state=ShopperState.Entering;c.goal=ShopDoor;}
                 }
                 if(skillType==0)skillType=-1;
-                aiShelf=Mathf.Clamp(aiShelf,0,Mathf.Max(0,nextShelves.Length-1));
             }
             sceneShelves=nextShelves;sceneObstacles=shop.Obstacles;blockingShapes=shop.GetComponentsInChildren<Collider2D>();
             foreach(var occluder in softOccluders)if(occluder)occluder.ResetOpacity();
@@ -112,14 +112,23 @@ namespace GokilKisah
         }
         int NearestShelf()
         {
+            int best=-1;
+            float nearest=float.PositiveInfinity;
             for(int i=0;i<sceneShelves.Length;i++)
-                if(sceneShelves[i]&&sceneShelves[i].CanInteract(ShopLayout.ToWorld(player)))return i;
-            return -1;
+            {
+                if(!sceneShelves[i]||!sceneShelves[i].CanInteract(ShopLayout.ToWorld(player)))continue;
+                Vector2 approach=ShelfPoint(i);
+                float distance=(approach-player).sqrMagnitude;
+                if(distance>=nearest||!StaticSegmentClear(player,approach))continue;
+                best=i;
+                nearest=distance;
+            }
+            return best;
         }
         int NearestSpill()
         {
             int best=-1;float nearest=(shop?shop.spillInteractionRadius:.65f)*100;
-            for(int i=0;i<spills.Count;i++){float d=Vector2.Distance(player,spills[i]);if(d<nearest){nearest=d;best=i;}}
+            for(int i=0;i<spills.Count;i++){float d=Vector2.Distance(player,spills[i]);if(d<nearest&&StaticSegmentClear(player,spills[i])){nearest=d;best=i;}}
             return best;
         }
         int ShelfCapacity(int i)=>sceneInitialized&&i<sceneShelves.Length?sceneShelves[i].capacity:5;
@@ -244,6 +253,7 @@ namespace GokilKisah
             var removed=removedShopperIds;removed.Clear();foreach(var pair in shopperViews)if(!alive.Contains(pair.Key)){if(pair.Value)Destroy(pair.Value.gameObject);removed.Add(pair.Key);}
             foreach(int id in removed)shopperViews.Remove(id);
             SyncSpillViews();
+            foreach(var item in droppedStock)if(item.view)PresentDroppedStock(item);
             PresentActiveEncounters();
             shop.nailGun.gameObject.SetActive(encounter==Encounter.Salmah&&!hasGun);
             shop.lightSwitch.gameObject.SetActive(encounter==Encounter.KKung);shop.lightSwitch.transform.position=ShopLayout.ToWorld(lightSwitch);shop.lightSwitch.sortingOrder=(int)lightSwitch.y;

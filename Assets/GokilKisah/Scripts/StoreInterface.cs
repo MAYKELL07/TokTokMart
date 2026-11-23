@@ -41,11 +41,11 @@ namespace GokilKisah
             pauseOnFocusLoss=PlayerPrefs.GetInt("TokMart.Focus",1)==1;
             foreach(var source in GetComponents<AudioSource>()){if(source.loop&&!musicSource)musicSource=source;else if(!source.loop&&!effectsSource)effectsSource=source;}
             if(!musicSource)musicSource=gameObject.AddComponent<AudioSource>();
-            musicSource.loop=true;musicSource.playOnAwake=false;musicSource.clip=Resources.Load<AudioClip>("Audio/ShopMusic");
+            musicSource.loop=true;musicSource.playOnAwake=false;musicSource.clip=Resources.Load<AudioClip>("Audio/ShopShift");
             if(!effectsSource)effectsSource=gameObject.AddComponent<AudioSource>();
             effectsSource.playOnAwake=false;effectsSource.spatialBlend=0;
             sounds.Clear();
-            foreach(string key in new[]{"Click","Confirm","Pickup","Stock","Scan","Mop","Miss","Call","Switch","Shot","Kick","Impact","Success","Footstep"})
+            foreach(string key in new[]{"Click","Confirm","Pickup","Stock","Scan","Mop","Miss","Call","Switch","Shot","Kick","Impact","Success","Footstep","Splash","Clatter","ClockIn"})
             {var clip=Resources.Load<AudioClip>("Audio/"+key);if(clip)sounds.Add(key,clip);else Debug.LogError("Missing sound: "+key);}
             QualitySettings.vSyncCount=0;Application.targetFrameRate=frameCap;
             ApplyAudio();
@@ -62,7 +62,7 @@ namespace GokilKisah
         void ApplyAudio()
         {
             if(editableUI&&editableUI.starAudio)editableUI.starAudio.volume=masterVolume*effectsVolume;
-            if(musicSource)musicSource.volume=masterVolume*musicVolume;
+            if(musicSource)musicSource.volume=masterVolume*musicVolume*musicBed;
             if(effectsSource)effectsSource.volume=masterVolume*effectsVolume;
         }
         void SaveSettings()
@@ -74,6 +74,7 @@ namespace GokilKisah
         }
         void SetSettingsOpen(bool open)
         {settingsOpen=open;bufferedActionUntil=-1;ReleaseMobileControls();playerVelocity=Vector2.zero;Time.timeScale=open||autoPaused||shiftBriefOpen?0:1;if(!open)SaveSettings();}
+        float musicBed=1;
         void UpdatePolish()
         {
             autoPaused=!focused&&pauseOnFocusLoss&&!testing&&!verificationRunning&&!recordingSounds;
@@ -82,12 +83,16 @@ namespace GokilKisah
             {
                 EscapeInput();
             }
+            float musicTarget=settingsOpen||autoPaused?.33f:skillType>=0?.56f:levelResults?.68f:1f;
+            musicBed=Mathf.MoveTowards(musicBed,musicTarget,Time.unscaledDeltaTime*2);
             ApplyAudio();
+            RefreshReleaseUI();
         }
         void OnApplicationFocus(bool focus) {focused=focus;if(!focus){bufferedActionUntil=-1;heldKeys.Clear();ReleaseMobileControls();playerVelocity=Vector2.zero;}}
         void OnApplicationPause(bool paused) {if(paused){ReleaseMobileControls();bufferedActionUntil=-1;heldKeys.Clear();playerVelocity=Vector2.zero;SaveSettings();}focused=!paused;}
         void EscapeInput()
         {
+            if(shiftTransition!=null)return;
             if(escapeInputFrame==Time.frameCount)return;escapeInputFrame=Time.frameCount;
             if(scoreGuideOpen){scoreGuideOpen=false;return;}if(levelMapOpen&&mainMenu){levelMapOpen=false;return;}
             if(skillType>=0&&!settingsOpen&&!replay){skillType=-1;Toast("Task cancelled");}
@@ -95,6 +100,7 @@ namespace GokilKisah
         }
         void ActionInput()
         {
+            if(shiftTransition!=null)return;
             if(actionInputFrame==Time.frameCount||settingsOpen||autoPaused||replay||!selected||mainMenu||gameOver||levelResults||shiftBriefOpen||scoreGuideOpen)return;
             actionInputFrame=Time.frameCount;
             if(skillType>=0){bufferedActionUntil=-1;Interact();}
@@ -157,21 +163,28 @@ namespace GokilKisah
             GUI.matrix=Matrix4x4.identity;
             GUI.matrix=Matrix4x4.TRS(new Vector3((Screen.width-1600*scale)/2,(Screen.height-900*scale)/2,0),Quaternion.identity,new Vector3(scale,scale,1));
             interfaceCanvasMatrix=GUI.matrix;
+            if(shiftTransition!=null&&!shiftBriefOpen){GUI.matrix=Matrix4x4.identity;return;}
             if(mainMenu&&!cleanCaptureMode){DrawNovemberMenu();GUI.matrix=Matrix4x4.identity;return;}
-            if(levelResults&&!cleanCaptureMode){DrawArcadeResults();if(settingsOpen)DrawSettings();GUI.matrix=Matrix4x4.identity;return;}
+            if(levelResults&&!cleanCaptureMode){if(settingsOpen)DrawSettings();GUI.matrix=Matrix4x4.identity;return;}
             if(cleanCaptureMode){if(skillType>=0)DrawSkill();GUI.matrix=Matrix4x4.identity;return;}
             var canvas=GUI.matrix;GUI.matrix=SceneOverlayMatrix();drawingWorldOverlay=true;
-            DrawStore();drawingWorldOverlay=false;GUI.matrix=canvas;
+            if(skillType<0&&!settingsOpen&&!autoPaused&&!shiftBriefOpen&&!scoreGuideOpen&&!gameOver)
+            {
+                DrawStore();
+                if(selected)DrawShopperFeedback();
+            }
+            drawingWorldOverlay=false;GUI.matrix=canvas;
             GUI.enabled=!settingsOpen;
-            if(selected&&!shiftBriefOpen)DrawNovemberHud();
+            bool gameplayHud=selected&&skillType<0&&!settingsOpen&&!autoPaused&&!shiftBriefOpen&&!scoreGuideOpen&&!gameOver;
+            if(gameplayHud)DrawNovemberHud();
             GUI.enabled=!settingsOpen&&!replay;
-            if(showTouchControls&&selected&&!settingsOpen&&!gameOver&&!shiftBriefOpen&&skillType<0&&!scoreGuideOpen)DrawMobileControls();
+            if(showTouchControls&&gameplayHud)DrawMobileControls();
             GUI.enabled=true;
             if(!selected&&!settingsOpen)DrawArcadeSelection();
             else if(gameOver&&!settingsOpen)DrawGameOver();
-            else if(skillType>=0&&!settingsOpen)DrawSkill();
+            else if(skillType>=0&&!settingsOpen&&!autoPaused)DrawSkill();
             if(shiftBriefOpen&&!settingsOpen)DrawShiftBriefing();
-            if(Time.unscaledTime<noticeUntil&&!settingsOpen&&selected&&!shiftBriefOpen)
+            if(Time.unscaledTime<noticeUntil&&gameplayHud)
             {Sticker(new Rect(480,700,640,44),arcadeNavy, uiKey:"StoreInterface_10189");ArcadeText(new Rect(493,704,614,34),notice,18,arcadeCream,TextAnchor.MiddleCenter, uiKey:"StoreInterface_10234");}
             if(autoPaused&&!settingsOpen){Shade(uiKey:"StoreInterface_10361");ArcadeText(new Rect(450,380,700,80),"ON A BREAK",56,arcadeCream,TextAnchor.MiddleCenter,true, uiKey:"StoreInterface_10369");ArcadeText(new Rect(450,470,700,40),"Return to the shop to carry on.",23,arcadeCream,TextAnchor.MiddleCenter, uiKey:"StoreInterface_10463");}
             if(settingsOpen)DrawSettings();
@@ -196,10 +209,11 @@ namespace GokilKisah
         {
             if(skillType>=0)return "Time the task";
             string encounterHint=ActiveInteractionLabel();if(encounterHint!=null)return encounterHint;
+            if(NearestDroppedItem()>=0)return "Pick up fallen stock";
             if(NearestSpill()>=0)return "Mop the spill";
-            if(Vector2.Distance(player,supply)<75)return "Collect stock";
+            if(StationInReach(shop.stockroom))return "Collect stock";
             int index=NearestShelf();if(index>=0)return shelfStock[index]>=ShelfCapacity(index)?"Shelf is full":carryingCrate?"Restock shelf":"Needs a stock crate";
-            if(Vector2.Distance(player,checkout)<135)return CustomerAtRegister()!=null?"Serve customer":"Waiting for a shopper";
+            if(StationInReach(shop.register))return CustomerAtRegister()!=null?"Serve customer":"Waiting for a shopper";
             return "Move near a station";
         }
         void DrawContextHint()
@@ -330,9 +344,9 @@ namespace GokilKisah
             else if(settingsTab==4)DrawControlSettings();
             else
             {
-                Text(new Rect(641,235,650,45),"Art & audio credits",30,ink,FontStyle.Bold, uiKey:"StoreInterface_23154");
-                Text(new Rect(641,306,650,300),"TokTokMart art & walk animations\nSupplied project artist exports · November 2026\nAdditional props: Kenney · CC0\n\nSound effects\nKenney Vleugels · Kenney.nl · CC0\n\nShop Theme / Buy something!\nCleyton Kauffman · OpenGameArt.org · CC0\n\nBigbesty\nKhurasan · supplied project font",23,new Color(.25f,.38f,.34f), uiKey:"StoreInterface_23246");
-                Text(new Rect(641,650,650,60),"Gokil Kisah mechanics follow the supplied design document. Sam, Zack and Toyol use supplied project artwork.",19,new Color(.30f,.41f,.39f), uiKey:"StoreInterface_23631");
+                Text(new Rect(641,235,650,45),"TokTokMart credits",30,ink,FontStyle.Bold, uiKey:"StoreInterface_23154");
+                Text(new Rect(641,292,650,335),"Lead Developer & Project Manager\nMichaellie Ferrel Yoandike (TP087326)\nDeveloper & Design\nVaughn Avery Mar Mier (TP101735)\nLead Artist\nAnastasia Clarita Budiyanto (TP092119)\nTechnical Art & Producer\nTan Wei Hao (TP071285)\nLead Animator\nCherepanova Viktoriia (TP080433)",23,new Color(.25f,.38f,.34f), uiKey:"StoreInterface_23246");
+                Text(new Rect(641,650,650,60),"Additional art and SFX · Kenney (CC0)\nBigbesty · Khurasan   /   Lato · Łukasz Dziedzic",19,new Color(.30f,.41f,.39f), uiKey:"StoreInterface_23631");
             }
             if(Button(new Rect(267,730,290,44),"Main menu",surface,19, uiKey:"StoreInterface_23832"))ReturnToMainMenu();
             if(Event.current.isMouse)Event.current.Use();

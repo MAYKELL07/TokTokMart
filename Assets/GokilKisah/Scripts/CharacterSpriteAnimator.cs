@@ -77,7 +77,7 @@ namespace GokilKisah
                     // Supplied walks face one side. Mirror horizontally, retain that pose for vertical travel.
                     if(direction==0)mirrorWalk=false;else if(direction==1)mirrorWalk=true;
                     int count=GameArtLibrary.WalkFrameCount(skin);
-                    var walk=moving?GameArtLibrary.Walk(skin,Mathf.Min(count-1,(int)(CyclePhase*count))):GameArtLibrary.Idle(skin);
+                    var walk=moving?GameArtLibrary.Walk(skin,Mathf.Min(count-1,(int)(CyclePhase*count))):GameArtLibrary.KeeperIdle(skin,(int)(clock*24)%24);
                     artwork.sprite=walk?walk:SmoothArt.Load(skin=="Toyol"?"Goblin_3_0":skin+"_3_0");
                     artwork.flipX=mirrorWalk;return;
                 }

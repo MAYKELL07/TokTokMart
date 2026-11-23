@@ -11,8 +11,8 @@ namespace GokilKisah
         public float StorageOpacity => storageMask ? storageMask.color.a : 0;
         ShopLayout layout;
         SpriteRenderer mainMask, storageMask;
-        Sprite flat, soft;
-        Texture2D flatTexture, softTexture;
+        Sprite flat, soft, characterShadow;
+        Texture2D flatTexture, softTexture, characterShadowTexture;
         readonly Dictionary<CharacterSpriteAnimator,SpriteRenderer> actorShadows=new Dictionary<CharacterSpriteAnimator,SpriteRenderer>();
         readonly List<CharacterSpriteAnimator> expired=new List<CharacterSpriteAnimator>();
         float nextScan;
@@ -28,6 +28,14 @@ namespace GokilKisah
                 softTexture.SetPixel(x,y,new Color(0,0,0,Mathf.Pow(Mathf.Clamp01(1-radius),1.6f)*.32f));
             }
             softTexture.Apply();soft=Sprite.Create(softTexture,new Rect(0,0,64,32),Vector2.one*.5f,64);
+            characterShadowTexture=new Texture2D(48,48,TextureFormat.RGBA32,false){filterMode=FilterMode.Bilinear,wrapMode=TextureWrapMode.Clamp};
+            for(int y=0;y<48;y++)for(int x=0;x<48;x++)
+            {
+                float radius=new Vector2((x-23.5f)/24,(y-23.5f)/24).magnitude;
+                characterShadowTexture.SetPixel(x,y,new Color(.08f,.12f,.16f,Mathf.Clamp01((1-radius)*7)*.26f));
+            }
+            characterShadowTexture.Apply(false,true);
+            characterShadow=Sprite.Create(characterShadowTexture,new Rect(0,0,48,48),Vector2.one*.5f,48);
             var root=shop.transform.Find("Reference shop layout");
             foreach(var r in root.GetComponentsInChildren<SpriteRenderer>())
             {
@@ -74,7 +82,7 @@ namespace GokilKisah
             {
                 nextScan=Time.unscaledTime+.35f;
                 foreach(var actor in layout.GetComponentsInChildren<CharacterSpriteAnimator>(true))if(!actorShadows.ContainsKey(actor))
-                    actorShadows.Add(actor,Make(actor.name+" contact shadow",soft,-820));
+                    actorShadows.Add(actor,Make(actor.name+" contact shadow",characterShadow,-820));
             }
             expired.Clear();
             foreach(var pair in actorShadows)
@@ -82,17 +90,16 @@ namespace GokilKisah
                 var actor=pair.Key;var shadow=pair.Value;
                 if(!actor){Destroy(shadow.gameObject);expired.Add(actor);continue;}
                 shadow.enabled=actor.gameObject.activeInHierarchy&&actor.artwork&&actor.artwork.enabled;
-                var shadowFeet=actor.transform.position;
-                if(actor.artwork)shadowFeet.y=actor.artwork.bounds.min.y+.015f;
-                shadow.transform.position=shadowFeet+Vector3.right*.04f;
+                shadow.transform.position=actor.transform.position;
                 float width=actor.artwork?Mathf.Clamp(actor.artwork.bounds.size.x*.9f,.3f,.65f):.5f;
-                shadow.transform.localScale=new Vector3(width,.24f,1);
+                shadow.transform.localScale=new Vector3(width,width*.5f,1);
             }
             foreach(var actor in expired)actorShadows.Remove(actor);
         }
         static void Shade(SpriteRenderer r,float target,float blend){var color=r.color;color.a=Mathf.Lerp(color.a,target,blend);r.color=color;}
         void OnDestroy()
         {
+            if(characterShadow)Destroy(characterShadow);if(characterShadowTexture)Destroy(characterShadowTexture);
             if(flat)Destroy(flat);if(soft)Destroy(soft);if(flatTexture)Destroy(flatTexture);if(softTexture)Destroy(softTexture);
         }
     }

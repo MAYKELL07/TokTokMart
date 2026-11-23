@@ -23,7 +23,7 @@ namespace GokilKisah
         bool InteractionInReach()
         {
             if(EncounterInteractionInReach())return true;
-            return NearestSpill()>=0||Vector2.Distance(player,supply)<75||NearestShelf()>=0||Vector2.Distance(player,checkout)<135;
+            return NearestDroppedItem()>=0||NearestSpill()>=0||StationInReach(shop.stockroom)||NearestShelf()>=0||StationInReach(shop.register);
         }
         void ProcessBufferedAction()
         {
