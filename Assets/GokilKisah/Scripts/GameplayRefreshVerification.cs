@@ -22,7 +22,7 @@ namespace GokilKisah
             {Interact();if(skillType>=0)yield return CompleteSkill();else yield return new WaitForSeconds(.5f);}
         }
         void PerfectRefreshStroke()
-        {taskLastAttempt=-1;skillClock=SkillZoneCenter()/((skillType==2?.75f+.08f*taskCombo:.65f+.09f*taskCombo)*TaskDifficulty);AttemptSkill();}
+        {if(skillType==0){PlaceRestockPack();return;}taskLastAttempt=-1;skillClock=SkillZoneCenter()/((.75f+.08f*taskCombo)*TaskDifficulty);AttemptSkill();}
         public void BeginGameplayRefreshVerification(string folder)=>StartCoroutine(VerifyGameplayRefresh(folder));
         IEnumerator VerifyGameplayRefresh(string folder)
         {

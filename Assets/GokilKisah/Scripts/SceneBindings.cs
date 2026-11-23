@@ -86,7 +86,7 @@ namespace GokilKisah
                 shelves.Add(new Rect(b.min.x*100,-b.max.y*100-28,b.size.x*100,b.size.y*100+28));
             }
             if(shelfStock.Length!=sceneShelves.Length)Array.Resize(ref shelfStock,sceneShelves.Length);
-            supply=shop.stockroom.Position;checkout=shop.register.Position;phone=shop.wallPhone.Position;nailGun=shop.nailGun.Position;
+            supply=shop.stockroom.InteractionPosition;checkout=shop.register.InteractionPosition;phone=shop.wallPhone.InteractionPosition;nailGun=shop.nailGun.Position;
             switches=Positions(shop.switchLocations);cans=Positions(shop.canLocations);
             if(switchIndex>=0&&switchIndex<switches.Length)lightSwitch=switches[switchIndex];
             if(canIndex>=0&&canIndex<cans.Length&&!canKicked)can=cans[canIndex];

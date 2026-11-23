@@ -44,17 +44,17 @@ namespace GokilKisah
             if(UiButton(new Rect(520,617,560,70),"LET'S OPEN!",arcadeGold,32))StartBriefedShift();
         }}
         void ResetShiftFeedback(){taskElapsed=0;taskLastAttempt=-1;lastCountdown=-1;taskFeedbackFailed=false;scoreGuideOpen=false;}
-        float TaskBudget=>skillType==1?30:skillType==2?24:20;
+        float TaskBudget=>skillType==1?30:24;
         void RecordTaskMiss(string reason)
         {if(campaignActive)timingMistakes++;taskFeedbackFailed=true;skillFlash=Time.unscaledTime+.45f;taskFeedback=reason+". Try again!";PlaySound("Miss");}
         void TickShiftFeedback(float dt)
         {
             float left=ShiftBudget-shiftTime;
-            if(skillType>=0){taskElapsed+=dt;if(taskElapsed>=TaskBudget){RecordTaskMiss("Task timed out");skillType=-1;Toast("Time is up! Try the task again.");}}
-            if(campaignActive&&left<=30&&left+dt>30)Toast("30 SECONDS TO CLOSING - finish your remaining targets!");
-            if(campaignActive&&left<=10&&left+dt>10)Toast("FINAL 10 SECONDS!");
-            int seconds=Mathf.CeilToInt(skillType>=0?TaskBudget-taskElapsed:encounter==Encounter.Bo&&!resolved&&!canKicked?boRemaining:left);
-            int warning=skillType>=0||encounter==Encounter.Bo?5:10;
+            if(skillType>0){taskElapsed+=dt;if(taskElapsed>=TaskBudget){RecordTaskMiss("Task timed out");skillType=-1;Toast("Task timed out");}}
+            if(campaignActive&&left<=30&&left+dt>30)Toast("Closing in 30s");
+            if(campaignActive&&left<=10&&left+dt>10)Toast("Closing in 10s");
+            int seconds=Mathf.CeilToInt(skillType>0?TaskBudget-taskElapsed:encounter==Encounter.Bo&&!resolved&&!canKicked?boRemaining:left);
+            int warning=skillType>0||encounter==Encounter.Bo?5:10;
             if(seconds>0&&seconds<=warning&&seconds!=lastCountdown)PlaySound("Click",.65f);
             lastCountdown=seconds;
         }
@@ -66,17 +66,27 @@ namespace GokilKisah
         void DrawTaskDrive()
         {using(NativeUiScope("TaskDrive","Task progress and icon")){
             var r=new Rect(412,351,36,74);ArtImage(r,"ProgressBar01");
-            float progress=(float)taskCombo/(skillType==0?3:4);
+            var progress=new Rect(417,357,26,62);
             using(NativeUiScope("","Fill"))
             {
-                float height=(r.height-12)*progress;
-                EditableTextureUV(new Rect(r.x+5,r.yMax-6-height,r.width-10,height),GameArtLibrary.UI("ProgressBar01a"),new Rect(0,0,1,progress));
+                float amount=Mathf.Clamp01(taskCombo/4f);
+                float height=progress.height*amount;
+                EditableTextureUV(new Rect(progress.x,progress.yMax-height,progress.width,height),GameArtLibrary.UI("ProgressBar01a"),new Rect(0,0,1,amount));
             }
-            ArtImage(new Rect(r.x+7,r.y+23,22,28),skillType==0?"StockIcon01":"PuddleIcon01");
+            ArtImage(new Rect(r.x+7,r.y+23,22,28),"PuddleIcon01");
         }}
+        // The artwork exposes a transparent progress slot at these normalized coordinates.
+        static Rect CardProgress(Rect card,float amount)
+        {
+            const float left=13f/221,right=208f/221,top=245f/274,bottom=259f/274;
+            return new Rect(card.x+card.width*left,card.y+card.height*top,
+                card.width*(right-left)*Mathf.Clamp01(amount),card.height*(bottom-top));
+        }
         void HudCard(Rect r,string art,string label,int done,int goal)
         {using(NativeUiScope(label,"Task card "+label)){
-            ArtImage(new Rect(r.x,r.y,r.width,r.height-28),art);Fill(new Rect(r.x+9,r.y+r.height-46,(r.width-18)*Mathf.Clamp01((float)done/Mathf.Max(1,goal)),9),done>=goal?arcadeTeal:new Color(.41f,.86f,.18f));
+            var card=new Rect(r.x,r.y,r.width,r.height-28);
+            ArtImage(card,art);
+            Fill(CardProgress(card,(float)done/Mathf.Max(1,goal)),done>=goal?arcadeTeal:new Color(.41f,.86f,.18f));
             ArcadeText(new Rect(r.x-10,r.yMax-24,r.width+20,24),label+" "+Mathf.Min(done,goal)+"/"+goal,14,arcadeCream,TextAnchor.MiddleCenter,true);
         }}
         void DrawNovemberHud()
@@ -87,7 +97,8 @@ namespace GokilKisah
             ArcadeText(new Rect(26,111,238,22),"SHIFT "+CurrentLevel.ToString("00"),15,arcadeCream,TextAnchor.MiddleCenter,true);
             HudCard(new Rect(27,135,76,123),"CheckoutCard01","SERVE",served,ServeGoal);
             HudCard(new Rect(125,135,76,123),"PuddleCard01","CLEAN",hazardsCleared,CleanGoal);
-            ArtImage(new Rect(223,135,76,95),"HazardCard01");Fill(new Rect(232,211,58*Mathf.Clamp01(chaos/100),9),chaos>60?arcadeCoral:arcadeGold);
+            var hazardCard=new Rect(223,135,76,95);
+            ArtImage(hazardCard,"HazardCard01");Fill(CardProgress(hazardCard,chaos/100),chaos>60?arcadeCoral:arcadeGold);
             ArcadeText(new Rect(210,234,102,24),"CHAOS "+Mathf.RoundToInt(chaos)+"%",14,arcadeCream,TextAnchor.MiddleCenter,true);
             Panel(new Rect(26,274,282,50),arcadeCream);ArtImage(new Rect(34,282,33,33),"StockIcon01");ArcadeText(new Rect(76,279,225,37),"RESTOCK "+stockActions+" / "+StockGoal,20,arcadeNavy);
             GoalProgress(new Rect(34,316,266,4),stockActions,StockGoal);
@@ -96,14 +107,15 @@ namespace GokilKisah
             ArtImage(new Rect(1280,101,215,65),"MoneyCount01");ArcadeText(new Rect(1284,110,160,42),Ringgit(InvoiceTotal),22,arcadeNavy,TextAnchor.MiddleCenter);
             ArtImage(new Rect(1512,28,58,63),"PauseButton01");if(InterfaceButton(new Rect(1502,20,76,82)))SetSettingsOpen(true);
             GUI.matrix=canvas;
-            Panel(new Rect(567,24,466,92),arcadeCream);var score=Rating(false);
-            ArcadeText(new Rect(583,27,434,35),Targets.Title,24,arcadeNavy,TextAnchor.MiddleCenter);
-            ArcadeText(new Rect(583,66,434,30),"FINISH YOUR GOALS  /  KEEP IT TIDY",14,arcadeTeal,TextAnchor.MiddleCenter);
-            if(customerQueue.Count>0){using(NativeUiScope("Queue","Queue patience")){float soonest=CustomerPatience;foreach(var c in customerQueue)soonest=Mathf.Min(soonest,CustomerPatience-c.timer);Panel(new Rect(1190,218,380,48),soonest<15?arcadeCoral:arcadeNavy);ArcadeText(new Rect(1202,225,356,33),"QUEUE "+customerQueue.Count+"  /  PATIENCE "+Mathf.CeilToInt(Mathf.Max(0,soonest))+"s",21,arcadeCream,TextAnchor.MiddleCenter);}}
+            bool hasNotice=Time.unscaledTime<noticeUntil&&!string.IsNullOrEmpty(notice);
+            Panel(new Rect(606,23,388,49),hasNotice?arcadeNavy:arcadeCream);
+            ArcadeText(new Rect(618,26,364,43),hasNotice?notice:Targets.Title,21,
+                hasNotice?arcadeCream:arcadeNavy,TextAnchor.MiddleCenter);
+            if(customerQueue.Count>0){using(NativeUiScope("Queue","Queue patience")){float soonest=CustomerPatience;foreach(var c in customerQueue)soonest=Mathf.Min(soonest,CustomerPatience-c.timer);Panel(new Rect(1190,218,380,48),soonest<15?arcadeCoral:arcadeNavy);ArcadeText(new Rect(1202,225,356,33),"QUEUE "+customerQueue.Count+"  /  "+Mathf.CeilToInt(Mathf.Max(0,soonest))+"s",21,arcadeCream,TextAnchor.MiddleCenter);}}
             if(encounter!=Encounter.Store){using(NativeUiScope("Encounter","Encounter status")){Panel(new Rect(430,137,740,49),resolved?arcadeTeal:arcadeCoral);ArcadeText(new Rect(445,143,710,36),resolved?"ALL CLEAR!":ActiveEncounterObjective(),21,arcadeCream,TextAnchor.MiddleCenter);}}
-            if(!showTouchControls){using(NativeUiScope("DesktopHint","Desktop interaction")){Sticker(new Rect(520,804,560,61),arcadeCream);Keycap(new Rect(531,812,46,43),"E");ArcadeText(new Rect(591,811,473,43),InteractionLabel(),22,arcadeNavy);if(InterfaceButton(new Rect(520,804,560,61)))ActionInput();}}
-            else{using(NativeUiScope("TouchHint","Touch interaction")){Panel(new Rect(548,817,504,50),arcadeNavy);ArcadeText(new Rect(561,821,478,40),InteractionLabel(),20,arcadeCream,TextAnchor.MiddleCenter);}}
-            using(NativeUiScope("Stamina","Stamina")){Fill(new Rect(640,882,320,7),arcadeNavy);Fill(new Rect(640,882,320*Mathf.Clamp01(Stamina/maxStamina),7),arcadeGold);}
+            GUI.matrix=HudMatrix(canvas,new Vector2(26,24));
+            using(NativeUiScope("Stamina","Stamina")){Fill(new Rect(34,333,266,6),arcadeNavy);Fill(new Rect(34,333,266*Mathf.Clamp01(Stamina/maxStamina),6),arcadeGold);}
+            GUI.matrix=canvas;
         }}
     }
 }

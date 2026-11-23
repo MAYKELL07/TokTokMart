@@ -69,8 +69,8 @@ namespace GokilKisah
         bool StationInReach(ShopStation station)
         {
             if (!station || !station.isActiveAndEnabled) return false;
-            var approach = station.approachPoint ? ShopLayout.ToGame(station.approachPoint.position) : station.Position;
-            float radius = shop.stationInteractionRadius * 100;
+            var approach = station.InteractionPosition;
+            float radius = (station.interactionRadius > 0 ? station.interactionRadius : shop.stationInteractionRadius) * 100;
             return (player - approach).sqrMagnitude <= radius * radius && StaticSegmentClear(player, approach);
         }
 
@@ -134,7 +134,7 @@ namespace GokilKisah
             if (item.view) Destroy(item.view.gameObject);
             chaos = Mathf.Max(0, chaos - 4);
             PlaySound("Pickup");
-            Toast("Fallen stock picked up");
+            Toast("Stock picked up");
         }
 
         void PresentDroppedStock(DroppedStock item)
@@ -153,7 +153,7 @@ namespace GokilKisah
             {
                 var point = item.position;
                 if ((player - point).sqrMagnitude < 240 * 240)
-                    Text(new Rect(point.x - 43, point.y + 4, 86, 22), "PICK UP", 12, arcadeCream, FontStyle.Bold, TextAnchor.MiddleCenter);
+                    ArcadeText(new Rect(point.x - 51, point.y + 6, 102, 24), "PICK UP", 15, arcadeCream, TextAnchor.MiddleCenter, true);
             }
 
             for (int i = 0; i < splashes.Count; i++)

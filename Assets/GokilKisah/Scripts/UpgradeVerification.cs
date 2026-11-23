@@ -68,8 +68,8 @@ namespace GokilKisah
             player=new Vector2(-10000,-10000);FollowPlayerCamera(cam);var bounds=shop.CameraBounds;
             check(cam.transform.position.x>=bounds.min.x+cam.orthographicSize*cam.aspect-.001f&&cam.transform.position.y<=bounds.max.y-cam.orthographicSize+.001f,"Camera clamps viewport to store bounds");
             ResetRun(Encounter.Store);player=supply;Interact();check(carryingCrate,"Stockroom gives crate");player=ShelfPoint(0);Interact();check(skillType==0,"Empty shelf starts stocking task");
-            skillClock=0;AttemptSkill();check(carryingCrate&&stockActions==0,"Miss preserves crate and stock");
-            for(int i=0;i<3;i++){skillClock=SkillZoneCenter()/(.65f+.09f*taskCombo);AttemptSkill();}
+            check(!AttemptSkill()&&carryingCrate&&stockActions==0,"Restocking requires a valid drop");
+            for(int i=0;i<3;i++)PlaceRestockPack();
             check(stockActions==1&&!carryingCrate&&shelfStock[0]==ShelfCapacity(0)&&skillType<0,"Three timed placements fill shelf");
             ResetRun(Encounter.Store);player=spills[0];Interact();
             float firstCenter=SkillZoneCenter();skillClock=firstCenter/.75f;AttemptSkill();check(taskCombo==1&&SkillZoneCenter()!=firstCenter,"Mop target alternates after a successful stroke");
@@ -86,7 +86,7 @@ namespace GokilKisah
             ResetRun(Encounter.Store);bool safe=true;int initialStock=TotalStock();
             for(int tick=0;tick<2400;tick++){UpdateCustomers(.05f);foreach(var c in customers)if(!Walkable(c.position)){if(safe){var wp=ShopLayout.ToWorld(c.position);string blockers="";foreach(var shape in blockingShapes)if(shape&&shape.enabled&&!shape.isTrigger&&((Vector2)shape.ClosestPoint(wp)-(Vector2)wp).sqrMagnitude<.0144f)blockers+=shape.name+" ";checks.Add("DETAIL Customer "+c.id+" at "+c.position+" state "+c.state+" blocked by "+blockers);}safe=false;}if(tick%120==0)yield return null;}
             check(safe,"Customers remain on walkable floor");check(TotalStock()<initialStock&&CustomerAtRegister()!=null,"Customers shop and physically arrive at register");
-            var actual=CustomerAtRegister();if(actual!=null){player=ShopLayout.ToGame(shop.register.approachPoint.position);Interact();int expected=0;foreach(int item in actual.items)expected+=UnitPrice(item);check(receiptTotal==expected&&actual.items.Count==actual.basket,"Receipt matches the products actually collected");}
+            var actual=CustomerAtRegister();if(actual!=null){player=ShopLayout.ToGame(shop.register.approachPoint.position);Interact();int expected=0;foreach(int item in actual.items)expected+=UnitPrice(item,actual.basket);check(receiptTotal==expected&&actual.items.Count==actual.basket,"Receipt matches the products actually collected");}
             yield return new WaitForEndOfFrame();bool sizeOK=true;foreach(var view in shopperViews.Values)if(view.artwork.bounds.size.x<.4f||view.artwork.bounds.size.y<.6f)sizeOK=false;check(sizeOK,"Spawned customers retain full character size");
             SetSettingsOpen(true);float before=shiftTime;check(Time.timeScale==0,"Settings pause the shift");SetSettingsOpen(false);
             ReturnToMainMenu();check(mainMenu&&!selected&&skillType<0,"Return to menu clears tasks and shift selection");

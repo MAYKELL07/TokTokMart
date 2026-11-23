@@ -52,7 +52,7 @@ namespace GokilKisah
             shiftBriefOpen=!testing&&!verificationRunning&&!replay;
             if(persist){PlayerPrefs.SetInt(UnlockSave,Mathf.Max(HighestUnlocked,CurrentLevel));PlayerPrefs.SetInt(LevelSave,CurrentLevel);PlayerPrefs.Save();}
             SetStep("LEVEL "+CurrentLevel,"Serve customers, restock shelves, and clear spills before closing.");
-            if(!shiftBriefOpen)Toast(mandatoryBossPending?"Boss shift: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]:"Shift "+CurrentLevel+" · Open for business");
+            if(!shiftBriefOpen)Toast(mandatoryBossPending?"Boss shift: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]:"Shop open");
             else noticeUntil=0;
         }
         void SaveCampaignProgress(int nextLevel)
@@ -72,7 +72,7 @@ namespace GokilKisah
             switchIndex=(switchIndex+1)%switches.Length;lightSwitch=switches[switchIndex];
             canIndex=(canIndex+1)%cans.Length;can=cans[canIndex];
             ResetActiveEncounter(next);
-            Toast(scenarioTitles[(int)next]+"! "+scenarioDescriptions[(int)next]);
+            Toast(scenarioTitles[(int)next]+" arrived");
             PlaySound("Impact",.5f);
         }
         Encounter PickUnlockedBoss()
@@ -93,7 +93,7 @@ namespace GokilKisah
             {
                 UnlockedBossMask|=1<<((int)encounter-1);bossActive=false;if(CurrentLevel%5==0)milestoneCleared=true;chaos=Mathf.Max(0,chaos-35);
                 SaveCampaignProgress(CurrentLevel);
-                Toast(scenarioTitles[(int)encounter]+" defeated · Can now return at random");
+                Toast(scenarioTitles[(int)encounter]+" defeated");
                 encounter=Encounter.Store;encounterRollClock=UnityEngine.Random.Range(24f,42f);
             }
             if(shiftTime>=ShiftBudget){FinishCampaignLevel(false,"The shop closed before all targets were met.");return;}
@@ -206,7 +206,7 @@ namespace GokilKisah
             check(missedCustomers==1&&!customerQueue.Contains(impatient)&&chaos==8,"Expired customer patience removes the customer and adds a penalty");
             BeginCampaignLevel(1,false);var sale=SpawnCustomer();sale.basket=2;sale.items.AddRange(new[]{0,1});sale.state=ShopperState.Queuing;sale.position=QueuePoint(0);customerQueue.Add(sale);player=ShopLayout.ToGame(shop.register.approachPoint.position);Interact();
             priceEntry="1";SubmitPrice();check(priceMistakes==1&&served==0,"A wrong price is counted without completing a sale");
-            priceEntry=RinggitNumber(receiptTotal);SubmitPrice();check(served==1&&salesCents==UnitPrice(0)+UnitPrice(1)&&InvoicePenalty==25,"Payment records actual basket revenue and invoice deductions");
+            priceEntry=RinggitNumber(receiptTotal);SubmitPrice();check(served==1&&salesCents==UnitPrice(0,2)+UnitPrice(1,2)&&InvoicePenalty==25,"Payment records actual basket revenue and invoice deductions");
             bool hadLevel=PlayerPrefs.HasKey(LevelSave),hadBoss=PlayerPrefs.HasKey(BossSave);int savedLevel=PlayerPrefs.GetInt(LevelSave),savedBoss=PlayerPrefs.GetInt(BossSave);
             try
             {

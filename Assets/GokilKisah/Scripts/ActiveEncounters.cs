@@ -45,7 +45,7 @@ namespace GokilKisah
         bool EncounterInteractionInReach()
         {
             if(!ActiveFight)return false;
-            if(encounter==Encounter.Goblins)return !rayCalled&&Vector2.Distance(player,phone)<76||NearestGoblin()>=0;
+            if(encounter==Encounter.Goblins)return !rayCalled&&StationInReach(shop.wallPhone)||NearestGoblin()>=0;
             if(encounter==Encounter.KKung)return Vector2.Distance(player,lightSwitch)<70;
             if(encounter==Encounter.Salmah)return !hasGun?Vector2.Distance(player,nailGun)<70:Vector2.Distance(player,salmah)<=tuning.nailRange;
             return encounter==Encounter.Bo&&!canKicked&&Vector2.Distance(player,can)<70;
@@ -55,24 +55,24 @@ namespace GokilKisah
             if(!EncounterInteractionInReach())return false;
             if(encounter==Encounter.Goblins)
             {
-                if(!rayCalled&&Vector2.Distance(player,phone)<76)
-                {rayCalled=true;rayRemaining=Mathf.Min(6,tuning.rayWait);PlaySound("Call");Toast("Ray is coming! Shoo goblins to stun them for his punches.");SetStep("RAY IS COMING","Shoo goblins while Ray gets into position.");return true;}
+                if(!rayCalled&&StationInReach(shop.wallPhone))
+                {rayCalled=true;rayRemaining=Mathf.Min(6,tuning.rayWait);PlaySound("Call");Toast("Ray is coming");SetStep("RAY IS COMING","Shoo goblins while Ray gets into position.");return true;}
                 int target=NearestGoblin();if(target<0||shooCooldown>0)return true;
                 goblinStun[target]=5;goblinImpact[target]=.18f;shooCooldown=.4f;goblinShoos++;PlaySound("Kick");
-                Toast(rayCalled?"Stunned! Let Ray land his punches.":"Stunned! Call Uncle Ray at the phone.");return true;
+                Toast(rayCalled?"Goblin stunned":"Call Ray at the till");return true;
             }
             if(encounter==Encounter.KKung)
             {
                 circuitStep++;PlaySound("Switch");chaos=Mathf.Max(0,chaos-5);
                 if(circuitStep>=CircuitGoal){lightsOn=true;resolved=true;Toast("All circuits restored. K-Kung banished!");}
-                else {switchIndex=(switchIndex+1)%switches.Length;lightSwitch=switches[switchIndex];Toast("Circuit "+circuitStep+"/"+CircuitGoal+" restored. Find the next switch!");}
+                else {switchIndex=(switchIndex+1)%switches.Length;lightSwitch=switches[switchIndex];Toast("Circuits "+circuitStep+"/"+CircuitGoal);}
                 return true;
             }
             if(encounter==Encounter.Salmah)
             {
-                if(!hasGun){hasGun=true;PlaySound("Pickup");Toast("Bait her rush, dodge, then get behind her and tap Interact to fire.");return true;}
+                if(!hasGun){hasGun=true;PlaySound("Pickup");Toast("Nail gun collected");return true;}
                 if(nailCooldown>0)return true;
-                if(!CanHitSalmah()){Toast("Flank her! Fire from behind while she recovers.");return true;}
+                if(!CanHitSalmah()){Toast("Fire from behind");return true;}
                 nailsHit++;nailCooldown=.42f;salmahImpact=.25f;salmahStun=1;PlaySound("Shot");
                 if(nailsHit>=tuning.nailHits){resolved=true;Toast("Miss Salmah stopped!");}return true;
             }
@@ -89,7 +89,7 @@ namespace GokilKisah
         string ActiveInteractionLabel()
         {
             if(!EncounterInteractionInReach())return null;
-            if(encounter==Encounter.Goblins)return !rayCalled&&Vector2.Distance(player,phone)<76?"Call Uncle Ray":"Shoo goblin for Ray";
+            if(encounter==Encounter.Goblins)return !rayCalled&&StationInReach(shop.wallPhone)?"Call Uncle Ray":"Shoo goblin for Ray";
             if(encounter==Encounter.KKung)return "Restore circuit "+(circuitStep+1)+" / "+CircuitGoal;
             if(encounter==Encounter.Salmah)return hasGun?(CanHitSalmah()?"Fire nail gun!":"Flank Miss Salmah"):"Pick up nail gun";
             return boSpawnDelay>0?"Can incoming!":"Return can "+(boReturns+1)+" / "+BoReturnGoal;
@@ -182,7 +182,7 @@ namespace GokilKisah
             canFlying=false;boReturns++;boImpact=.7f;PlaySound("Impact");chaos=Mathf.Max(0,chaos-4);
             if(boReturns>=BoReturnGoal){resolved=true;Toast("All three cans returned! Bo retreats.");return;}
             canIndex=(canIndex+1)%cans.Length;can=cans[canIndex];canKicked=false;boSpawnDelay=.7f;
-            boRemaining=Mathf.Max(10,tuning.boDeadline-boReturns);Toast("Return "+boReturns+"/"+BoReturnGoal+"! Find the next can.");
+            boRemaining=Mathf.Max(10,tuning.boDeadline-boReturns);Toast("Cans returned "+boReturns+"/"+BoReturnGoal);
         }
     }
 }

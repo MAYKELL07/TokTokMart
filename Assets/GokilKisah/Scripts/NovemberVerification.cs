@@ -52,13 +52,13 @@ namespace GokilKisah
                 check(Score(errors:8).stars==2&&Score(errors:9,lost:1,mess:100,time:t.duration).stars==1,"Two stars begins at objectives +300; completion still earns one star");
                 check(Score(win:false).stars==0&&Score(win:false).total==550,"An incomplete shift earns zero stars and no completion bonuses");
                 check(Score(extra:50).total==perfect.total,"Repeating tasks and extra customers cannot farm rating points");
-                BeginCampaignLevel(1,false);shiftBriefOpen=false;skillType=0;skillTarget=0;PrepareTask(0);skillClock=0;taskLastAttempt=-1;
+                BeginCampaignLevel(1,false);shiftBriefOpen=false;skillType=2;skillTarget=0;PrepareTask(2);skillClock=0;taskLastAttempt=-1;
                 check(!AttemptSkill()&&timingMistakes==1&&Rating(false).accuracy==175&&taskFeedbackFailed&&taskFeedback.Contains("Try again!"),"A timing miss deducts 25 accuracy points and keeps retry feedback short");
                 int misses=timingMistakes;AttemptSkill();check(timingMistakes==misses,"Input debounce prevents repeated misses in the same frame");
                 carryingCrate=true;taskElapsed=TaskBudget-.01f;TickShiftFeedback(.02f);check(skillType==-1&&carryingCrate&&timingMistakes==misses+1,"Task timeout exits safely, keeps the crate and applies one penalty");
                 BeginCampaignLevel(1,false);var customer=SpawnCustomer();customer.basket=1;customer.items.Add(0);customer.state=ShopperState.Queuing;customer.position=QueuePoint(0);customerQueue.Add(customer);player=checkout;Interact();
                 priceEntry="1";taskLastAttempt=-1;SubmitPrice();check(priceMistakes==1&&served==0&&taskFeedback.Contains("-25"),"Wrong checkout total is explained and does not complete a sale");
-                priceEntry=RinggitNumber(receiptTotal);SubmitPrice();check(served==1&&salesCents==350,"Correct checkout records actual revenue separately from fixed rating points");
+                priceEntry=RinggitNumber(receiptTotal);SubmitPrice();check(served==1&&salesCents==UnitPrice(0,1),"Correct checkout records actual revenue separately from fixed rating points");
                 var waiting=SpawnCustomer();waiting.basket=1;waiting.items.Add(1);waiting.state=ShopperState.Queuing;waiting.position=QueuePoint(0);waiting.timer=CustomerPatience+.1f;customerQueue.Add(waiting);skillType=1;skillTarget=waiting.id;UpdateCustomers(.1f);
                 check(missedCustomers==1&&skillType==-1&&!customerQueue.Contains(waiting),"Customer patience expires even during checkout; stale receipt closes");
                 BeginCampaignLevel(5,false);served=ServeGoal;stockActions=StockGoal;hazardsCleared=CleanGoal;TickCampaign(0,true);check(!levelResults,"A boss shift requires its boss as well as every task target");

@@ -220,33 +220,34 @@ namespace GokilKisah
             if(droppedIndex>=0){PickUpDroppedItem(droppedIndex);return;}
             int spillIndex=NearestSpill();
             if(spillIndex>=0){BeginSkill(2,spillIndex);return;}
-            if(StationInReach(shop.stockroom)) { PlaySound("Pickup");carryingCrate=true;SetStep("02 / RESTOCK WITH A SKILL CHECK","Bring the crate to an empty shelf. Press ACTION when the marker enters the green zone.");Toast("Stock crate collected");return; }
+            if(StationInReach(shop.stockroom)) { if(carryingCrate){Toast("Crate already held");return;} PlaySound("Pickup");carryingCrate=true;SetStep("02 / RESTOCK THE SHELF","Take the crate to a shelf. Drag the stock into its empty slots.");Toast("Crate collected");return; }
             int shelfIndex=NearestShelf();
-            if(shelfIndex>=0) {if(!carryingCrate)Toast("Collect a crate from the stockroom first");else if(shelfStock[shelfIndex]>=ShelfCapacity(shelfIndex))Toast("This shelf is full");else BeginSkill(0,shelfIndex);return;}
-            if(StationInReach(shop.register)) {if(CustomerAtRegister()!=null)BeginSkill(1,CustomerAtRegister().id);else Toast("Wait for a shopper to reach the checkout.");return;}
-            Toast("Move closer to a highlighted station");
+            if(shelfIndex>=0) {if(!carryingCrate)Toast("Collect a crate first");else if(shelfStock[shelfIndex]>=ShelfCapacity(shelfIndex))Toast("This shelf is full");else BeginSkill(0,shelfIndex);return;}
+            if(StationInReach(shop.register)) {if(CustomerAtRegister()!=null)BeginSkill(1,CustomerAtRegister().id);else Toast("Till is clear");return;}
+            Toast("Move closer");
         }
-        void BeginSkill(int type,int target) {if(type==2)CaptureMopTarget(target);else mopTargetView=null;PrepareTask(type);PlaySound("Click");playerVelocity=Vector2.zero;skillType=type;skillTarget=target;skillClock=0;skillScans=0;taskElapsed=0;taskLastAttempt=-1;taskFeedbackFailed=false;}
-        float SkillMarker() {return Mathf.PingPong(skillClock*(skillType==2?.75f+.08f*taskCombo:.65f+.09f*taskCombo)*TaskDifficulty,1);}
-        float SkillZoneCenter()=>skillType==0?.5f:taskCombo%2==0?.35f:.65f;
+        void BeginSkill(int type,int target) {if(type==2)CaptureMopTarget(target);else mopTargetView=null;PrepareTask(type);PlaySound("Click");playerVelocity=Vector2.zero;skillType=type;skillTarget=target;skillClock=0;skillScans=0;taskElapsed=0;taskLastAttempt=-1;taskFeedbackFailed=false;if(type==0)PrepareRestock();}
+        float SkillMarker() {return Mathf.PingPong(skillClock*(.75f+.08f*taskCombo)*TaskDifficulty,1);}
+        float SkillZoneCenter()=>taskCombo%2==0?.35f:.65f;
         float SkillZoneHalf()=>Mathf.Max(.07f,Mathf.Max(.11f,.18f-taskCombo*.025f)/TaskDifficulty);
         public bool AttemptSkill()
         {
-            if(skillType<0)return false; if(skillType==1)return SubmitPrice();
+            if(skillType<=0)return false; if(skillType==1)return SubmitPrice();
             if(Time.unscaledTime<taskLastAttempt+.18f)return false;taskLastAttempt=Time.unscaledTime;float marker=SkillMarker();
             if(Mathf.Abs(marker-SkillZoneCenter())>SkillZoneHalf()){RecordTaskMiss(marker<SkillZoneCenter()?"Left of the green zone":"Right of the green zone");return false;}
-            PlaySound(skillType==1?"Scan":skillType==2?"Mop":"Stock");
-            taskFeedbackFailed=false;taskCombo++;skillScans=taskCombo;taskFeedback="Nice! "+taskCombo+" / "+(skillType==0?3:4);if(taskCombo<(skillType==0?3:4)){skillClock=0;return true;}
-            if(skillType==0){shelfStock[skillTarget]=ShelfCapacity(skillTarget);carryingCrate=false;stockActions++;SetStep("03 / CHECKOUT / ENTER THE TOTAL","Move to checkout. Add up the receipt and enter the total on the keypad.");}
-            else{if(FinishMopPatch())hazardsCleared++;SetStep("05 / STORE LOOP COMPLETE","Crate, stocking, checkout and hazard clearing demonstrated. The AI partner keeps working.");}
-            skillType=-1;chaos=Mathf.Max(0,chaos-(campaignActive&&Targets.focus==ShiftFocus.Chaos?12:6));Toast("Task complete!");MobileHaptics.Pulse(35);EnsureShiftCleanupWork();return true;
+            PlaySound("Mop");
+            taskFeedbackFailed=false;taskCombo++;skillScans=taskCombo;taskFeedback="Nice! "+taskCombo+" / 4";
+            if(taskCombo<4){skillClock=0;return true;}
+            if(FinishMopPatch())hazardsCleared++;
+            SetStep("05 / STORE LOOP COMPLETE","Keep stocking, serving and cleaning.");
+            FinishStoreTask("Spill cleaned");return true;
         }
         int TotalStock(){int total=0;foreach(int n in shelfStock)total+=n;return total;}
         void ServeCustomer()
         {
             var shopper=CustomerAtRegister();
             if(shopper==null)return;
-            if(campaignActive)foreach(int item in shopper.items)salesCents+=UnitPrice(item);
+            if(campaignActive)foreach(int item in shopper.items)salesCents+=UnitPrice(item,shopper.basket);
             LeaveRegister(shopper);served++;chaos=Mathf.Max(0,chaos-2);PlaySound("Confirm");
         }
         public void StartReplay(Encounter next) {if(demoRoutine!=null)StopCoroutine(demoRoutine);demoRoutine=StartCoroutine(Demo(next));}
@@ -259,7 +260,7 @@ namespace GokilKisah
         }
         IEnumerator CompleteSkill()
         {
-            while(skillType>=0){if(skillType==1){priceEntry=RinggitNumber(receiptTotal);SubmitPrice();}else {while(Mathf.Abs(SkillMarker()-SkillZoneCenter())>.03f)yield return null;AttemptSkill();}yield return new WaitForSeconds(.12f);}
+            while(skillType>=0){if(skillType==0){if(!PlaceRestockPack())break;}else if(skillType==1){priceEntry=RinggitNumber(receiptTotal);SubmitPrice();}else {while(Mathf.Abs(SkillMarker()-SkillZoneCenter())>.03f)yield return null;AttemptSkill();}yield return new WaitForSeconds(.12f);}
             yield return new WaitForSeconds(.8f);
         }
         IEnumerator Demo(Encounter next)

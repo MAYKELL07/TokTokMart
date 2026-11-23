@@ -129,7 +129,7 @@ namespace GokilKisah
                 {
                     c.timer+=dt;
                     if(c.timer>CustomerPatience)
-                    {c.angry=true;Speak(c,"Lambatnya! My queue number grew a beard.");LeaveRegister(c);missedCustomers++;chaos=Mathf.Min(100,chaos+8);if(skillType==1&&skillTarget==c.id)skillType=-1;Toast("Customer left! -100 accuracy points. Watch the patience bar.");PlaySound("Miss",.55f);}
+                    {c.angry=true;Speak(c,"Lambatnya! My queue number grew a beard.");LeaveRegister(c);missedCustomers++;chaos=Mathf.Min(100,chaos+8);if(skillType==1&&skillTarget==c.id)skillType=-1;Toast("Customer left · -100 pts");PlaySound("Miss",.55f);}
                 }
                 if(c.state==ShopperState.Queuing)c.goal=QueuePoint(customerQueue.IndexOf(c));
                 float remaining=Vector2.Distance(c.position,c.goal);

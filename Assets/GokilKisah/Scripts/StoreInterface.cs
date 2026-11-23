@@ -87,6 +87,7 @@ namespace GokilKisah
             musicBed=Mathf.MoveTowards(musicBed,musicTarget,Time.unscaledDeltaTime*2);
             ApplyAudio();
             RefreshReleaseUI();
+            RefreshRestockPanel();
         }
         void OnApplicationFocus(bool focus) {focused=focus;if(!focus){bufferedActionUntil=-1;heldKeys.Clear();ReleaseMobileControls();playerVelocity=Vector2.zero;}}
         void OnApplicationPause(bool paused) {if(paused){ReleaseMobileControls();bufferedActionUntil=-1;heldKeys.Clear();playerVelocity=Vector2.zero;SaveSettings();}focused=!paused;}
@@ -95,7 +96,7 @@ namespace GokilKisah
             if(shiftTransition!=null)return;
             if(escapeInputFrame==Time.frameCount)return;escapeInputFrame=Time.frameCount;
             if(scoreGuideOpen){scoreGuideOpen=false;return;}if(levelMapOpen&&mainMenu){levelMapOpen=false;return;}
-            if(skillType>=0&&!settingsOpen&&!replay){skillType=-1;Toast("Task cancelled");}
+            if(skillType>=0&&!settingsOpen&&!replay)CancelCurrentTask();
             else SetSettingsOpen(!settingsOpen);
         }
         void ActionInput()
@@ -184,8 +185,6 @@ namespace GokilKisah
             else if(gameOver&&!settingsOpen)DrawGameOver();
             else if(skillType>=0&&!settingsOpen&&!autoPaused)DrawSkill();
             if(shiftBriefOpen&&!settingsOpen)DrawShiftBriefing();
-            if(Time.unscaledTime<noticeUntil&&gameplayHud)
-            {Sticker(new Rect(480,700,640,44),arcadeNavy, uiKey:"StoreInterface_10189");ArcadeText(new Rect(493,704,614,34),notice,18,arcadeCream,TextAnchor.MiddleCenter, uiKey:"StoreInterface_10234");}
             if(autoPaused&&!settingsOpen){Shade(uiKey:"StoreInterface_10361");ArcadeText(new Rect(450,380,700,80),"ON A BREAK",56,arcadeCream,TextAnchor.MiddleCenter,true, uiKey:"StoreInterface_10369");ArcadeText(new Rect(450,470,700,40),"Return to the shop to carry on.",23,arcadeCream,TextAnchor.MiddleCenter, uiKey:"StoreInterface_10463");}
             if(settingsOpen)DrawSettings();
             if(scoreGuideOpen)DrawScoreGuide();

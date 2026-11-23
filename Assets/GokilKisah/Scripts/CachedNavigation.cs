@@ -43,7 +43,7 @@ namespace GokilKisah
         bool CachedSceneWalkable(Vector2 p)
         {
             var wp=new Vector2(p.x*.01f,-p.y*.01f);const float radius=FootRadius*.01f;
-            if(!CachedFloor(wp+Vector2.left*radius)||!CachedFloor(wp+Vector2.right*radius)||!CachedFloor(wp+Vector2.up*radius)||!CachedFloor(wp+Vector2.down*radius))return false;
+            if(!CachedFloor(wp)||!CachedFloor(wp+Vector2.left*radius)||!CachedFloor(wp+Vector2.right*radius)||!CachedFloor(wp+Vector2.up*radius)||!CachedFloor(wp+Vector2.down*radius))return false;
             const float rr=(radius-.00001f)*(radius-.00001f);
             for(int i=0;i<collisionCache.Count;i++)
             {

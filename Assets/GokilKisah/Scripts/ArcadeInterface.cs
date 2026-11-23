@@ -205,14 +205,16 @@ namespace GokilKisah
             if(UiButton(new Rect(930,780,270,72),"MAIN MENU",arcadeCream,24, uiKey:"ArcadeInterface_16517"))ReturnToMainMenu();
         }}
         void DrawSkill()
-        {using(NativeUiScope("DrawSkill" + skillType,"DrawSkill")){
+        {
+            if(skillType==0)return; // The EventSystem handles drag and drop on the restock panel.
+            using(NativeUiScope("DrawSkill" + skillType,"DrawSkill")){
             if(skillType==1){DrawCashier();return;}
             Shade(uiKey:"ArcadeInterface_16708");Sticker(new Rect(392,227,816,443),arcadeCream,true,6, uiKey:"ArcadeInterface_16716");
-            Panel(new Rect(398,233,804,90),skillType==0?arcadeTeal:arcadeCoral, uiKey:"ArcadeInterface_16783");
-            Icon(new Rect(424,248,62,62),skillType==0?"stock":"clean",arcadeCream, uiKey:"ArcadeInterface_16864");
-            ArcadeText(new Rect(505,245,650,67),skillType==0?"GET THOSE SHELVES FULL!":"MAKE IT SPARKLE!",36,arcadeCream, uiKey:"ArcadeInterface_16948");
+            Panel(new Rect(398,233,804,90),arcadeCoral, uiKey:"ArcadeInterface_16783");
+            Icon(new Rect(424,248,62,62),"clean",arcadeCream, uiKey:"ArcadeInterface_16864");
+            ArcadeText(new Rect(505,245,650,67),"MAKE IT SPARKLE!",36,arcadeCream, uiKey:"ArcadeInterface_16948");
             DrawTaskCountdown(new Rect(439,325,722,22));DrawTaskDrive();
-            int required=skillType==0?3:4;
+            const int required=4;
             for(int i=0;i<required;i++)
             {
                 var r=new Rect(698+i*58-required*29,354,46,46);Sticker(r,i<taskCombo?arcadeTeal:new Color(.79f,.84f,.78f),false,3, uiKey:"ArcadeInterface_17219");
@@ -225,7 +227,7 @@ namespace GokilKisah
             Sticker(new Rect(446+SkillMarker()*708-7,454,14,65),Time.unscaledTime<skillFlash?arcadeCoral:arcadeGold,false,3, uiKey:"ArcadeInterface_17826");
             GUI.enabled=!replay;
             if(UiButton(new Rect(439,563,487,64),"SPACE  /  DO IT!",arcadeGold,28, uiKey:"ArcadeInterface_17988"))AttemptSkill();
-            if(UiButton(new Rect(946,563,215,64),"CANCEL",arcadeCream,24, uiKey:"ArcadeInterface_18087")){skillType=-1;playerVelocity=Vector2.zero;}
+            if(UiButton(new Rect(946,563,215,64),"CANCEL",arcadeCream,24, uiKey:"ArcadeInterface_18087"))CancelCurrentTask();
             GUI.enabled=true;
             if(taskFeedback.Length>0)Text(new Rect(445,524,710,28),taskFeedback,18,taskFeedbackFailed?arcadeCoral:arcadeTeal,FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"ArcadeInterface_18257");
         }}

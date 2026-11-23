@@ -22,7 +22,7 @@ namespace GokilKisah
                 Text(new Rect(r.center.x-46,r.y-44,92,24),shelfStock[i]+" / "+ShelfCapacity(i)+" stock",14,paper,FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"EncounterPresentation_985");
             }
             Text(new Rect(checkout.x-50,checkout.y+19,105,24),"Checkout",15,new Color(.25f,.34f,.31f),FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"EncounterPresentation_1398");
-            if(encounter==Encounter.Goblins&&!rayCalled)Text(new Rect(phone.x-40,phone.y+23,95,25),"Wall phone",15,new Color(.25f,.34f,.31f),FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"EncounterPresentation_1585");
+            if(encounter==Encounter.Goblins&&!rayCalled)Text(new Rect(phone.x-40,phone.y+23,95,25),"Phone",15,new Color(.25f,.34f,.31f),FontStyle.Bold,TextAnchor.MiddleCenter, uiKey:"EncounterPresentation_1585");
             if(encounter==Encounter.KKung&&!lightsOn){var b=shop.walkableArea.bounds;Fill(new Rect(b.min.x*100,-b.max.y*100,b.size.x*100,b.size.y*100),new Color(.13f,.08f,.22f,.10f), uiKey:"EncounterPresentation_1796");}
             if(encounter==Encounter.Salmah&&!resolved)
             {
