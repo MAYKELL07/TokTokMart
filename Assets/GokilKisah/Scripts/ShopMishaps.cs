@@ -35,12 +35,14 @@ namespace GokilKisah
 
         readonly List<DroppedStock> droppedStock = new List<DroppedStock>();
         readonly List<Splash> splashes = new List<Splash>();
+        int droppedStockPickedUp;
 
         void ResetShopMishaps()
         {
             foreach (var item in droppedStock) if (item.view) Destroy(item.view.gameObject);
             droppedStock.Clear();
             splashes.Clear();
+            droppedStockPickedUp = 0;
         }
 
         static bool BlocksPlayerStep(Vector2 from, Vector2 to, Vector2 obstruction, float distance)
@@ -132,6 +134,7 @@ namespace GokilKisah
             var item = droppedStock[index];
             droppedStock.RemoveAt(index);
             if (item.view) Destroy(item.view.gameObject);
+            droppedStockPickedUp++;
             chaos = Mathf.Max(0, chaos - 4);
             PlaySound("Pickup");
             Toast("Stock picked up");

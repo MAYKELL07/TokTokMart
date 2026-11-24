@@ -29,12 +29,8 @@ namespace GokilKisah
             }
             if (showResults && resultsVisualDirty)
             {
-                ShiftScore score = Rating(levelWon);
-                string hint = !levelWon ? levelFailure : invoiceStars == 3 ? "Boss says you can clock out early. He's joking lah."
-                    : score.speed < 200 ? "Try finishing a little faster next shift." : score.accuracy < 200
-                    ? "Check your receipt totals and timing next shift." : "A tidier shop earns more stars.";
-                punchCards.BindResults(CurrentLevel, levelWon, invoiceStars, score, Ringgit(InvoiceTotal), hint,
-                    served, stockActions, hazardsCleared, Targets);
+                punchCards.BindResults(CurrentLevel, levelWon, Rating(levelWon), levelFailure,
+                    stockActions, hazardsCleared, droppedStockPickedUp, served, shiftTime);
                 resultsVisualDirty = false;
             }
             if (!showMap) mapVisualDirty = true;

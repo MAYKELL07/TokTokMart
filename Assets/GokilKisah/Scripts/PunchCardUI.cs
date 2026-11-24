@@ -13,6 +13,8 @@ namespace GokilKisah
         static readonly Color Coral = new Color32(167, 52, 76, 255);
         static readonly Color Muted = new Color32(181, 197, 193, 255);
         static readonly Color32 TileMuted = new Color32(42, 67, 72, 255);
+        static readonly Color32 ResultRed = new Color32(199, 0, 0, 255);
+        static readonly Color32 ResultCell = new Color32(229, 222, 194, 184);
 
         sealed class ShiftTile
         {
@@ -23,13 +25,13 @@ namespace GokilKisah
         }
 
         readonly ShiftTile[] tiles = new ShiftTile[20];
-        readonly Text[] taskTotals = new Text[3];
-        readonly Text[] metrics = new Text[4];
+        readonly Text[] taskTotals = new Text[4];
+        readonly Text[] starThresholds = new Text[3];
         readonly RawImage[] resultStars = new RawImage[3];
         Font display, body;
         RectTransform design, map, results, loading, loadingFill, mapCard;
         Text pageText, shiftLabel, shiftTitle, shiftHint, shiftTargets, shiftTime, punchLabel;
-        Text resultHeading, primaryLabel, totalLabel, resultHint;
+        Text resultHeading, primaryLabel, resultFailure, resultTimeLabel, resultTime;
         RawImage cardArt;
         Button previous, next, punch;
         CanvasGroup loadingGroup;
@@ -108,41 +110,53 @@ namespace GokilKisah
         void BuildResults(Action<int> action)
         {
             results = Node(design, "Shift results", 0, 0, 1600, 900);
-            Surface(results, Navy);
-            DrawArt(results, "MenuBackground", 0, 0, 1600, 900, new Color(.14f, .26f, .28f));
-            resultHeading = Write(results, "", 58, 24, 1484, 92, 62, Gold);
-            var report = Node(results, "Stamped result card", 82, 133, 784, 609);
-            DrawArt(report, "PunchResultCard", 0, 0, 784, 609, Color.white);
-            var rating = Node(report, "Star rating", 211, 98, 386, 113);
+            Surface(results, new Color32(12, 47, 55, 255));
+            var report = Node(results, "Stamped result card", 255, 22, 1090, 768);
+            DrawArt(report, "PunchResultCard", 0, 0, 1090, 768, new Color32(252, 245, 237, 255));
+            resultHeading = Write(report, "", 130, 16, 890, 95, 62, Navy);
+            var rating = Node(report, "Star rating", 298, 128, 532, 138);
             for (int i = 0; i < resultStars.Length; i++)
-                resultStars[i] = DrawArt(rating, "Star", i * 135, 0, 116, 113, Color.white);
-            string[] labels = { "SCORE", "SPEED", "ACCURACY", "TIDINESS" };
-            for (int i = 0; i < metrics.Length; i++)
             {
-                int x = 154 + i % 2 * 252;
-                int y = 239 + i / 2 * 139;
-                Write(report, labels[i], x + 8, y + 15, 236, 37, 22, Navy, font: body);
-                metrics[i] = Write(report, "", x + 8, y + 54, 236, 65, 39, Navy);
+                int x = i * 187;
+                var star = DrawArt(rating, "Star", x, 0, 158, 138, Color.white);
+                star.rectTransform.pivot = new Vector2(.5f, .5f);
+                star.rectTransform.anchoredPosition += new Vector2(79, -69);
+                resultStars[i] = star;
+                starThresholds[i] = Write(rating, "", x + 17, 34, 124, 87, 37, Navy);
+                starThresholds[i].lineSpacing = .87f;
             }
-            DrawArt(report, "CoinJarIcon", 172, 528, 48, 39, Color.white);
-            totalLabel = Write(report, "", 232, 524, 400, 49, 24, Navy, TextAnchor.MiddleLeft);
+            resultFailure = Write(report, "", 110, 267, 930, 30, 21, Navy, font: body);
 
-            string[] icons = { "CheckoutIcon01", "StockIcon01", "PuddleIcon01" };
-            string[] taskNames = { "CUSTOMERS", "RESTOCKED", "CLEANED" };
+            // Align the cells with the dividers in the artist's card texture.
+            string[] taskNames = { "RESTOCK", "CLEAN", "HAZARD", "CHECKOUT" };
+            string[] icons = { "StockIcon01", "PuddleIcon01", "HazardIcon01", "CoinJarIcon" };
+            Rect[] iconRects =
+            {
+                new Rect(58, 13, 112, 103),
+                new Rect(82, 14, 81, 105),
+                new Rect(60, 16, 110, 105),
+                new Rect(52, -34, 134, 181)
+            };
             for (int i = 0; i < taskTotals.Length; i++)
             {
-                var row = Node(results, taskNames[i], 912, 160 + i * 138, 590, 117);
-                Box(row, "Metric background", 0, 0, 590, 117, Cream);
-                DrawArt(row, icons[i], 26, 24, 72, 70, Color.white);
-                Write(row, taskNames[i], 129, 23, 253, 72, 29, Navy, TextAnchor.MiddleLeft);
-                taskTotals[i] = Write(row, "", 378, 18, 185, 80, 42, Teal, TextAnchor.MiddleRight);
+                var cell = Node(report, taskNames[i], 217 + i % 2 * 351, 306 + i / 2 * 175, 345, 169);
+                Box(cell, "Cell background", 0, 0, 345, 169, ResultCell);
+                var icon = iconRects[i];
+                DrawArt(cell, icons[i], icon.x, icon.y, icon.width, icon.height, Color.white);
+                taskTotals[i] = Write(cell, "", 174, 24, 125, 97, 84, ResultRed);
+                Write(cell, taskNames[i], 0, 118, 338, 53, 35, Navy);
             }
-            Box(results, "Shift note", 912, 574, 590, 137, Navy);
-            resultHint = Write(results, "", 946, 588, 522, 107, 23, Cream, font: body);
-            var primary = AddButton(results, "", 124, 776, 580, 77, () => action(0), "PunchResultPrimary");
+
+            Box(report, "Time strip", 217, 653, 695, 69, ResultCell);
+            resultTimeLabel = Write(report, "", 234, 657, 400, 60, 34, Navy, TextAnchor.MiddleRight);
+            DrawArt(report, "TimerIcon01", 650, 670, 41, 41, Color.white);
+            resultTime = Write(report, "", 700, 657, 155, 60, 36, ResultRed, TextAnchor.MiddleLeft);
+
+            AddButton(results, "REPLAY", 226, 810, 285, 66, () => action(1), "PunchResultReplay");
+            var primary = AddButton(results, "", 526, 799, 535, 88, () => action(0), "PunchResultPrimary");
             primaryLabel = primary.GetComponentInChildren<Text>();
-            AddButton(results, "REPLAY", 734, 776, 335, 77, () => action(1), "PunchResultReplay");
-            AddButton(results, "LEVEL SELECT", 1099, 776, 398, 77, () => action(2), "PunchResultSecondary");
+            primaryLabel.fontSize = primaryLabel.resizeTextMaxSize = 32;
+            AddButton(results, "LEVEL SELECT", 1075, 810, 306, 66, () => action(2), "PunchResultSecondary");
         }
 
         void BuildLoading()
@@ -214,28 +228,24 @@ namespace GokilKisah
             next.interactable = first + tiles.Length <= unlocked;
         }
 
-        public void BindResults(int level, bool won, int earned, ShiftScore score, string takings, string hint,
-            int served, int stocked, int cleaned, ShiftTargets goals)
+        public void BindResults(int level, bool won, ShiftScore score, string failure,
+            int stocked, int cleaned, int hazards, int served, float elapsed)
         {
-            resultHeading.text = won ? "SHIFT " + level + " COMPLETE!" : "SHIFT " + level + " CLOSED";
-            resultHeading.color = won ? Gold : new Color32(255, 139, 152, 255);
-            for (int i = 0; i < resultStars.Length; i++) resultStars[i].gameObject.SetActive(i < earned);
-            metrics[0].text = score.total.ToString();
-            metrics[1].text = score.speed.ToString();
-            metrics[2].text = score.accuracy.ToString();
-            metrics[3].text = score.control.ToString();
-            totalLabel.text = "TAKINGS " + takings;
-            SetTask(taskTotals[0], served, goals.serve);
-            SetTask(taskTotals[1], stocked, goals.stock);
-            SetTask(taskTotals[2], cleaned, goals.clean);
-            resultHint.text = hint;
+            resultHeading.text = "SHIFT <color=#C70000><size=77>" + level.ToString("00")
+                + "</size></color>" + (won ? " COMPLETE!" : " CLOSED");
+            starThresholds[0].text = score.oneStar + "\nPTS";
+            starThresholds[1].text = score.twoStars + "\nPTS";
+            starThresholds[2].text = score.threeStars + "\nPTS";
+            for (int i = 0; i < resultStars.Length; i++) resultStars[i].gameObject.SetActive(i < score.stars);
+            taskTotals[0].text = stocked.ToString();
+            taskTotals[1].text = cleaned.ToString();
+            taskTotals[2].text = hazards.ToString();
+            taskTotals[3].text = served.ToString();
+            resultFailure.text = won ? "" : failure;
+            resultTimeLabel.text = won ? "Complete shift in:" : "Time in shop:";
+            int seconds = Mathf.Max(0, Mathf.FloorToInt(elapsed));
+            resultTime.text = (seconds / 60).ToString("00") + ":" + (seconds % 60).ToString("00");
             primaryLabel.text = won ? "NEXT SHIFT " + (level + 1) : "RETRY SHIFT " + level;
-        }
-
-        static void SetTask(Text text, int actual, int goal)
-        {
-            text.text = actual + " / " + goal;
-            text.color = actual >= goal ? Teal : Coral;
         }
 
         Button AddButton(Transform parent, string label, float x, float y, float w, float h, Action action, string art = null)

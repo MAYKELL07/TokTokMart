@@ -114,6 +114,7 @@ namespace GokilKisah
         {
             if(levelResults)return;
             levelResults=true;levelWon=won;gameOver=!won;levelFailure=reason;skillType=-1;
+            resultsVisualDirty=true;
             playerVelocity=Vector2.zero;ReleaseMobileControls();heldKeys.Clear();shiftBriefOpen=false;
             invoiceStars=Rating(won).stars;
             MobileHaptics.Pulse(won?65:90);
