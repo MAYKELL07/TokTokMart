@@ -49,8 +49,6 @@ namespace GokilKisah
                 Fit(register, Load("CashRegister01"));
                 AddAdjacent(register, "Coin jar", Load("CoinJar01"), Vector2.down, .30f);
             }
-            var phone = shop.wallPhone.transform.Find("Artwork")?.GetComponent<SpriteRenderer>();
-            if (phone) Fit(phone, Load("Phone01"));
             if (shop.counterCan) Fit(shop.counterCan, Load("IblisCan01"));
             var fixture = shop.transform.Find("Reference shop layout/Fridge 4")?.GetComponent<SpriteRenderer>();
             if (fixture) Fit(fixture, Load("DrinksDispenser01"), keepFoot: true);

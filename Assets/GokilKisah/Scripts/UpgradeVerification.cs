@@ -69,8 +69,10 @@ namespace GokilKisah
             check(cam.transform.position.x>=bounds.min.x+cam.orthographicSize*cam.aspect-.001f&&cam.transform.position.y<=bounds.max.y-cam.orthographicSize+.001f,"Camera clamps viewport to store bounds");
             ResetRun(Encounter.Store);player=supply;Interact();check(carryingCrate,"Stockroom gives crate");player=ShelfPoint(0);Interact();check(skillType==0,"Empty shelf starts stocking task");
             check(!AttemptSkill()&&carryingCrate&&stockActions==0,"Restocking requires a valid drop");
-            for(int i=0;i<3;i++)PlaceRestockPack();
-            check(stockActions==1&&!carryingCrate&&shelfStock[0]==ShelfCapacity(0)&&skillType<0,"Three timed placements fill shelf");
+            check(packsToPlace==5&&RestockRowsForShift(5)==2&&RestockRowsForShift(10)==3,"Restock grows in five-pack rows");
+            check(TryPlaceRestockPack(0,4)&&!TryPlaceRestockPack(0,0)&&!TryPlaceRestockPack(1,4)&&taskCombo==1,"Packs and shelf slots are each counted only once");
+            for(int i=1;i<packsToPlace;i++)PlaceRestockPack();
+            check(stockActions==1&&!carryingCrate&&shelfStock[0]==ShelfCapacity(0)&&skillType<0,"Completing every drop fills the shelf once");
             ResetRun(Encounter.Store);player=spills[0];Interact();
             float firstCenter=SkillZoneCenter();skillClock=firstCenter/.75f;AttemptSkill();check(taskCombo==1&&SkillZoneCenter()!=firstCenter,"Mop target alternates after a successful stroke");
             for(int i=1;i<4;i++){skillClock=SkillZoneCenter()/(.75f+.08f*taskCombo);AttemptSkill();}

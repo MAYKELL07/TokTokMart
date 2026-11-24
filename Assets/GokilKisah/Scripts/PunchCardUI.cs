@@ -85,7 +85,8 @@ namespace GokilKisah
                 tiles[i] = tile;
             }
 
-            DrawArt(map, "PunchClock", 1060, 148, 419, 143, Color.white);
+            var clock = DrawArt(map, "PunchClock", 1060, 148, 419, 143, Color.white);
+            clock.uvRect = new Rect(1, 1, -1, -1);
             mapCard = Node(map, "Selected punch card", 1059, 238, 420, 575);
             cardArt = DrawArt(mapCard, "PunchCardNormal", 0, 0, 420, 575, Color.white);
             shiftLabel = Write(mapCard, "", 18, 12, 384, 67, 42, Navy);
@@ -112,8 +113,9 @@ namespace GokilKisah
             resultHeading = Write(results, "", 58, 24, 1484, 92, 62, Gold);
             var report = Node(results, "Stamped result card", 82, 133, 784, 609);
             DrawArt(report, "PunchResultCard", 0, 0, 784, 609, Color.white);
+            var rating = Node(report, "Star rating", 211, 98, 386, 113);
             for (int i = 0; i < resultStars.Length; i++)
-                resultStars[i] = DrawArt(report, "Star", 211 + i * 135, 98, 116, 113, Color.white);
+                resultStars[i] = DrawArt(rating, "Star", i * 135, 0, 116, 113, Color.white);
             string[] labels = { "SCORE", "SPEED", "ACCURACY", "TIDINESS" };
             for (int i = 0; i < metrics.Length; i++)
             {
@@ -218,10 +220,10 @@ namespace GokilKisah
             resultHeading.text = won ? "SHIFT " + level + " COMPLETE!" : "SHIFT " + level + " CLOSED";
             resultHeading.color = won ? Gold : new Color32(255, 139, 152, 255);
             for (int i = 0; i < resultStars.Length; i++) resultStars[i].gameObject.SetActive(i < earned);
-            metrics[0].text = score.total + " pts";
-            metrics[1].text = score.speed + " pts";
-            metrics[2].text = score.accuracy + " pts";
-            metrics[3].text = score.control + " pts";
+            metrics[0].text = score.total.ToString();
+            metrics[1].text = score.speed.ToString();
+            metrics[2].text = score.accuracy.ToString();
+            metrics[3].text = score.control.ToString();
             totalLabel.text = "TAKINGS " + takings;
             SetTask(taskTotals[0], served, goals.serve);
             SetTask(taskTotals[1], stocked, goals.stock);
