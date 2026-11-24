@@ -34,8 +34,8 @@ namespace GokilKisah
         public readonly List<Vector2> spills = new List<Vector2>();
         public int switchIndex = -1, canIndex = -1;
         int skillType = -1, skillTarget, skillScans;
-        float skillClock, aiWork, noticeUntil, pulse, nextMess, nextAttack, customerHit;
-        Vector2 aiGoal, touchOrigin, touchMove;
+        float skillClock, noticeUntil, pulse, nextMess, nextAttack, customerHit;
+        Vector2 touchOrigin, touchMove;
         bool touchHeld;
         bool cleanCaptureMode;
         string captureDirectory;
@@ -80,7 +80,7 @@ namespace GokilKisah
             InitializeSceneBindings();
         }
         void OnDestroy() { Time.captureFramerate=0; Time.timeScale=1; foreach(var icon in arcadeIcons.Values)if(icon)Destroy(icon);arcadeIcons.Clear(); if(invoiceStar)Destroy(invoiceStar);if(roundedPanel)Destroy(roundedPanel);if(shopFloor)Destroy(shopFloor);if(streetFloor)Destroy(streetFloor); }
-        public void Choose(bool chooseZack) { mainMenu=false; selected=true; zack=chooseZack; if(!testing&&!verificationRunning&&!replay)BeginCampaignLevel(SavedLevel); PlaySound("Confirm"); aiStatus="On register standby"; }
+        public void Choose(bool chooseZack) { mainMenu=false; selected=true; zack=chooseZack; if(!testing&&!verificationRunning&&!replay)BeginCampaignLevel(SavedLevel); PlaySound("Confirm"); }
         public void ResetRun(Encounter next)
         {
             if(campaignActive){tuning.rayWait=5;tuning.boDeadline=18;tuning.nailHits=3;}
@@ -92,14 +92,14 @@ namespace GokilKisah
             bufferedActionUntil=-1;bufferedActionUntil=-1;lastPlayer=player;lastHelper=helper;playerMotion=Vector2.zero;helperMotion=Vector2.zero;playerFacing=24;helperFacing=24;
             carryingCrate=false; hasGun=false; rayCalled=false; lightsOn=false; canFlying=false; canKicked=false;
             rayRemaining=0; rayX=1490; boRemaining=tuning.boDeadline; chaos=0; shiftTime=0; nailsHit=0; nailCooldown=0;
-            served=0; stockActions=0; hazardsCleared=0; skillType=-1; aiWork=0; nextMess=3; nextAttack=1; customerHit=0;
+            served=0; stockActions=0; hazardsCleared=0; skillType=-1; nextMess=3; nextAttack=1; customerHit=0;
             shelfStock=new[]{0,4,2,4,0,3}; spills.Clear(); spills.Add(new Vector2(795,490));
             goblins=next==Encounter.Goblins?3:0;
             int newSwitch=UnityEngine.Random.Range(0,switches.Length-1); if(newSwitch>=switchIndex) newSwitch++; switchIndex=newSwitch; lightSwitch=switches[newSwitch];
             int newCan=UnityEngine.Random.Range(0,cans.Length-1); if(newCan>=canIndex) newCan++; canIndex=newCan; can=cans[newCan];
             ResetSceneState();
             ResetCustomers();ResetActiveEncounter(next);
-            aiGoal=supply; aiStatus="On register standby";registerArrivals=0;ResetShopMishaps();
+            ResetPartner();ResetShopMishaps();
             switch(next)
             {
                 case Encounter.Store: SetStep("01 / COLLECT A CRATE","Go to the stockroom, restock a shelf, scan a checkout and clear a spill."); break;
@@ -172,32 +172,6 @@ namespace GokilKisah
                 var x=player+new Vector2(step.x,0);if(PlayerStepClear(x))player=x;
                 var y=player+new Vector2(0,step.y);if(PlayerStepClear(y))player=y;
             }
-        }
-        int registerArrivals;
-        void UpdateAI(float dt)
-        {
-            var shopper=CustomerAtRegister();
-            if(shopper!=null&&shopper.registerTurn==0)
-                shopper.registerTurn=++registerArrivals;
-
-            aiGoal=ShopLayout.ToGame(shop.partnerCheckoutSpot.position);
-            if(Vector2.Distance(helper,aiGoal)>8)
-                helper=Navigate(helper,aiGoal,80*dt);
-
-            if(shopper==null||shopper.registerTurn%5!=0||skillType==1)
-            {
-                aiWork=0;
-                aiStatus="On register standby";
-                return;
-            }
-            if(Vector2.Distance(helper,aiGoal)>8)return;
-
-            aiStatus="Slowly ringing up a customer";
-            aiWork+=dt;
-            if(aiWork<5.5f)return;
-            aiWork=0;
-            Speak(shopper,"Wah, service finally respawned.");
-            ServeCustomer();
         }
         public Vector2 ShelfPoint(int i) {return ShopLayout.ToGame(sceneShelves[i].shoppingPoint.position);}
         // Static routes and collision geometry are shared by all actors.

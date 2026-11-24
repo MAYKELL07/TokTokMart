@@ -53,6 +53,8 @@ namespace GokilKisah
         void RefreshSceneGeometry()
         {
             if(!shop||shop.schemaVersion<2)return;
+            if(shop.partnerCheckoutSpot&&!CachedSceneWalkable(ShopLayout.ToGame(shop.partnerCheckoutSpot.position)))
+                shop.partnerCheckoutSpot.position=new Vector3(19.05f,-5.15f,0);
             Physics2D.SyncTransforms();
             var previousShelves=sceneShelves;var previousStock=shelfStock;
             var nextShelves=shop.Shelves;
@@ -232,6 +234,7 @@ namespace GokilKisah
             shop.playerCharacter.Apply(player,playerFacing,zack?6:0,playerMotion,pulse);
             SyncPlayerFootsteps();
             shop.partnerCharacter.Apply(helper,helperFacing,zack?0:6,helperMotion,pulse);
+            ShowPartnerCrate();
             for(int i=0;i<sceneShelves.Length;i++)if(sceneShelves[i])sceneShelves[i].ShowStock(shelfStock[i]);
             foreach(var occluder in softOccluders)if(occluder&&occluder.isActiveAndEnabled)
                 occluder.Tick(shop.playerCharacter.transform.position,shop.playerCharacter.artwork.bounds,selected&&!mainMenu,Time.unscaledDeltaTime);

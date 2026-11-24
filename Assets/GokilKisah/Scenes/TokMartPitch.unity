@@ -4961,8 +4961,8 @@ Transform:
   m_GameObject: {fileID: 120293705}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.10000038, y: 0.44400024, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.10000038, y: -0.81, z: 0}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 678108664}
@@ -13557,8 +13557,8 @@ Transform:
   m_GameObject: {fileID: 412576970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.98815, y: -5.41, z: 0}
-  m_LocalScale: {x: 0.2071291, y: 0.2071291, z: 1}
+  m_LocalPosition: {x: 18.6551, y: -4.9467, z: 0}
+  m_LocalScale: {x: 0.14314693, y: 0.16249278, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 351899158}
@@ -15911,7 +15911,7 @@ Transform:
   m_GameObject: {fileID: 474876684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.86, y: -0.035, z: 0}
+  m_LocalPosition: {x: 0.776, y: -2.761, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20882,7 +20882,7 @@ Transform:
   m_GameObject: {fileID: 650640740}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.42, y: -0.222, z: 0}
+  m_LocalPosition: {x: -0.863, y: -1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21444,52 +21444,6 @@ Transform:
   - {fileID: 1254702998}
   m_Father: {fileID: 351899158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5092186124031607195
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665274061}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.02, y: 0.13}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.04, y: 0.39}
-  m_EdgeRadius: 0
 --- !u!114 &665274063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22010,10 +21964,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1724774617}
   - {fileID: 1808921804}
   - {fileID: 1268170357}
   - {fileID: 120293706}
+  - {fileID: 1907401156}
   - {fileID: 972930032}
   - {fileID: 650640741}
   - {fileID: 1814155252}
@@ -22049,7 +22003,7 @@ MonoBehaviour:
   automaticSorting: 0
   orderOffset: 0
   artwork:
-  - {fileID: 1724774618}
+  - {fileID: 0}
   - {fileID: 1268170358}
   artworkOffsets: 
 --- !u!114 &678108667
@@ -30437,8 +30391,8 @@ Transform:
   m_GameObject: {fileID: 990108981}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.245, z: 0}
-  m_LocalScale: {x: 0.3666667, y: 0.3666667, z: 1}
+  m_LocalPosition: {x: 0.772, y: -2.6643, z: 0}
+  m_LocalScale: {x: 0.38482246, y: 0.43045944, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1498633548}
@@ -40032,7 +39986,7 @@ Transform:
   m_GameObject: {fileID: 1254702997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.021558762, y: 0.57500005, z: 0}
+  m_LocalPosition: {x: -1.02, y: -0.82, z: 0}
   m_LocalScale: {x: 0.09382684, y: 0.09382684, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41126,7 +41080,7 @@ Transform:
   m_GameObject: {fileID: 1295985421}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.11, y: -0.84, z: 0}
+  m_LocalPosition: {x: -1.08, y: -1.17, z: 0}
   m_LocalScale: {x: 0.27027026, y: 0.27027026, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46040,8 +45994,8 @@ Transform:
   m_GameObject: {fileID: 1471492554}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.8, y: 1.175, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 16.8, y: 0.209, z: 0}
+  m_LocalScale: {x: 1, y: 0.375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 351899158}
@@ -46787,7 +46741,7 @@ Transform:
   m_GameObject: {fileID: 1498633547}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.30, y: -3.28, z: 0}
+  m_LocalPosition: {x: 18.3, y: -3.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52536,97 +52490,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
---- !u!1 &1724774616
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1724774617}
-  - component: {fileID: 1724774618}
-  m_Layer: 0
-  m_Name: Artwork
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1724774617
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724774616}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.10000038, y: -0.7029996, z: 0}
-  m_LocalScale: {x: 0.14797136, y: 0.14797136, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 678108664}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1724774618
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724774616}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 584
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 9f6476a57c6e71c42be9adb047a77e47, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &1728403865
 GameObject:
   m_ObjectHideFlags: 0
@@ -54703,7 +54566,7 @@ Transform:
   m_GameObject: {fileID: 1808921803}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.85, y: 0.065, z: 0}
+  m_LocalPosition: {x: 0.51, y: -1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54825,7 +54688,7 @@ Transform:
   m_GameObject: {fileID: 1814155251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.69999886, y: 0.44400024, z: 0}
+  m_LocalPosition: {x: 0.69999886, y: -0.641, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57024,6 +56887,84 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1907401155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907401156}
+  - component: {fileID: 1907401157}
+  m_Layer: 0
+  m_Name: Feet collision (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1907401156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907401155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.614, y: -2.34, z: 0}
+  m_LocalScale: {x: 1, y: 0.1975, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 678108664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1907401157
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907401155}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.06, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.68, y: 2.5900002}
+  m_EdgeRadius: 0
 --- !u!1 &1909770840
 GameObject:
   m_ObjectHideFlags: 0
@@ -57599,8 +57540,8 @@ Transform:
   m_GameObject: {fileID: 1921162457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.48, y: 0.2, z: 0}
-  m_LocalScale: {x: 0.070290536, y: 0.070290536, z: 1}
+  m_LocalPosition: {x: 17.728, y: 0.2, z: 0}
+  m_LocalScale: {x: 0.07556233, y: 0.07380506, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 351899158}
@@ -60318,7 +60259,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c70766f51305d6242a6fd8763918812b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.ShopObstacle
   shapes:
   - {fileID: 2008590590}
@@ -62526,7 +62467,7 @@ Transform:
   m_GameObject: {fileID: 2090723798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: -0.93, z: 0}
+  m_LocalPosition: {x: -1.08, y: -1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63473,6 +63414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.ShopStation
   stationType: 3
   approachPoint: {fileID: 0}
+  interactionRadius: 0
 --- !u!4 &2140838404
 Transform:
   m_ObjectHideFlags: 0
@@ -63482,7 +63424,7 @@ Transform:
   m_GameObject: {fileID: 2140838402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.4, y: -0.846, z: 0}
+  m_LocalPosition: {x: 10.51, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -66074,7 +66016,28 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Lead Developer & Project Manager\nMichaellie Ferrel Yoandike (TP087326)\nDeveloper & Design\nVaughn Avery Mar Mier (TP101735)\nLead Artist\nAnastasia Clarita Budiyanto (TP092119)\nTechnical Art & Producer\nTan Wei Hao (TP071285)\nLead Animator\nCherepanova Viktoriia (TP080433)"
+  m_Text: 'Lead Developer & Project Manager
+
+    Michaellie Ferrel Yoandike (TP087326)
+
+    Developer
+    & Design
+
+    Vaughn Avery Mar Mier (TP101735)
+
+    Lead Artist
+
+    Anastasia
+    Clarita Budiyanto (TP092119)
+
+    Technical Art & Producer
+
+    Tan Wei Hao (TP071285)
+
+    Lead
+    Animator
+
+    Cherepanova Viktoriia (TP080433)'
 --- !u!224 &119683756328683276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69949,7 +69912,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
@@ -69999,7 +69962,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings0_0/MobileControls_7390_0
   kind: Group
@@ -70011,11 +69974,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -70102,7 +70065,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSkill0_0/ArcadeInterface_17219_1/ArcadeInterface_1574_0/Panel_0
   kind: Panel
@@ -70114,11 +70077,11 @@ MonoBehaviour:
     height: 40
   hasLayout: 1
   hasData: 1
-  originalText:
+  originalText: 
   originalColor: {r: 0.79, g: 0.84, b: 0.78, a: 1}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -84410,7 +84373,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings0_0/StoreInterface_17847_0
   kind: Group
@@ -84422,11 +84385,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -84446,7 +84409,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawArcadeSelection_0/ArcadeInterface_13805_1
   kind: Group
@@ -84458,11 +84421,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -84510,7 +84473,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.1, g: 0.19, b: 0.23, a: 1}
@@ -84574,7 +84537,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings0_0/StoreInterface_18642_0/StoreInterface_17329_0/Slider_0
   kind: Slider
@@ -84586,11 +84549,11 @@ MonoBehaviour:
     height: 36
   hasLayout: 1
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -91669,7 +91632,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings3_0/StoreInterface_18276_2/StoreGameController_25424_0/StoreInterface_8183_0/ArcadeInterface_1574_0
   kind: Group
@@ -91681,11 +91644,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -92136,7 +92099,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: ShiftBrief_0/_9
   kind: Group
@@ -92148,11 +92111,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -92172,7 +92135,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.35, g: 0.91, b: 0.7, a: 1}
@@ -92257,7 +92220,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.9, g: 0.91, b: 0.83, a: 1}
@@ -93689,7 +93652,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings2_0/StoreInterface_17839_0
   kind: Group
@@ -93701,11 +93664,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -94905,11 +94868,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -96509,7 +96472,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.97, g: 0.95, b: 0.89, a: 1}
@@ -99323,7 +99286,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSkill2_0/ArcadeInterface_17988_0/StoreInterface_8284_0
   kind: Group
@@ -99335,11 +99298,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -99359,7 +99322,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.04, g: 0.1, b: 0.13, a: 0.5145645}
@@ -99406,7 +99369,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawArcadeSelection_0/ArcadeInterface_13965_0/StoreInterface_8284_0
   kind: Group
@@ -99418,11 +99381,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -99481,7 +99444,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 900980287f8f45c4d919be8f1b907766, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartButtonMotion
   target: {fileID: 6105902508623997192}
   centeredLayout: 1
@@ -99495,7 +99458,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings5_0/StoreInterface_18276_0/StoreGameController_25424_0/StoreInterface_8183_0/ArcadeInterface_1574_0
   kind: Group
@@ -99507,11 +99470,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -103821,7 +103784,28 @@ MonoBehaviour:
     height: 300
   hasLayout: 1
   hasData: 1
-  originalText: "Lead Developer & Project Manager\nMichaellie Ferrel Yoandike (TP087326)\nDeveloper & Design\nVaughn Avery Mar Mier (TP101735)\nLead Artist\nAnastasia Clarita Budiyanto (TP092119)\nTechnical Art & Producer\nTan Wei Hao (TP071285)\nLead Animator\nCherepanova Viktoriia (TP080433)"
+  originalText: 'Lead Developer & Project Manager
+
+    Michaellie Ferrel Yoandike
+    (TP087326)
+
+    Developer & Design
+
+    Vaughn Avery Mar Mier (TP101735)
+
+    Lead
+    Artist
+
+    Anastasia Clarita Budiyanto (TP092119)
+
+    Technical Art & Producer
+
+    Tan
+    Wei Hao (TP071285)
+
+    Lead Animator
+
+    Cherepanova Viktoriia (TP080433)'
   originalColor: {r: 0.25, g: 0.38, b: 0.34, a: 1}
   originalFontSize: 23
   originalTexture: {fileID: 0}
@@ -104845,11 +104829,11 @@ MonoBehaviour:
     height: 44
   hasLayout: 1
   hasData: 1
-  originalText:
+  originalText: 
   originalColor: {r: 0.86, g: 0.89, b: 0.82, a: 1}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -104869,7 +104853,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: ShiftHud_0/TouchHint_0/_1
   kind: Group
@@ -124646,7 +124630,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -128043,7 +128027,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
   m_Material: {fileID: 0}
   m_Color: {r: 0.77, g: 0.82, b: 0.75, a: 1}
@@ -143498,7 +143482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "TokTokMart credits"
+  m_Text: TokTokMart credits
 --- !u!1 &3655797143180701634
 GameObject:
   m_ObjectHideFlags: 0
@@ -143913,7 +143897,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Additional art and SFX \u00b7 Kenney (CC0)\nBigbesty \u00b7 Khurasan   /   Lato \u00b7 \u0141ukasz Dziedzic"
+  m_Text: "Additional art and SFX \xB7 Kenney (CC0)\nBigbesty \xB7 Khurasan   /  
+    Lato \xB7 \u0141ukasz Dziedzic"
 --- !u!114 &3681783969078779487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157078,7 +157063,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 900980287f8f45c4d919be8f1b907766, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartButtonMotion
   target: {fileID: 8832996056115560894}
   centeredLayout: 1
@@ -174077,6 +174062,52 @@ MonoBehaviour:
   bindGameData: 1
   animateLayout: 1
   hideFromGame: 0
+--- !u!61 &5092186124031607195
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665274061}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.02, y: 0.13}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.04, y: 0.39}
+  m_EdgeRadius: 0
 --- !u!224 &5092637120344751929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -176624,7 +176655,7 @@ MonoBehaviour:
   originalColor: {r: 0.79, g: 0.84, b: 0.78, a: 1}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -180193,7 +180224,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -180656,7 +180687,8 @@ MonoBehaviour:
     height: 60
   hasLayout: 1
   hasData: 1
-  originalText: "Additional art and SFX \u00b7 Kenney (CC0)\nBigbesty \u00b7 Khurasan   /   Lato \u00b7 \u0141ukasz Dziedzic"
+  originalText: "Additional art and SFX \xB7 Kenney (CC0)\nBigbesty \xB7 Khurasan  
+    /   Lato \xB7 \u0141ukasz Dziedzic"
   originalColor: {r: 0.3, g: 0.41, b: 0.39, a: 1}
   originalFontSize: 19
   originalTexture: {fileID: 0}
@@ -181740,7 +181772,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings4_0/StoreInterface_18276_0/StoreGameController_25424_0/StoreInterface_8183_0
   kind: Group
@@ -181752,11 +181784,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -181776,7 +181808,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.1, g: 0.19, b: 0.23, a: 1}
@@ -187656,7 +187688,7 @@ MonoBehaviour:
     height: 45
   hasLayout: 1
   hasData: 1
-  originalText: "TokTokMart credits"
+  originalText: TokTokMart credits
   originalColor: {r: 0.08, g: 0.13, b: 0.19, a: 1}
   originalFontSize: 30
   originalTexture: {fileID: 0}
@@ -195680,7 +195712,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings3_0/StoreInterface_22433_0
   kind: Group
@@ -195692,11 +195724,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -195716,7 +195748,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings2_0/MobileVibration_0/StoreInterface_17675_0/StoreGameController_25424_0
   kind: Group
@@ -195728,11 +195760,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -195752,7 +195784,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings0_0/MobileControls_7468_0/MobileControls_6799_0/StoreInterface_17056_0
   kind: Group
@@ -195764,11 +195796,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -195788,7 +195820,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings0_0/MobileControls_7141_0/MobileControls_6799_0/StoreInterface_17118_0/Panel_0
   kind: Panel
@@ -195800,11 +195832,11 @@ MonoBehaviour:
     height: 20
   hasLayout: 1
   hasData: 1
-  originalText:
+  originalText: 
   originalColor: {r: 0.08, g: 0.13, b: 0.19, a: 1}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -204319,7 +204351,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.97, b: 0.87, a: 1}
@@ -209186,7 +209218,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings0_0/StoreInterface_17992_0/StoreGameController_25424_0/StoreInterface_8183_0/ArcadeInterface_1574_0/Panel_0
   kind: Panel
@@ -209198,11 +209230,11 @@ MonoBehaviour:
     height: 38
   hasLayout: 1
   hasData: 1
-  originalText:
+  originalText: 
   originalColor: {r: 0.15, g: 0.23, b: 0.23, a: 1}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -212174,7 +212206,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings5_0/StoreInterface_17847_0
   kind: Group
@@ -212186,11 +212218,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -213793,7 +213825,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings2_0/StoreInterface_20867_0
   kind: Group
@@ -213805,11 +213837,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -213829,7 +213861,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
   m_Color: {r: 0.08, g: 0.13, b: 0.19, a: 1}
@@ -213885,7 +213917,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 900980287f8f45c4d919be8f1b907766, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartButtonMotion
   target: {fileID: 3791497638797507915}
   centeredLayout: 1
@@ -217885,7 +217917,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSkill1_0/DrawCashier_0/ArcadeInterface_18869_2
   kind: Group
@@ -217897,11 +217929,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -217921,7 +217953,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
@@ -219553,7 +219585,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings3_0/StoreInterface_23832_0/StoreGameController_25424_0/StoreInterface_8284_0/Label_0
   kind: Text
@@ -219569,7 +219601,7 @@ MonoBehaviour:
   originalColor: {r: 1, g: 0.97, b: 0.87, a: 1}
   originalFontSize: 19
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -219618,7 +219650,7 @@ MonoBehaviour:
     height: 1
   hasLayout: 1
   hasData: 1
-  originalText:
+  originalText: 
   originalColor: {r: 0.77, g: 0.82, b: 0.75, a: 1}
   originalFontSize: 0
   originalTexture: {fileID: 2800000, guid: 75b4b05536621ac44a42c65381443f0f, type: 3}
@@ -219677,7 +219709,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings1_0/StoreInterface_20418_0/StoreGameController_25424_0/StoreInterface_8183_0/ArcadeInterface_1554_0
   kind: Group
@@ -220915,7 +220947,7 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
@@ -232692,7 +232724,7 @@ MonoBehaviour:
   originalColor: {r: 0.1, g: 0.19, b: 0.23, a: 1}
   originalFontSize: 14
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -232720,7 +232752,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 900980287f8f45c4d919be8f1b907766, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartButtonMotion
   target: {fileID: 8313106368386568649}
   centeredLayout: 1
@@ -232734,7 +232766,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSkill1_0/DrawCashier_0/ArcadeInterface_20009_7/StoreInterface_8183_0/ArcadeInterface_1554_0
   kind: Group
@@ -234615,7 +234647,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings2_0/StoreInterface_20965_0/StoreInterface_17591_0
   kind: Group
@@ -234627,11 +234659,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0
@@ -234670,7 +234702,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 900980287f8f45c4d919be8f1b907766, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartButtonMotion
   target: {fileID: 4847198360554899628}
   centeredLayout: 1
@@ -234684,7 +234716,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -239944,7 +239976,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.1, g: 0.19, b: 0.23, a: 1}
@@ -243761,7 +243793,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.1, g: 0.19, b: 0.23, a: 1}
@@ -243830,7 +243862,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
@@ -246232,7 +246264,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c6d37854aed8c41a7b835445fc8f3b, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GokilKisah.TokMartCanvasElement
   key: DrawSettings3_0/StoreInterface_22614_3/StoreGameController_25424_0/StoreInterface_8284_0
   kind: Group
@@ -246244,11 +246276,11 @@ MonoBehaviour:
     height: 0
   hasLayout: 0
   hasData: 0
-  originalText:
+  originalText: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   originalFontSize: 0
   originalTexture: {fileID: 0}
-  sourceTextureName:
+  sourceTextureName: 
   originalUV:
     serializedVersion: 2
     x: 0

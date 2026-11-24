@@ -129,7 +129,7 @@ namespace GokilKisah
             return result;
         }
 
-        void PickUpDroppedItem(int index)
+        void PickUpDroppedItem(int index, bool byPartner = false)
         {
             var item = droppedStock[index];
             droppedStock.RemoveAt(index);
@@ -137,7 +137,7 @@ namespace GokilKisah
             droppedStockPickedUp++;
             chaos = Mathf.Max(0, chaos - 4);
             PlaySound("Pickup");
-            Toast("Stock picked up");
+            Toast(byPartner ? "Partner picked up fallen stock" : "Stock picked up");
         }
 
         void PresentDroppedStock(DroppedStock item)

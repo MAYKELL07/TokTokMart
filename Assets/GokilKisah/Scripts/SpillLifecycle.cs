@@ -28,12 +28,17 @@ namespace GokilKisah
         }
         bool FinishMopPatch()
         {
-            var position=mopTargetView?mopTargetView.Position:mopTargetPosition;bool removed=false;
+            var position=mopTargetView?mopTargetView.Position:mopTargetPosition;
+            mopTargetView=null;
+            return ClearMopPatchAt(position);
+        }
+        bool ClearMopPatchAt(Vector2 position)
+        {
+            bool removed=false;
             // Older saves/scenes and previously spawned goblin mess may contain stacked
             // puddles. A completed minigame clears the visible patch, not just one layer.
             for(int i=spills.Count-1;i>=0;i--)if(Vector2.Distance(spills[i],position)<=CleanPatchRadius)
                 removed=ClearSpill(i)||removed;
-            mopTargetView=null;
             if(!removed)return false;
             cleanPatches.Add(new CleanPatch{position=position,until=Time.time+14});
             lastCleanPosition=position;cleanFlash=Time.time+1;return true;

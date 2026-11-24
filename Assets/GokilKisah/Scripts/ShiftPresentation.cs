@@ -28,7 +28,7 @@ namespace GokilKisah
                 ArcadeText(new Rect(1060,y,135,60),goals[i].ToString(),40,arcadeTeal,TextAnchor.MiddleCenter, uiKey:"ShiftPresentation_1313");
             }
             ArcadeText(new Rect(390,556,820,36),"CLOSING IN  "+((int)ShiftBudget/60)+":"+((int)ShiftBudget%60).ToString("00"),26,arcadeNavy,TextAnchor.MiddleCenter, uiKey:"ShiftPresentation_1434");
-            string note=mandatoryBossPending?"BOSS SHIFT: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]+" — clear the encounter too.":"Your partner covers checkout while you tackle restocking.";
+            string note=mandatoryBossPending?"BOSS SHIFT: "+scenarioTitles[(int)MilestoneBoss(CurrentLevel)]+" — clear the encounter too.":"Your partner helps with side jobs while you focus on the shift.";
             Text(new Rect(390,602,820,48),note,20,arcadeNavy,FontStyle.Normal,TextAnchor.MiddleCenter, uiKey:"ShiftPresentation_1800");
             if(UiButton(new Rect(448,675,704,65),"OPEN SHIFT",arcadeGold,30, uiKey:"ShiftPresentation_1907"))StartBriefedShift();
         }}

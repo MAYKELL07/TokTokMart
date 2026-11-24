@@ -1,0 +1,76 @@
+PASS Shift 1 has bounded, timed goals (WELCOME SHIFT)
+PASS Shift 2 has bounded, timed goals (LUNCH RUSH)
+PASS Shift 3 has bounded, timed goals (STOCK UP)
+PASS Shift 4 has bounded, timed goals (MOP UP)
+PASS Shift 5 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 6 has bounded, timed goals (LUNCH RUSH)
+PASS Shift 7 has bounded, timed goals (STOCK UP)
+PASS Shift 8 has bounded, timed goals (MOP UP)
+PASS Shift 9 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 10 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 11 has bounded, timed goals (STOCK UP)
+PASS Shift 12 has bounded, timed goals (MOP UP)
+PASS Shift 13 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 14 has bounded, timed goals (LUNCH RUSH)
+PASS Shift 15 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 16 has bounded, timed goals (MOP UP)
+PASS Shift 17 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 18 has bounded, timed goals (LUNCH RUSH)
+PASS Shift 19 has bounded, timed goals (STOCK UP)
+PASS Shift 20 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 21 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 22 has bounded, timed goals (LUNCH RUSH)
+PASS Shift 23 has bounded, timed goals (STOCK UP)
+PASS Shift 24 has bounded, timed goals (MOP UP)
+PASS Shift 25 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 26 has bounded, timed goals (LUNCH RUSH)
+PASS Shift 27 has bounded, timed goals (STOCK UP)
+PASS Shift 28 has bounded, timed goals (MOP UP)
+PASS Shift 29 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 30 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 31 has bounded, timed goals (STOCK UP)
+PASS Shift 32 has bounded, timed goals (MOP UP)
+PASS Shift 33 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 34 has bounded, timed goals (LUNCH RUSH)
+PASS Shift 35 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 36 has bounded, timed goals (MOP UP)
+PASS Shift 37 has bounded, timed goals (CHAOS SHIFT)
+PASS Shift 38 has bounded, timed goals (LUNCH RUSH)
+PASS Shift 39 has bounded, timed goals (STOCK UP)
+PASS Shift 40 has bounded, timed goals (CHAOS SHIFT)
+PASS Rush emphasizes customers and a tighter clock
+PASS Restock, mop and chaos profiles differ
+PASS Select exact mop hazard 0
+PASS Cleaned hazard visual is retired 0
+PASS Only the selected spill is removed after frame synchronization 0
+PASS Initial authored puddle stays removed
+PASS Retry restores opening hazards 0
+PASS Select exact mop hazard 1
+PASS Cleaned hazard visual is retired 1
+PASS Only the selected spill is removed after frame synchronization 1
+PASS Retry restores opening hazards 1
+PASS Intentional scene hazard edits still work
+PASS Mop profile keeps required cleanup reachable and available
+PASS Girl supplied customer art is loadable
+PASS Girl walk pose is loadable
+PASS Zomboy supplied customer art is loadable
+PASS Zomboy walk pose is loadable
+PASS Cat supplied customer art is loadable
+PASS Cat walk pose is loadable
+PASS Zomgirl supplied customer art is loadable
+PASS Zomgirl walk pose is loadable
+PASS StartButton menu art is loadable
+PASS SettingsButton menu art is loadable
+PASS LevelsButton menu art is loadable
+PASS MenuPole menu art is loadable
+PASS Vibration can be switched off
+PASS Supplied settings sign has native button and motion
+PASS Hover enlarges the supplied sign
+PASS Press compresses the supplied sign
+PASS Release adds a visible button pop
+PASS Supplied settings sign opens settings
+FAIL Three result stars have authored pop and burst effects
+PASS No missing authored UI bindings across release screens
+PASS Screen changes create no runtime UI objects
+
+74 checks; 1 failures.
