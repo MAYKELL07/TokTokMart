@@ -1,5 +1,0 @@
-PASS Shift 1 WELCOME SHIFT: 3/3 served, 1/1 restocks, 1/1 cleanups; 79.0/172 sec; 3 stars; chaos 0.0; missing UI 0; 
-PASS Shift 2 LUNCH RUSH: 5/5 served, 1/1 restocks, 1/1 cleanups; 51.9/153 sec; 3 stars; chaos 0.0; missing UI 0; 
-PASS Shift 3 STOCK UP: 3/3 served, 3/3 restocks, 1/1 cleanups; 66.9/189 sec; 3 stars; chaos 0.0; missing UI 0; 
-PASS Shift 4 MOP UP: 3/3 served, 1/1 restocks, 4/4 cleanups; 79.0/193 sec; 3 stars; chaos 0.0; missing UI 0; 
-PASS Shift 5 CHAOS SHIFT: 4/4 served, 2/2 restocks, 2/2 cleanups; 81.1/203 sec; 3 stars; chaos 6.7; missing UI 0; 

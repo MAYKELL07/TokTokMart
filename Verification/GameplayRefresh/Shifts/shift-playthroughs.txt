@@ -1,4 +1,0 @@
-PASS Shift 1: 5 tasks; 3/3 customers, 1/1 restocks, 1/1 cleanups; 50.6/172 seconds; patience 42.0s; stars 3;
-PASS Shift 5: 9 tasks; 6/4 customers, 2/2 restocks, 3/3 cleanups; 80.0/252 seconds; patience 37.5s; stars 3;
-PASS Shift 10: 14 tasks; 12/6 customers, 4/4 restocks, 4/4 cleanups; 114.6/342 seconds; patience 33.1s; stars 3;
-PASS Shift 20: 24 tasks; 21/11 customers, 6/6 restocks, 7/7 cleanups; 167.1/522 seconds; patience 26.8s; stars 3;

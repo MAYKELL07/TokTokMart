@@ -1,4 +1,0 @@
-PASS All 2583 retained prefab bindings preserve their original Rect Transform values.
-PASS All 25 original scene layout overrides preserved.
-PASS 19 Play mode Canvas checks.
-PASS Layout editor labels fit; credits editable fields and edit-mode Game preview visually checked.

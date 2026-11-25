@@ -1,4 +1,0 @@
-PASS Goblins completed through navigation and real inputs; Ray punches 6, circuits 0, nails 0, can returns 0
-PASS KKung completed through navigation and real inputs; Ray punches 0, circuits 3, nails 0, can returns 0
-PASS Salmah completed through navigation and real inputs; Ray punches 0, circuits 0, nails 3, can returns 0
-PASS Bo completed through navigation and real inputs; Ray punches 0, circuits 0, nails 0, can returns 3

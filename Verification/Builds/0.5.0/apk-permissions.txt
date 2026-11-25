@@ -1,5 +1,0 @@
-package: com.toktokmart.demo
-uses-permission: name='android.permission.INTERNET'
-uses-permission: name='android.permission.VIBRATE'
-permission: com.toktokmart.demo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-uses-permission: name='com.toktokmart.demo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'

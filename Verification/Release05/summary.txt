@@ -1,8 +1,0 @@
-TokTokMart 0.5.0
-147 release, Canvas and mobile checks passed.
-5 complete shift profiles passed with 3 stars and no missing UI bindings.
-Built Windows: 74 checks passed at each of 1600x900 and 1560x720.
-Android: signed ARM64 API 26+ APK, version code 5; certificate matches 0.4.0.
-Vibration permission, ZIP integrity and native-library 16 KiB alignment verified.
-15 supplied art files match their source hashes.
-No physical Android device was connected; vibration feel remains a device check.
